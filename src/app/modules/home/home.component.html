@@ -1,0 +1,247 @@
+<div class="position-relative app-container">
+  <!-- Home Top Carousel -->
+  <div class="home-carousel" data-aos="zoom-in-down">
+    <ngb-carousel showNavigationArrows="false" *ngIf="bannerList.length > 0">
+
+      <ng-template ngbSlide  *ngFor="let banner of bannerList">
+        <img src="assets/images/{{banner.bannerImgUrl}}" [ngStyle]="getMyStyles()">
+        <div class="carousel-caption">
+          <h3>{{banner.title}}</h3>
+          <p>{{banner.subTitle}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+    
+    <div class="booking-section">
+      <div class="container" data-aos="fade-right">
+        <div class="row">
+          <div class="col-md-5">
+          <app-search-form [propertyTypes]="propertyTypes"></app-search-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="container-fluid features-section">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-2 border-right text-center" data-aos="flip-down">
+          <div><img src="assets/images/ora-features.png" /></div>
+          <div class="mt-10"><span class="info-text">Features in all ORAs</span></div>
+        </div>
+        <div class="col-md-2 border-right text-center" data-aos="flip-up">
+            <div><img src="assets/images/features_ID.png" /></div>
+            <div><span class="info-text">Verified ID</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle c-pointer" triggers="mouseenter:mouseleave" placement="top" ngbPopover="Government sanctioned Identity Proofs required to register with us." popoverTitle="Verified ID"></i></span></div>
+        </div>
+        <div class="col-md-3 border-right text-center" data-aos="flip-down">
+            <div><img src="assets/images/features_premium.png" /></div>
+            <div><span class="info-text">Express and premium listings</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle c-pointer" triggers="mouseenter:mouseleave" placement="top" ngbPopover="Budget properties to high-end star rooms." popoverTitle="Express and premium listings"></i></span></div>
+        </div>
+        <div class="col-md-2 border-right text-center" data-aos="flip-up">
+            <div><img src="assets/images/features_hostmonitors.png" /></div>
+            <div><span class="info-text">Host verification</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle c-pointer" triggers="mouseenter:mouseleave" placement="top" ngbPopover="Hosts with premium properties go through manned inspections." popoverTitle="Host verification"></i></span></div>
+        </div>
+        <div class="col-md-3 text-center" data-aos="flip-down">
+            <div><img src="assets/images/features_customerservice.png" /></div>
+            <div><span class="info-text">Customer support</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle c-pointer" triggers="mouseenter:mouseleave" placement="top" ngbPopover="Our customer support team helps every individual with special attention." popoverTitle="Customer support"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Tab Listing  -->
+  <div *ngIf="propertyTypes && propertyTypes.length > 0" class="container-fluid property-listing-section">
+    <div class="container" data-aos="flip-left">
+      <div class="property-tab-block">
+        <!-- <ngb-tabset [justify]="currentJustify">
+          <ngb-tab *ngFor="let propertyType of propertyTypes">
+            <ng-template ngbTabTitle>
+              <div (click)="getPropertyList(propertyType)">{{propertyType.name}}</div>
+            </ng-template> 
+            <ng-template ngbTabContent>
+              <div class="row" *ngIf="propertyList[propertyType.propertyTypeId] && propertyList[propertyType.propertyTypeId].length > 0">
+                <div class="col-md-3" *ngFor="let property of propertyList[propertyType.propertyTypeId]; let i = index">
+                  <i class="fa fa-bookmark-o pro-icon bookmark {{property?.isBookmark && property?.isBookmark == true ? 'text-orange':''}}" aria-hidden="true" (click)="getBookmark(property)"></i>
+                  <i class="fa fa-share-alt pro-icon share" aria-hidden="true" (click)="openShareModal(socialShareModal, property)"></i>
+                  <div class="card mb-0 border-0 c-pointer" (click)="showMoreProperty(property, propertyType.propertyTypeId, property.propertyId)">
+                    <div class="property-img">
+                        <div class="room-tag {{property.roomStandard == 'PREMIUM' ? 'green' : 'orange'}}" *ngIf="property.roomStandard!='NORMAL'">{{property.roomStandard}}</div>
+                        <img class="card-img-top rounded" [src]="property.coverImageURL!= null ? property.coverImageURL : 'assets/images/property-details/no_image_available.jpg'" onerror="this.src='assets/images/property-details/no_image_available.jpg'" >
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title" placement="top">{{property.oraName}}</h5>
+                      <p class="card-text price mb-1"><small class="pr-2" *ngIf="property?.discountedPrice && property?.discountedPrice > 0">₹ {{property.totalPrice | number: '1.0-0'}}</small> ₹ {{property?.discountedPrice && property?.discountedPrice > 0 ? property?.discountedPrice : property.totalPrice | number: '1.0-0'}} Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">{{property.rating}}</span><span class="cat-type"> {{sharedSrv.getRatingText(property.rating)}},</span><span class="review"> {{property.reviewCount}} reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-{{i+1}}" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;
+                        <span *ngIf="property.mealFlag" class="complimentary-tea"></span>
+
+                        <span *ngFor="let amenitie of property.amenities">
+                            <img class="card-img-top rounded" [src]="amenitie.imgUrl1" [alt]="amenitie.aminitiesName" onerror="this.src='assets/images/complimentary_swimming.png'">
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="no-data-found" *ngIf="propertyList[propertyType.propertyTypeId].length == 0">
+                Finding best properties for you...
+              </div>
+              <div *ngIf="propertyList[propertyType.propertyTypeId] && propertyList[propertyType.propertyTypeId].length > 0">
+                  <hr class="hr-1 mt-30 mb-30 no-mobile-d">
+                  <div class="row">
+                    <div class="col-md-8 filter-section">
+                      <div class="alert alert-secondary" role="alert">
+                          Feel the Joy of Sharing Your Home with Orastays. <a class="c-pointer" routerLink="/host">Start listing your property</a>
+                      </div>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <button class="btn btn-dark mr-2 quick-filter-btn" (click)="openFilterModal(quickFilterModal)"><label>Quick Filter </label> <i class="fa fa-filter" aria-hidden="true"></i></button>
+                        <button class="btn btn-primary view-more-btn" (click)="showMoreProperty(propertyList[propertyType.propertyTypeId][0],propertyType.propertyTypeId, '')">View More [+]</button>
+                      </div>
+                  </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset> -->
+        
+        <!--  -->
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          <mat-tab *ngFor="let propertyType of propertyTypes">
+            <ng-template mat-tab-label>
+              <div class="navtab" (click)="getPropertyList(propertyType)">{{propertyType.name}}</div>
+            </ng-template>
+            <div class="row m-0" *ngIf="propertyList[propertyType.propertyTypeId] && propertyList[propertyType.propertyTypeId].length > 0">
+              <div class="col-md-3" *ngFor="let property of propertyList[propertyType.propertyTypeId]; let i = index">
+                <i class="fa fa-bookmark-o pro-icon bookmark {{property?.isBookmark && property?.isBookmark == true ? 'text-orange':''}}" aria-hidden="true" (click)="getBookmark(property)"></i>
+                <i class="fa fa-share-alt pro-icon share" aria-hidden="true" (click)="openShareModal(socialShareModal, property)"></i>
+                <div class="card mb-0 border-0 c-pointer" (click)="showMoreProperty(property, propertyType.propertyTypeId, property.propertyId)">
+                  <div class="property-img">
+                      <div class="room-tag {{property.roomStandard == 'PREMIUM' ? 'green' : 'orange'}}" *ngIf="property.roomStandard!='NORMAL'">{{property.roomStandard}}</div>
+                      <img class="card-img-top rounded" [src]="property.coverImageURL!= null ? property.coverImageURL : 'assets/images/property-details/no_image_available.jpg'" onerror="this.src='assets/images/property-details/no_image_available.jpg'" >
+                  </div>
+                  <div class="card-body pl-0 pr-0 pb-0">
+                    <h5 class="card-title" placement="top">{{property.oraName}}</h5>
+                    <p class="card-text price mb-1"><small class="pr-2" *ngIf="property?.discountedPrice && property?.discountedPrice > 0">₹ {{property.totalPrice | number: '1.0-0'}}</small> ₹ {{property?.discountedPrice && property?.discountedPrice > 0 ? property?.discountedPrice : property.totalPrice | number: '1.0-0'}} Per night</p>
+                    <p class="card-text"><span class="badge badge-secondary bg-orange">{{property.rating}}</span><span class="cat-type"> {{sharedSrv.getRatingText(property.rating)}},</span><span class="review"> {{property.reviewCount}} reviews</span></p>
+                    <hr class="hr1">
+                    <div class="alert alert-secondary alert-{{i+1}}" role="alert">
+                      <h6 class="title mb-0">In high demand!</h6>
+                      <span class="info-text">Booked 21 times in the last 24 hours</span>
+                    </div>
+                    <p class="complimentary">Complimentary &nbsp;&nbsp;
+                      <span *ngIf="property.mealFlag" class="complimentary-tea"></span>
+
+                      <span *ngFor="let amenitie of property.amenities">
+                          <img class="card-img-top rounded" [src]="amenitie.imgUrl1" [alt]="amenitie.aminitiesName" onerror="this.src='assets/images/complimentary_swimming.png'">
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="no-data-found" *ngIf="propertyList[propertyType.propertyTypeId].length == 0">
+              Finding best properties for you...
+            </div>
+            <div *ngIf="propertyList[propertyType.propertyTypeId] && propertyList[propertyType.propertyTypeId].length > 0">
+              <hr class="hr-1 mt-30 mb-30 no-mobile-d">
+              <div class="row m-0">
+                <div class="col-md-8 filter-section">
+                  <div class="alert alert-secondary" role="alert">
+                      Feel the Joy of Sharing Your Home with Orastays. <a class="c-pointer" routerLink="/host">Start listing your property</a>
+                  </div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <button class="btn btn-primary view-more-btn" (click)="showMoreProperty(propertyList[propertyType.propertyTypeId][0],propertyType.propertyTypeId, '')">View More [+]</button>
+                  </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+
+  <!-- List Your Property Section -->
+  <div class="container property-desc-section">
+    <div class="" data-aos="fade-right">
+      <h4 class="title">List your property with us</h4>
+      <h6 class="desc">A guest for today, friend for a lifetime</h6>
+      <p class="text">Be a Host, Share Lifetime Memories</p>
+      <button class="btn btn-dark mr-2" (click)="openModal(earningCalculator)">Earning calculator <img class="icon-calculator" src="assets/images/icon-calculator.png"></button>
+      <button class="btn btn-primary" routerLink="/host">List your property [+]</button>
+    </div>
+  </div>
+
+  <!-- Deals for you -->
+  <app-offer></app-offer>
+
+  <!-- About & Testimonials -->
+  <div class="container about-testimonial-section">
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngIf="testimonialList && testimonialList.length > 0" class="card" data-aos="fade-right">
+          <div class="card-body">
+            <h4 class="title">What do Ora customers say...</h4>
+            <div *ngFor="let testimonial of testimonialList" class="testimonial-item">
+              <div class="thumb-img">
+                <img width="70px" height="70px" [src]="testimonial?.user?.userVsInfo?.imageUrl" onerror="this.src='assets/images/testiuser1.png'" alt="{{testimonial?.user?.userVsInfo?.name}}">
+              </div>
+              <div class="thumb-details">
+                  <span class="desc">{{testimonial?.description}}</span>
+                  <span class="name"><b>{{testimonial?.user?.userVsInfo?.name}}</b></span> <span class="datetime">  {{testimonial?.createdDate | date:'mediumDate'}}</span>
+              </div>
+            </div>
+            <button class="btn btn-primary view-more-btn" routerLink="/testimonial">View More [+]</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100" data-aos="fade-left">
+          <div class="card-body about-box">
+            <h4 class="title">About</h4>
+            <h5 class="about-text mt-3">Matching a home to your liking is our most valuable concern.</h5>
+            <p class="text fixed-height"> Where ever you go, choose a home that brings you close to a family. The warmth of its people, care and concern will keep your heart happy. Be a part of a larger community. There is a family everywhere, you just need to connect. We connect you to a new family everyday…</p>
+            <div class="h-100 btn-footer">
+              <button class="btn btn-primary view-more-btn"  routerLink="/about">View More [+]</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Earning Calculator -->
+<ng-template #earningCalculator let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-earning-calculator></app-earning-calculator>
+</ng-template>
+
+<!-- Quick Filter -->
+<!-- <ng-template #quickFilterModal let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="card-header">Quick filter</div>
+  <app-quick-filter></app-quick-filter>
+</ng-template> -->
+
+<ng-template #socialShareModal let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-social-share [shareObj]="shareObj"></app-social-share>
+</ng-template>
+
+<!-- Bookmark View -->
+<app-bookmark-popup></app-bookmark-popup>

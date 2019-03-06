@@ -1,0 +1,358 @@
+{
+    "responseCode": "200",
+    "responseMessage": "OK",
+    "responseBody": [
+      {
+        "propertyId": "1",
+        "oraName": "ORA000001",
+        "address": "Merlin Infinite, Unit No 501, DN 51, DN Block, Sector 5, Salt Lake, DN Block, Sector V, Salt Lake City, Kolkata, West Bengal 700091",
+        "latitude": "22.582490",
+        "longitude": "88.426787",
+        "coverImageURL": "https://s-ec.bstatic.com/images/hotel/max1024x768/141/141830278.jpg",
+        "roomStandard": "PREMIUM",
+        "rating": "4",
+        "reviewCount": "1",
+        "spaceRuleModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "1",
+            "parentId": "0",
+            "ruleName": "Pet Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "2",
+            "parentId": "0",
+            "ruleName": "Couple Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "3",
+            "parentId": "0",
+            "ruleName": "Smoking"
+          }
+        ],
+        "pgCategorySex": "BOTH",
+        "totalPrice": "14375.0",
+        "discountedPrice": "0.0",
+        "mealFlag": true,
+        "amenitiesModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "1",
+            "aminitiesName": "WIFI",
+            "filterFlag": "Y",
+            "priority": "2",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "2",
+            "aminitiesName": "Heater",
+            "filterFlag": "N",
+            "priority": "",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "3",
+            "aminitiesName": "Table Lamp",
+            "filterFlag": "Y",
+            "priority": "1",
+            "expressFlag": "N",
+            "premiumFlag": "Y",
+            "aminitiesType": "OTHERS",
+            "parentId": "0"
+          }
+        ]
+      },
+      {
+        "propertyId": "2",
+        "oraName": "ORA000002",
+        "address": "Merlin Infinite, Unit No 501, DN 51, DN Block, Sector 5, Salt Lake, DN Block, Sector V, Salt Lake City, Kolkata, West Bengal 700091",
+        "latitude": "22.582490",
+        "longitude": "88.426787",
+        "coverImageURL": "https://s-ec.bstatic.com/images/hotel/max1024x768/141/141830278.jpg",
+        "roomStandard": "PREMIUM",
+        "rating": "9",
+        "reviewCount": "1",
+        "spaceRuleModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "1",
+            "parentId": "0",
+            "ruleName": "Pet Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "2",
+            "parentId": "0",
+            "ruleName": "Couple Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "3",
+            "parentId": "0",
+            "ruleName": "Smoking"
+          }
+        ],
+        "pgCategorySex": "BOTH",
+        "totalPrice": "14260.0",
+        "discountedPrice": "0.0",
+        "mealFlag": true,
+        "amenitiesModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "2",
+            "aminitiesName": "Heater",
+            "filterFlag": "N",
+            "priority": "",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "3",
+            "aminitiesName": "Table Lamp",
+            "filterFlag": "Y",
+            "priority": "1",
+            "expressFlag": "N",
+            "premiumFlag": "Y",
+            "aminitiesType": "OTHERS",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "1",
+            "aminitiesName": "WIFI",
+            "filterFlag": "Y",
+            "priority": "2",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          }
+        ]
+      },
+      {
+        "propertyId": "3",
+        "oraName": "ORA000003",
+        "address": "Merlin Infinite, Unit No 501, DN 51, DN Block, Sector 5, Salt Lake, DN Block, Sector V, Salt Lake City, Kolkata, West Bengal 700091",
+        "latitude": "22.582490",
+        "longitude": "88.426787",
+        "coverImageURL": "https://s-ec.bstatic.com/images/hotel/max1024x768/141/141830278.jpg",
+        "roomStandard": "EXPRESS",
+        "rating": "8",
+        "reviewCount": "1",
+        "spaceRuleModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "1",
+            "parentId": "0",
+            "ruleName": "Pet Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "2",
+            "parentId": "0",
+            "ruleName": "Couple Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "3",
+            "parentId": "0",
+            "ruleName": "Smoking"
+          }
+        ],
+        "pgCategorySex": "BOTH",
+        "totalPrice": "11500.0",
+        "discountedPrice": "0.0",
+        "mealFlag": true,
+        "amenitiesModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "2",
+            "aminitiesName": "Heater",
+            "filterFlag": "N",
+            "priority": "",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "3",
+            "aminitiesName": "Table Lamp",
+            "filterFlag": "Y",
+            "priority": "1",
+            "expressFlag": "N",
+            "premiumFlag": "Y",
+            "aminitiesType": "OTHERS",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "1",
+            "aminitiesName": "WIFI",
+            "filterFlag": "Y",
+            "priority": "2",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          }
+        ]
+      },
+      {
+        "propertyId": "4",
+        "oraName": "ORA000004",
+        "address": "Merlin Infinite, Unit No 501, DN 51, DN Block, Sector 5, Salt Lake, DN Block, Sector V, Salt Lake City, Kolkata, West Bengal 700091",
+        "latitude": "22.582490",
+        "longitude": "88.426787",
+        "coverImageURL": "https://s-ec.bstatic.com/images/hotel/max1024x768/141/141830278.jpg",
+        "roomStandard": "NORMAL",
+        "rating": "0",
+        "reviewCount": "0",
+        "spaceRuleModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "1",
+            "parentId": "0",
+            "ruleName": "Pet Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "2",
+            "parentId": "0",
+            "ruleName": "Couple Friendly"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "spruleId": "3",
+            "parentId": "0",
+            "ruleName": "Smoking"
+          }
+        ],
+        "pgCategorySex": "BOTH",
+        "totalPrice": "8625.0",
+        "discountedPrice": "0.0",
+        "mealFlag": true,
+        "amenitiesModels": [
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "1",
+            "aminitiesName": "WIFI",
+            "filterFlag": "Y",
+            "priority": "2",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "3",
+            "aminitiesName": "Table Lamp",
+            "filterFlag": "Y",
+            "priority": "1",
+            "expressFlag": "N",
+            "premiumFlag": "Y",
+            "aminitiesType": "OTHERS",
+            "parentId": "0"
+          },
+          {
+            "status": 1,
+            "createdDate": "2018-09-06 01:27:34",
+            "createdBy": 1,
+            "languageId": "1",
+            "aminitiesId": "2",
+            "aminitiesName": "Heater",
+            "filterFlag": "N",
+            "priority": "",
+            "expressFlag": "Y",
+            "premiumFlag": "Y",
+            "aminitiesType": "BASIC",
+            "parentId": "0"
+          }
+        ]
+      }
+    ]
+  }

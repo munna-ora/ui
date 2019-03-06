@@ -1,0 +1,139 @@
+.p-10{
+    padding: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+} 
+.pb-40{
+    padding-bottom: 40px !important;
+}
+h3{
+    font-family: latoblack;
+    font-size: 26px;
+    color: #f47921;
+    margin: 0px;
+}
+.header-bg-container{
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.property-details-container{
+    padding: 0 30px;
+    .card{
+        margin-top: -50px;
+        box-shadow: 0px 8px 0px 0px #c9c7c7;
+        .card-header{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            .btn-edit{
+                background-color: #c9c7c7;
+                border: 0;
+                border-radius: 50px;
+                padding: 5px 10px;
+                color: #ffffff;
+                &:hover{
+                    background-color: #f47921
+                }
+            }
+        }
+        .card-body{
+            .card-title{
+                font-family: latoblack;
+                color: #130504;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            p{
+                color: #484848;
+                font-family: latoregular;
+                font-size: 14px;
+            }
+        }
+    }
+    h3{
+        font-family: latoblack;
+        font-size: 26px;
+        color: #f47921;
+        margin: 0px;
+    }
+}
+.accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+.accordion{
+    margin-top: 40px;
+    // display: flex;
+    ::ng-deep {
+        .card{
+            margin-bottom: 30px;
+            box-shadow: 0px 8px 0px 0px #c9c7c7;
+            border-radius: 6px;
+            display: inline-flex;
+            width: 100%;
+        }
+        h5{
+            display: flex;
+            font-size: 14px;
+            font-family: latoblack;
+            color: #130504;
+            margin-bottom: 10px;
+            .btn{
+                text-decoration: none;
+                width: 100%;
+                padding: 0;
+                span{
+                    display: flex;
+                    font-family: latoblack;
+                    font-size: 24px;
+                    color: #f47921;
+                    margin: 0px;
+                    align-items: center;
+                }
+            }
+        }
+        .arrow{
+            background: url(../../../../assets/images/plus-icon.png) center center no-repeat;
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            margin-right: 15px;
+            text-decoration: none;
+            background-size: 100%;
+        }
+        .collapsed .arrow{
+            background: url(../../../../assets/images/minus-icon.png) center center no-repeat;
+            background-size: 100%;
+        }
+        label.text{
+            font-size: 12px;
+            font-family: latoblack;
+            color: #130504;
+        }
+        .edit-btn{
+            background-color: #c9c7c7;
+            border: 0;
+            border-radius: 50px;
+            color: #ffffff;
+            margin-left: auto !important;
+            width: 28px !important;
+            height: 28px;
+            font-size: 14px;
+            padding: 0px;
+            position: absolute;
+            top: 17px;
+            right: 20px;
+        }
+        .btn.calendar{
+            border-left: none;
+            background: #fff;
+            color: #484848;
+            border-color: #ced4da;
+        }
+    }
+}

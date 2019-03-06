@@ -1,0 +1,36 @@
+<div class="testimonial-container mt-76">
+  <div class="container-fluid header-image-slide p-0 head-img-container">
+    <img class="w-100" src="assets/images/testimonials.png" />
+    <div class="text-container">
+      <h4>Share more than  <br>
+        your space with Ora</h4>
+    </div>
+  </div>
+
+  <!-- Testimonial Container -->
+  <div class="container-fluid position-relative pb-60">
+    <div class="container testimonial-section">
+      <h4 class="title">Some words from our happy customers</h4>
+      <p class="desc">Orastays is a homestay that builds a healthy community. Bringing strangers together and starting a relationship that strengthens the human to human bond. Share your experiences and feedbacks.</p>
+      <div class="testimonial-carousel">
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="testimonialList">
+          <div *nguCarouselDef="let testimonial;" class="item d-flex justify-content-start">
+            <div class="user-img">
+              <img  [src]="testimonial?.user?.userVsInfo?.imageUrl" alt="{{testimonial?.user?.userVsInfo?.name}}">
+            </div>
+            <div class="comments text-left">
+              <span class="semicolon">"</span>
+              <p class="desc"><span></span>{{testimonial?.description}}</p>
+              <p class="name">{{testimonial?.user?.userVsInfo?.name}}</p>
+              <p class="date">{{testimonial?.createdDate | date:'mediumDate'}}</p>
+            </div>
+          </div>
+          <button NguCarouselNext class="slide-right-btn"><i class="fa fa-long-arrow-right"></i></button>
+          <button NguCarouselPrev class="slide-left-btn"><i class="fa fa-long-arrow-left"></i></button>
+        </ngu-carousel>
+      </div>
+    </div>
+  </div>
+
+</div>
+  

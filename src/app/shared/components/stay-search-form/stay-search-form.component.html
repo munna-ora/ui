@@ -1,0 +1,72 @@
+<form class="booking-form {{detailsPage ? 'details-page': ''}}"  [formGroup]="staySearchForm" (ngSubmit)="onSubmitSearch()" novalidate>
+    <div class="form-group" [hidden]="detailsPage">
+      <select class="form-control" placeholder="Pick a stay" formControlName="propertyTypeId" [ngClass]="{ 'is-invalid': staySearchForm.controls['propertyTypeId'].touched && staySearchForm.controls['propertyTypeId'].errors }">
+          <option value="" selected>Pick a stay</option>
+          <option *ngFor="let propertyType of propertyTypes" [ngValue]="propertyType.propertyTypeId">{{ propertyType.name }}</option>
+        </select>
+    </div>
+    <div class="form-group" [hidden]="detailsPage">
+      <input type="text" class="form-control" formControlName="location" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off"  #search  placeholder="City, Locality or Landmark" [ngClass]="{ 'is-invalid': staySearchForm.controls['location'].touched && staySearchForm.controls['location'].errors }">
+    </div>
+    <div class="form-group dpicker">
+      <div class="input-group">
+        <div class="i-group">
+          <input type="text"  class="form-control fromBoxInput" formControlName="checkInDate"  placeholder="Check in" ngbDatepicker #d1="ngbDatepicker" [minDate]="checkInMinDate" [outsideDays]="'collapsed'" [navigation]="'arrows'" (dateSelect)="onCheckInDateSelect($event)" (click)="d1.toggle()" [ngClass]="{ 'is-invalid': staySearchForm.controls['checkInDate'].touched && staySearchForm.controls['checkInDate'].errors }">
+          <i class="fa fa-calendar" (click)="d1.toggle()"></i>
+        </div>
+        <div class="i-group">
+          <input type="text" class="form-control toBoxInput" formControlName="checkOutDate" placeholder="Check out" ngbDatepicker #d2="ngbDatepicker" [minDate]="checkOutMinDate" [outsideDays]="'collapsed'" [navigation]="'arrows'" (click)="d2.toggle()" [ngClass]="{ 'is-invalid': staySearchForm.controls['checkOutDate'].touched && staySearchForm.controls['checkOutDate'].errors }">
+          <i class="fa fa-calendar" (click)="d2.toggle()"></i>
+        </div>
+      </div>
+    </div>
+    <div class="form-group stayTypeCheckbox" [hidden]="detailsPage">
+      <strong>Stay type:</strong>
+      <label class="mb-0 c-pointer"><input class="option-input radio" name="stayType" type="radio" formControlName="stayType" value="PRIVATE" [(ngModel)]="stayType"> Private </label>
+      <label class="mb-0 c-pointer"><input class="option-input radio" name="stayType" type="radio" formControlName="stayType" value="SHARED" [(ngModel)]="stayType"> Shared </label>
+    </div>
+    <div class="form-group m-0 share-count" *ngIf="stayType == 'SHARED'">
+      <label for="" class="d-block text">No. of Guest: </label>
+      <input type="hidden" formControlName="noOfGuestShared">
+      <ng-number-picker class="ng-number-picker" [(value)]="noOfGuestShared" [min] ="1"  [max]="'6'"></ng-number-picker>
+    </div>
+    <!-- {{stayType}} -->
+    <div class="form-group roomGuest" *ngIf="stayType == 'PRIVATE'">
+      <div ngbDropdown #myDrop="ngbDropdown" class="d-inline-block hotelBookDropdown" [autoClose]="'outside'">
+        <button type="button" class="btn" ngbDropdownToggle>{{numberOfGuest}} Guest, {{numberOfRooms}} Room</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <div formArrayName="rooms" class="mb-3" *ngFor="let room of staySearchForm.controls['rooms'].controls; let i = index">
+            <i class="fa fa-close close-btn btn" (click)="$event.stopPropagation(); myDrop.close();"></i>
+            <div>
+              <h5>Room {{i + 1}}</h5>
+            </div>
+            <div class="form-row align-items-end" [formGroupName]="i">
+              <div class="col-auto">
+                <div class="form-group m-0">
+                  <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                  <input type="hidden" formControlName="noOfGuest">
+                  <ng-number-picker class="ng-number-picker" [(value)]="noOfGuest[i]" [min] ="1"  [max]="'6'" (valueChange)="onNumberChanged($event,i,'noOfGuest')"></ng-number-picker>
+                </div>
+              </div>
+              <div class="col-auto ml-4">
+                <div class="form-group m-0">
+                  <label for="" class="d-block text">Children <span> (1 to 12 yrs)</span></label>
+                  <input type="hidden" formControlName="noOfChild">
+                  <ng-number-picker class="ng-number-picker" [(value)]="noOfChild[i]" [min] ="0" [max]="'4'" (valueChange)="onNumberChanged($event,i,'noOfChild')"></ng-number-picker>
+                </div>
+              </div>
+              <div class="col-auto ml-4" *ngIf="i!=0">
+                <a class="btn btn-outline-dark btn-sm fs-12" (click)="removeRoom(i)">[-] REMOVE</a>
+              </div>
+              <div class="col-auto ml-4" *ngIf="i == 0">
+                <a class="btn btn-outline-dark btn-sm fs-12" (click)="addRoom()">[+] ADD ROOM</a>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-right mt-4 mb-0 clearfix submitBtn">
+      <button type="submit" class="btn btn-primary btn-lg search-btn"><i class="search-icon"></i>Search</button>
+    </div>
+  </form>

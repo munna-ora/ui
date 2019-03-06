@@ -1,0 +1,185 @@
+footer {
+    clear: both;
+    position: relative;
+    // height: 40px;
+    // margin-top: -40px;
+}
+.footer-top{
+    background-color: #130504;
+    padding: 40px 0;
+    font-family: lato;
+
+    h4.title{
+        color: #fafafa;
+        font-size: 24px;
+        font-family: lato;
+    }
+    p.news-intro{
+        color: #9b9b9b;
+        font-size: 14px;
+        font-family: lato;
+    }
+    ul.list-unstyled{
+        margin: 0;
+        li a{
+            font-size: 14px;
+            font-family: lato;
+            color: #9b9b9b !important;
+        }
+    } 
+    .newsletter {
+        input{
+            height: 35px;
+            background-color: transparent;
+            border-color: #333;
+            color: #6d6e71;
+            font-size: 14px;
+            font-family: lato;
+        }
+        button{
+            height: 35px;
+            padding: 0 15px;
+            font-size: 14px;
+            font-family: lato;
+
+        }
+    }
+}
+.footer-mid{
+    padding: 30px 0;
+    font-family: lato;
+    font-size: 18px;
+    p{
+        padding: 0;
+        margin: 0;
+        .query-text{
+            color: #130504;
+        }
+        .call-text{
+            color: #9b9b9b;
+        }
+    }
+}
+.footer-bottom{
+    padding: 40px 0;
+    border-top: #d8d8d8 1px solid;
+    font-family: lato;
+    .copyrights{
+        color: #231f20;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .footer-logo{
+        height: 46px;
+    }
+    .social-icons{
+        text-align: right;
+        .social-icon{
+            width: 40px;
+            height: 40px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: inline-block;
+            border: 1px solid #979797;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .facebook{
+            background-image: url(../../../assets/images/social-icons/facebook.png);
+            &:hover{
+                background-image: url(../../../assets/images/social-icons/c_facebook.png);
+                border: 1px solid #4c6da3;
+            }
+        }
+        .tweeter{
+            background-image: url(../../../assets/images/social-icons/tweeter.png);
+            &:hover{
+                background-image: url(../../../assets/images/social-icons/c_tweeter.png);
+                border: 1px solid #1b99e8;
+            }
+        }
+        .instagram{
+            background-image: url(../../../assets/images/social-icons/instagram.png);
+            &:hover{
+                background-image: url(../../../assets/images/social-icons/c_instagram.png);
+                border: 1px solid #ec9042;
+            }
+        }
+        .linkdin{
+            background-image: url(../../../assets/images/social-icons/linkdin.png);
+            &:hover{
+                background-image: url(../../../assets/images/social-icons/c_linkdin.png);
+                border: 1px solid #1582aa;
+            }
+        }
+        .youtube{
+            background-image: url(../../../assets/images/social-icons/youtube.png);
+            &:hover{
+                background-image: url(../../../assets/images/social-icons/c_youtube.png);
+                border: 1px solid #d92e2e;
+            }
+        }
+        img{
+            height: 40px;
+            margin-left: 10px; 
+        }
+    }
+}
+.footer-bottom-mobile{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-top: 1px solid #d2d2d2;
+    z-index: 999999;
+    .m-item{
+        text-align: center;
+        .f-icon{
+            color: #3e3e3e;
+            &.ora-icon{
+                background-image: url(../../../assets/images/logo_orastays.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                width: 40px;
+                height: 40px;
+                display: block;
+                background-size: contain;
+            }
+        }
+        span{
+            display: block;
+            font-size: 12px;
+            font-family: latobold;
+            text-align: center;
+        }
+    }
+}
+
+// 
+@media only screen and (max-width: 767px) {
+    .footer-top, .footer-mid{
+        display: none;
+    }
+    .footer-bottom {
+        padding: 20px 0;
+        margin-bottom: 70px;
+        .copyrights{
+            color: #231f20;
+            font-size: 16px;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .ora-footer-logo{
+            display: none;
+        }
+        .social-icons{
+            display: none;
+        }
+    }
+    .footer-bottom-mobile{
+        display: block;
+    }
+}

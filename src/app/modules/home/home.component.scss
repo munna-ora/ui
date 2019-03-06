@@ -1,0 +1,260 @@
+.home-carousel{
+    .carousel-caption {
+        right: 2%;
+        // bottom: 40px;
+        top: 60%;
+        transform: translateY(-60%);
+        left: inherit;
+        text-align: left;
+        width: 50%;
+        h3{
+            color: #ffffff;
+            font-size: 60px;
+            font-family: abrialfatface;
+        }
+        p{
+            color: #fefdf3;
+            font-family: latobolditalic;
+            font-size: 18px;
+        }
+    }
+}
+.p-10-30{
+    padding: 10px 30px;
+}
+/* Extra small devices (All smart pjone) */
+@media only screen and (max-width: 767px) {
+    .home-carousel{
+        ::ng-deep .carousel-indicators {
+            bottom: -10px;
+        }
+        .carousel-caption {
+            right: 0;
+            bottom: 10px;
+            left: 0;
+            text-align: left;
+            width: 100%;
+            padding: 0 30px;
+            h3{
+                font-size: 24px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+    } 
+    .booking-section{
+        position: initial;
+        transition: none;
+        -webkit-transform: none;
+        .container{
+            padding: 0px;
+            .row{
+                margin: 0;
+                .col-md-5{
+                    padding: 0;
+                }
+            }
+            ::ng-deep .nav.nav-tabs{
+                background-color: #fff !important;
+                border-radius: 0;
+                border-bottom: 2px solid #dee2e6 !important;
+                .nav-link{
+                    color: #130504 !important;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    font-family: latobold;
+                    font-size: 16px;
+                    &.active{
+                        border-bottom: 2px solid #f47921;
+                    }
+                    &:hover, &:focus{
+                        border-bottom: 2px solid;
+                        border-color: #ffffff #ffffff #f47921 !important;
+                    }
+                }
+            }
+            ::ng-deep .tab-content{
+                box-shadow: none;
+                padding: 30px 30px;
+                border-bottom: 1px solid #ccc;
+                border-radius: 0;
+            }
+        }
+    }
+    .features-section{
+        display: none;
+    }
+    .property-listing-section{
+        background-image: none;
+        padding: 0;
+        .container{
+            padding: 0;
+            .property-tab-block{
+                box-shadow: none;
+                padding-top: 0;
+                ::ng-deep  .nav.nav-tabs{
+                    display: -webkit-box;
+                    border-bottom: 1px solid #dee2e6;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    .nav-item{
+                        &:first-child{
+                            margin-left: 0px;
+                        }
+                        .nav-link{
+                            &.active{
+                                border-bottom: 3px solid #f47921 !important;
+                                border-color: #ffffff #ffffff #f47921;
+                            }
+                            &:hover, &:focus{
+                                border-color: #fff #fff #f47921;
+                            }
+                        }
+                    }
+                }
+                ::ng-deep .mat-tab-body{
+                    .mat-tab-body-content{
+                        position: relative;
+                        margin-top: 25px;
+                        padding: 0;
+                        height: auto;
+                        overflow: auto;
+                        .row{
+                            overflow-x: auto;
+                            flex-wrap: nowrap !important;
+                            flex-direction: row !important;
+                            padding-bottom: 15px;
+                            .property-img .card-img-top {
+                                height: 165px;
+                                width: auto;
+                            }
+                        }
+                        .filter-section{
+                            .alert{
+                                display: none;
+                            }
+                        }
+                        .text-right{
+                            position: inherit;
+                        }
+                        .quick-filter-btn{
+                            background-color: transparent !important;
+                            border-color: transparent !important;
+                            color: #757373;
+                            position: absolute;
+                            top: -35px;
+                            right: 0;
+                            margin-right: 0 !important;
+                            padding: 0;
+                            label{
+                                display: none;
+                            }
+                        }
+                        .view-more-btn{
+                            display: none;
+                        }
+                    }
+                }
+                .no-mobile-d{
+                    display: none;
+                }
+                .card-body{
+                    padding-top: 10px;
+                    .card-title{
+
+                    }
+                    .alert span.info-text {
+                        font-size: 10px;
+                        line-height: 14px;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    .property-desc-section{
+        background: url(../../../assets/images/listyourproperty_bg_mob.png) no-repeat;
+        border-radius: 0;
+        margin: 0 !important;
+        padding: 40px 15px !important;
+        background-position: center center;
+        background-size: cover;
+        text-align: center;
+        h4.title{
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        h6.desc {
+            font-size: 18px;
+            display: none;
+        }
+        .text{
+            display: none;
+        }
+        .btn{
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            width: 100%;
+            margin-bottom: 15px;
+            height: 40px;
+            border-radius: 50px;
+            &.btn-dark{
+                background-color: #ffffff !important;
+                border-color: #ffffff !important;
+                color: #130504;
+                .icon-calculator{
+                    display: none;
+                }
+            }
+            &.btn-primary {
+                color: #fff !important;
+                background-color: #74ae51 !important;
+                border-color: #74ae51 !important;
+            }
+        }
+    }
+    
+    .about-testimonial-section{
+        margin-bottom: 0px;
+        .card{
+            margin-bottom: 40px;
+            .card-body{
+                padding-top: 20px;
+                padding-bottom: 30px;
+                h4.title {
+                    margin-bottom: 20px;
+                }
+                .testimonial-item {
+                    margin-bottom: 20px;
+                }
+                .view-more-btn{
+                    float: right;
+                }
+                &.about-box{
+                    .text{
+                        // display: none;
+                    }
+                }
+                .fixed-height{
+                    height: auto;
+                }
+            }
+        }
+        div.h-100{
+            height: auto !important;
+        }
+    }
+} 
+
+// /* Medium devices (Tablets and Ipad) */
+// @media only screen and (min-width: 768px) {
+
+// } 
+
+// /* Large devices (laptops/desktops) */
+// @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    
+// } 

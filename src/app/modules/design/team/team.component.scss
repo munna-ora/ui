@@ -1,0 +1,98 @@
+.team-container{
+    .pr-30{
+        padding-right: 30px;
+    }
+    .pl-30{
+        padding-left: 30px;
+    }
+    .pt-60{
+        padding-top: 60px;
+    }
+    .pb-60{
+        padding-bottom: 60px;
+    }
+    .mb-20{
+        margin-bottom: 20px;
+    }
+    .read-more-btn{
+        color: #f47921;
+        font-family: latobolditalic;
+    }
+    .hr-sm{
+        width: 150px;
+    }
+    h3{
+        font-family: latolight;
+        font-size: 50px;
+        color: #2c2c2c;
+        span.ora-logo-black{
+            font-family: latoregular;
+            background: url(../../../../assets/images/ora-logo-black.png) no-repeat;
+            background-size: 100%;
+            width: 78px;
+            height: 31px;
+            display: inline-block;
+            margin-left: 8px;
+        }
+    }
+    p{
+        font-family: latolightitalic;
+        color: #2c2c2c;
+        font-size: 16px;
+    }
+    .header-image-slide{
+
+    }
+    .behind-screen-section{
+        max-width: 95%;
+        .tname{
+            font-family: latobold;
+            color: #2c2c2c;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .tdesig{
+            font-family: latoitalic;
+            font-size: 14px;
+            color: #2c2c2c;
+        }
+        .first-block{
+            background-color: #ecedef;
+            padding: 30px 40px; 
+            &:after{
+                right: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(136, 183, 213, 0);
+                border-right-color: #ecedef;
+                border-width: 25px;
+                margin-top: -25px;
+                z-index: 1;
+            }
+        }
+        .second-block{
+            background-color: #ffd3b4;
+            padding: 30px 40px; 
+            &:after{
+                left: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(136, 183, 213, 0);
+                border-left-color: #ffd3b4;
+                border-width: 25px;
+                margin-top: -25px;
+                z-index: 1;
+            }
+        }
+    }
+}

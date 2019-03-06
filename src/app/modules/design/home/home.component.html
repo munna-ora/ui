@@ -1,0 +1,873 @@
+<div class="position-relative" style="margin-top:76px">
+  <!-- Home Top Carousel -->
+  <div class="home-carousel" data-aos="zoom-in-down">
+    <ngb-carousel showNavigationArrows="false">
+      <ng-template ngbSlide>
+        <img src="assets/images/home-slider/banner.jpg" class="mh-100" style="width: 100%; max-height: 400px">
+        <div class="carousel-caption">
+          <h3>Ametyst. I feel <br> comfortable here ..</h3>
+          <p>Come In As Guests. Leave As Family</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/images/home-slider/banner.jpg" class="mh-100" style="width: 100%; max-height: 400px">
+        <div class="carousel-caption">
+          <h3>Ametyst. I feel <br> comfortable here ..</h3>
+          <p>Come In As Guests. Leave As Family</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/images/home-slider/banner.jpg" class="mh-100" style="width: 100%; max-height: 400px">
+        <div class="carousel-caption">
+          <h3>Ametyst. I feel <br> comfortable here ..</h3>
+          <p>Come In As Guests. Leave As Family</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+    
+    <div class="booking-section">
+      <div class="container" data-aos="fade-right">
+        <div class="row">
+          <div class="col-md-5">
+            <ngb-tabset justify="justified">
+              <ngb-tab title="Book your stay">
+                <ng-template ngbTabContent>
+                  <form class="booking-form">
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Pick a stay</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="City, Locality or Landmark">
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control border-right-0" placeholder="Check in"
+                                name="dpChIn" [(ngModel)]="h_fromDate" ngbDatepicker (click)="dpHotel.toggle()">
+                        <input class="form-control dtpickerHide" placeholder="Depart"
+                            name="dp" ngbDatepicker #dpHotel="ngbDatepicker" 
+                            ngModel (ngModelChange)="onDateSelectionHotel($event)" 
+                            [displayMonths]="1" [dayTemplate]="tHotel" outsideDays="hidden" 
+                            [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                        <input class="form-control border-right-0" placeholder="Check out"
+                                name="dpChOut" [(ngModel)]="h_toDate" ngbDatepicker (click)="dpHotel.toggle()">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                        
+                        <ng-template #tHotel let-date let-focused="focused">
+                            <span class="custom-day"
+                                  [class.focused]="focused"
+                                  [class.range]="isRangeHotel(date)"
+                                  [class.faded]="isHoveredHotel(date) || isInsideHotel(date)"
+                                  (mouseenter)="hoveredDate = date"
+                                  (mouseleave)="hoveredDate = null">
+                              {{ date.day }}
+                            </span>
+                          </ng-template>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div ngbDropdown class="d-inline-block hotelBookDropdown">
+                        <button class="btn" id="dropdownBasic2" ngbDropdownToggle>{{hNoOfAdult + hNoOfChild}} Guest, {{noOfRooms}} Room</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                          <div>
+                            <h5>Room 1</h5>
+                          </div>
+                          <div class="form-row align-items-end">
+                            <div class="col-auto">
+                              <div class="form-group m-0">
+                                <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                                <ng-number-picker class="ng-number-picker"  [(value)]="hNoOfAdult" [max]="'6'"></ng-number-picker>
+                              </div>
+                            </div>
+                            <div class="col-auto ml-4">
+                              <div class="form-group m-0">
+                                <label for="" class="d-block text">Children <span> (1 to 12 yrs)</span></label>
+                                <ng-number-picker class="ng-number-picker" [(value)]="hNoOfChild" [max]="'4'"></ng-number-picker>
+                              </div>
+                            </div>
+                            <div class="col-auto ml-4">
+                              <button type="button" class="btn btn-outline-dark btn-sm">[+] ADD ROOM</button>
+                              <!-- <div class="form-group m-0">
+                                <label for="" class="d-block text">Room <span> </span></label>
+                                <ng-number-picker class="ng-number-picker" [(value)]="noOfRooms"></ng-number-picker>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group text-right mt-4 mb-0 clearfix">
+                      <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/property-list"><i class="search-icon"></i>Search</button>
+                    </div>
+                  </form>
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab title="Book your flight">
+                <ng-template ngbTabContent>
+                  <form class="booking-form">
+                    <div class="form-group flight-location">
+                      <div class="input-group">
+                        <input type="text" class="form-control fromBoxInput" placeholder="From">
+                        <div class="input-group-append fromBox">
+                          <span class="input-group-text"><i class="fa fa-map-marker"></i></span>                          
+                        </div>
+                        <input type="text" class="form-control toBoxInput" placeholder="To">
+                        <div class="input-group-append toBox">
+                          <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex text-center justify-content-between pl-2 pr-2">
+                      <div class="trip-type">
+                        <input type="radio" name="trip-type" id="roundTrip" class="input-hidden" checked/>
+                        <label class="items" for="roundTrip">
+                          <img src="assets/images/flight_roundtrip.png" alt="">
+                          <span class="item-checked"></span>
+                        </label>
+                        <p class="name">Round trip</p>
+                      </div>
+                      <div class="trip-type">
+                        <input type="radio" name="trip-type" id="oneWay" class="input-hidden" />
+                        <label class="items" for="oneWay">
+                          <img src="assets/images/flight_oneway.png" alt="">
+                          <span class="item-checked"></span>
+                        </label>
+                        <p class="name">One way</p>
+                      </div>
+                      <div class="trip-type">
+                        <input type="radio" name="trip-type" id="multiCity" class="input-hidden" />
+                        <label class="items" for="multiCity">
+                          <img src="assets/images/flight_multicity.png" alt="">
+                          <span class="item-checked"></span>
+                        </label>
+                        <p class="name">Multi city</p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control border-right-0" placeholder="Depart"
+                          name="dpDepart" [(ngModel)]="f_fromDate" ngbDatepicker (click)="dpFlight.toggle()">
+                        <input class="form-control dtpickerHide" placeholder="Depart"
+                            name="dp" ngbDatepicker #dpFlight="ngbDatepicker" 
+                            ngModel (ngModelChange)="onDateSelectionFlight($event)" 
+                            [displayMonths]="1" [dayTemplate]="tFlight" outsideDays="hidden" 
+                            [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpFlight.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                        <input class="form-control border-right-0" placeholder="Return"
+                                name="dpReturn" [(ngModel)]="f_toDate" ngbDatepicker (click)="dpFlight.toggle()">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpFlight.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                        <ng-template #tFlight let-date let-focused="focused">
+                          <span class="custom-day"
+                                [class.focused]="focused"
+                                [class.range]="isRangeFlight(date)"
+                                [class.faded]="isHoveredFlight(date) || isInsideFlight(date)"
+                                (mouseenter)="hoveredDate = date"
+                                (mouseleave)="hoveredDate = null">
+                            {{ date.day }}
+                          </span>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div ngbDropdown class="d-inline-block travellersDropdown">
+                          <button class="btn" id="dropdownBasic1" ngbDropdownToggle>Travellers</button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <div class="form-row align-items-center">
+                              <div class="col-auto">
+                                <div class="form-group m-0">
+                                  <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                                  <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                                </div>
+                              </div>
+                              <div class="col-auto ml-4">
+                                <div class="form-group m-0">
+                                  <label for="" class="d-block text">Children <span> (2 to 12 yrs)</span></label>
+                                  <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                                </div>
+                              </div>
+                              <div class="col-auto ml-4">
+                                <div class="form-group m-0">
+                                  <label for="" class="d-block text">Infant <span> (Below 2 yrs)</span></label>
+                                  <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <select class="form-control">
+                          <option value="">Class</option>
+                          <option value="">Business class</option>
+                          <option value="">Premium economy class</option>
+                          <option value="">Economy class</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group text-right mt-4 mb-0 clearfix">
+                      <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/flight-list"><i class="search-icon"></i>Search</button>
+                    </div>
+                  </form>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form -->
+  <!-- <div class="booking-section">
+    <div class="container" data-aos="fade-right">
+      <div class="row">
+        <div class="col-md-5">
+          <ngb-tabset justify="justified">
+            <ngb-tab title="Book your stay">
+              <ng-template ngbTabContent>
+                <form class="booking-form">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Pick a stay</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="City, Locality or Landmark">
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control border-right-0" placeholder="Check in"
+                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar checkin-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                      <input class="form-control border-right-0" placeholder="Check out"
+                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar checkout-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>2 Guest, 1 Room</option>
+                    </select>
+                  </div>
+                  <div class="form-group text-right mt-4 mb-0 clearfix">
+                    <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/property-list"><i class="search-icon"></i>Search</button>
+                  </div>
+                </form>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Book your flight">
+              <ng-template ngbTabContent>
+                <form class="booking-form">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Pick a stay</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="City, Locality or Landmark">
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control border-right-0" placeholder="Check in"
+                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar checkin-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                      <input class="form-control border-right-0" placeholder="Check out"
+                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar checkout-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>2 Guest, 1 Room</option>
+                    </select>
+                  </div>
+                  <div class="form-group text-right mt-4 mb-0 clearfix">
+                    <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/property-list"><i class="search-icon"></i>Search</button>
+                  </div>
+                </form>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>  
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Features Section -->
+  <div class="container-fluid features-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 border-right text-center" data-aos="flip-down">
+          <div><img src="assets/images/ora-features.png" /></div>
+          <div class="mt-18"><span class="info-text">Features in all ORAs</span></div>
+        </div>
+        <div class="col-md-2 border-right text-center" data-aos="flip-up">
+            <div><img src="assets/images/features_ID.png" /></div>
+            <div><span class="info-text">Verified ID</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle"></i></span></div>
+        </div>
+        <div class="col-md-3 border-right text-center" data-aos="flip-down">
+            <div><img src="assets/images/features_premium.png" /></div>
+            <div><span class="info-text">Express and Premium listings</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle"></i></span></div>
+        </div>
+        <div class="col-md-2 border-right text-center" data-aos="flip-up">
+            <div><img src="assets/images/features_hostmonitors.png" /></div>
+            <div><span class="info-text">Host Monitors</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle"></i></span></div>
+        </div>
+        <div class="col-md-3 text-center" data-aos="flip-down">
+            <div><img src="assets/images/features_customerservice.png" /></div>
+            <div><span class="info-text">Customer Support (10 am to 6 pm)</span><span class="text-dark exclamation-circle"><i class="fa fa-exclamation-circle"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Tab Listing  -->
+  <div class="container-fluid property-listing-section">
+    <div class="container" data-aos="flip-left">
+      <div class="property-tab-block">
+        <ngb-tabset [justify]="currentJustify">
+          <ngb-tab title="Homestays">
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Guest House">
+            <ng-template ngbTabTitle></ng-template>
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Hotels">
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Paying Guest">
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Boatstays">
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0 ">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card mb-0 border-0">
+                    <div class="property-img">
+                        <img class="card-img-top rounded" src="assets/images/property/property-1.png" alt="Card image cap">
+                        <i class="fa fa-bookmark-o pro-icon bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-share-alt pro-icon share" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body pl-0 pr-0 pb-0">
+                      <h5 class="card-title">ORA9122522, Amadpur</h5>
+                      <p class="card-text price mb-1">₹2,900 Per night</p>
+                      <p class="card-text"><span class="badge badge-secondary bg-orange">7.6</span><span class="cat-type"> Good,</span><span class="review"> 1765 reviews</span></p>
+                      <hr class="hr1">
+                      <div class="alert alert-secondary alert-green" role="alert">
+                        <h6 class="title mb-0">In high demand!</h6>
+                        <span class="info-text">Booked 21 times in the last 24 hours</span>
+                      </div>
+                      <p class="complimentary">Complimentary &nbsp;&nbsp;<span class="complimentary-tea"></span><span class="complimentary-gym"></span><span class="complimentary-swimming"></span><span class="complimentary-parking"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+        <hr class="hr-1 mt-30 mb-30 no-mobile-d">
+        <div class="row p-10-30">
+          <div class="col-md-8 filter-section">
+            <div class="alert alert-secondary" role="alert">
+                Unique local homes offering accommodations with a feeling called “family”. 
+            </div>
+          </div>
+          <div class="col-md-4 text-right">
+              <button class="btn btn-dark mr-2 quick-filter-btn"><label>Quick Filter </label> <i class="fa fa-filter" aria-hidden="true"></i></button>
+              <button class="btn btn-primary view-more-btn" routerLink="/property-list">View More [+]</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- List Your Property Section -->
+  <div class="container property-desc-section">
+    <div class="" data-aos="fade-right">
+      <h4 class="title">List your property with us.</h4>
+      <h6 class="desc">Fusce tempor a risus id euismod. Phaselus ullamc...</h6>
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex.
+      </p>
+      <button class="btn btn-dark mr-2">Earning Calculator <img class="icon-calculator" src="assets/images/icon-calculator.png"></button>
+      <button class="btn btn-primary" routerLink="/host-listing">View More [+]</button>
+    </div>
+  </div>
+
+  <!-- Deals for you -->
+  <div class="container-fluid deals-section">
+    <div class="container">
+      <h4 class="title" data-aos="fade-right">Deals for you</h4>
+      <p class="text" data-aos="fade-right">Unique destinations to help travellers plan trips</p>
+      <div class="row">
+        <div class="col-6 col-md-3" data-aos="fade-up">
+          <img src="assets/images/deals/30LastMinutDeals.png" />
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-down">
+          <img src="assets/images/deals/BestOraRoom779.png" />
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up">
+          <img src="assets/images/deals/EarnExtraAsHost.png" />
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-down">
+          <img src="assets/images/deals/30LastMinutDeals.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About & Testimonials -->
+  <div class="container about-testimonial-section">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card" data-aos="fade-right">
+          <div class="card-body">
+            <h4 class="title">What our customer says</h4>
+            <div class="testimonial-item">
+              <div class="thumb-img">
+                <img src="assets/images/thumbs/user2.png" />
+              </div>
+              <div class="thumb-details">
+                  <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex ...</span>
+                  <span class="name"><b>Saiyed</b></span> <span class="datetime">  22 Nov. 2018</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <div class="thumb-img">
+                <img src="assets/images/thumbs/user1.png" />
+              </div>
+              <div class="thumb-details">
+                  <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex ...</span>
+                  <span class="name"><b>Saiyed</b></span> <span class="datetime">  22 Nov. 2018</span>
+              </div>
+            </div>
+            <button class="btn btn-primary view-more-btn" routerLink="/testimonials">View More [+]</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" data-aos="fade-left">
+          <div class="card-body about-box">
+            <h4 class="title">About</h4>
+            <h5 class="about-text mt-3">We believe that every traveller is unique. Hence we aim to provide 
+                unique accommodations to the users as per the requirements, preference and choice.</h5>
+            <p class="text">We are building the largest online marketplace of accommodation to help users find standardised accommodations through one touch technology, as per their requirements including short and long stays.</p>
+            <p class="text mb-30">Nam ornare lorem feugiat ligula aliquet lobortis ...</p>
+            <button class="btn btn-primary view-more-btn">View More [+]</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

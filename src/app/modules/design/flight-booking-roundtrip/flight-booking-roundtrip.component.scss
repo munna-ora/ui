@@ -1,0 +1,693 @@
+.header-image-slide{
+    margin-top: 76px;
+    img{
+        max-height: 320px;
+    }
+}
+.filter-container{
+    padding-top: 26px;
+    padding-bottom: 26px;
+    .flight-found{
+        display: flex;
+        span.icon{
+            background: url(../../../../assets/images/flight/flight-icon.png) no-repeat;
+            width: 37px;
+            height: 36px;
+            display: block;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+            line-height: 36px;
+            color: #231f20;
+            font-size: 14px;
+            font-family: latobold;
+            
+            span{
+                color: #f47921;
+            }
+        }
+    }
+}
+
+.flight-list-section{
+    .pt-24{
+        padding-top: 24px;
+    }
+    .flight-found{
+        display: flex;
+        padding: 20px 0;
+        span.icon{
+            background: url(../../../../assets/images/flight/flight-icon.png) no-repeat;
+            width: 37px;
+            height: 36px;
+            display: block;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+            line-height: 36px;
+            color: #231f20;
+            font-size: 14px;
+            font-family: latobold;
+            
+            span{
+                color: #f47921;
+            }
+        }
+    }
+    .flight-quick-search{
+        color: #130504;
+        .card-header{
+            background-color: #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            font-family: latobold;
+            font-size: 16px;
+            padding-top: 13px;
+            padding-bottom: 12px;
+            color: #130504;
+        }
+        .card-body{
+            padding-top: 0;
+            padding-bottom: 30px;
+            background-color: #e5e5e5;
+            .card-title{
+                font-size: 14px;
+            }
+        }
+        .flight-location{
+            .form-control{
+                border-right: 0;
+            }
+            .fromBox{
+                .input-group-text{
+                    background-color: #ffffff;
+                    border-right: 0;
+                    // border-color: #dee1e4;
+                }
+            }
+            .toBox{
+                .input-group-text{
+                    background-color: #ffffff;
+                    // border-color: #dee1e4;
+                }
+            }
+            .switch-location{
+                display: block;
+                background: url(../../../../assets/images/flight/flight_arrows.png) center center no-repeat;
+                background-size: 100%;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 10px;
+                left: calc(50% - 10px);
+                z-index: 999;
+                border: 1px solid #ccc;
+                border-radius: 50px;
+                background-color: #fff;
+            }
+        }
+        .calendar{
+            background: #fff !important;
+            color: #909396 !important;
+            border-color: #ced4da !important;
+            &:hover,&:focus,&:active{
+                color: #f57921 !important;
+            }
+        }
+        .checkin-pick{
+            border-left: none;
+            border-right: none;
+        }
+        .checkout-pick{
+            border-left: none;
+        }
+        .search-btn{
+            display: flex;
+            line-height: 17px;
+            font-size: 16px;
+            font-family: latobold;
+            float: right;
+            .search-icon{
+                background: url(../../../../assets/images/search-icon.png) center center no-repeat;
+                width: 17px;
+                height: 18px;
+                background-size: 100%;
+                margin-right: 10px;
+            }
+        }
+        .travellersDropdown{
+            width: 100%;
+            .btn.dropdown-toggle{
+                width: 100%;
+                text-align: left;
+                background-color: #fff;
+                border: 1px solid #dee1e4;
+                height: 40px;
+                border-right: 0;
+                color: #909396;
+                font-size: 14px;
+                &::after{
+                    position: absolute;
+                    right: 8px;
+                    top: 18px;
+                }
+            }
+            .dropdown-menu.show{
+                padding: 20px 10px !important;
+                top: 40px !important;
+                position: initial;
+                margin-top: -1px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border: 1px solid rgba(183, 181, 181, 0.15);
+                label.text{
+                    color: #484848;
+                    font-size: 14px;
+                    font-family: latobold;
+                    span{
+                        color: #c9c7c7;
+                    }
+                }
+                ::ng-deep{
+                    .ng-number-picker{
+                        .input-group{
+                            height: 30px !important;
+                            margin: 0 !important;
+                            padding: 0px;
+                            border: 1px solid #c7c7c7;
+                            border-radius: 5px;
+                            .form-control{
+                                height: 100%;
+                                width: 30px;
+                                display: inline-block;
+                                border: none;
+                                text-align: center;
+                                border-left: 1px solid #dee1e4;
+                                border-right: 1px solid #dee1e4;
+                                padding-left: 0;
+                                padding-right: 0;
+                            }
+                            .input-group-prepend {
+                                margin-right: 0px;
+                            }
+                            .input-group-text{
+                                width: 25px;
+                                height: 100%;
+                                font-size: 24px !important;
+                                line-height: 14px;
+                                text-align: center;
+                                border: 0;
+                                background: #ffffff;
+                                display: inline-block;
+                                border-radius: 3px !important;
+                                padding-left: 0;
+                                padding-right: 0;
+                                &.decrease {
+                                    font-size: 32px !important;
+                                    background-color: transparent;
+                                    color: #484848 !important;
+                                }
+                                &.increase{
+                                    color: #f47921 !important;
+                                    border-left: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+                label.radio-btn{
+                    font-family: latoitalic;
+                    font-size: 14px;
+                    color: #484848;
+                }
+            }
+        }
+    }
+    .filter-more-btn{
+        color: #f47921;
+        font-size: 12px;
+        font-family: latobold;
+    }
+    .flight-listing-area{
+        .left-panel-blue{
+            background-color: #3f6db8;
+            padding-left: 50px;
+            text-align: left;
+            position: relative;
+            .flight-icon-roundtrip{
+                background: url(../../../../assets/images/flight/flight-bullet-roundtrip.png) center center no-repeat;
+                display: block;
+                position: absolute;
+                bottom: 50px;
+                right: 0;
+                width: 300px;
+                height: 45px;
+                z-index: 111;
+                margin-right: -152px;
+                background-size: contain;;
+            }
+        }
+        .right-panel-blue{
+            background-color: #4878c2;
+            text-align: right;
+            padding-right: 30px;
+        }
+        .last-panel-blue{
+            background-color: #4878c2;
+            padding-right: 10px;
+            text-align: left;
+            padding: 0;
+            .filter-panel{
+                padding: 40px 5px 15px 15px;
+                .btn-filter{
+                    padding: 0;
+                    background-color: transparent;
+                    color: #fff;
+                    font-size: 12px;
+                    font-family: latobold;
+                }
+                .check-box{
+                    font-size: 12px;
+                    font-family: latoblack;
+                    color: #fff;
+                    margin-bottom: 0;
+                    padding-left: 20px;
+                    margin-right: 10px;
+                    .checkmark{
+                        border: 2px solid #ffffff;
+                        height: 15px;
+                        width: 15px;
+                        top: 2px;
+                        &::after {
+                            left: 3px;
+                            top: 0px;
+                            width: 5px;
+                            height: 8px;
+                            border: solid #ffffff;
+                            border-width: 0 2px 2px 0;
+                            -webkit-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+            .date-filter{
+                background-color: #fff;
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 10px 15px 10px 15px;
+                .text{
+                    padding: 0;
+                    margin: 0;
+                    font-size: 10px;
+                    font-family: latoblack;
+                    color: #c1c1c1;
+                }
+                .date-picker{
+                    font-size: 14px;
+                    font-family: latobold;
+                    color: #130504;
+                }
+                button{
+                    background: none;
+                    border: 0;
+                    padding: 0;
+                    margin: 0 0px 0px 10px;
+                    cursor: pointer;
+                    color: #c1c8d0;
+                    &:hover{
+                        color: #f47921;
+                    }
+                    .date-left-btn{
+    
+                    }
+                    .date-right-btn{
+    
+                    }
+                }
+            }
+        }
+        .h-top{
+            padding: 40px 0px 15px 0px;
+            span{
+                font-size: 12px;
+                font-family: latoblack;
+                color: #5f93e4;
+                text-transform: uppercase;
+            }
+        }
+        .h-bottom{
+            padding: 15px 0px 40px 0px;
+            h5{
+                font-size: 14px;
+                font-family: latobold;
+                color: #fff;
+                margin: 0;
+            }
+            span{
+                font-family: latoregular;
+                font-size: 10px;
+                color: #fff;
+                display: block;
+            }
+            small{
+                font-family: latoregular;
+                font-size: 12px;
+                color: #88b5ff;
+                display: block;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .list-flight{
+        margin-left: -15px;
+        .f-item{
+            width: 50%;
+            float: left;
+        }
+        .flight-card{
+            margin-right: 0px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 0px -1px #ebebeb;
+            margin: 0 30px 0px 50px;
+            &.first{
+                margin: 0;
+                margin-left: -15px;
+                .c-header{
+                    padding-left: 60px !important;
+                }
+                .c-body{
+                    padding-left: 60px !important;
+                }
+                .book-panel{
+                    .radio-btn{
+                        right: 50px !important;
+                    }
+                }
+            }
+            .sl-no{
+                font-family: latoregular;
+                font-size: 14px;
+                color: #484848;
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                z-index: 111;
+            }
+            .left-panel{
+                border: 1px solid #ebebeb;
+                padding: 0;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                .c-header{
+                    padding: 10px 20px;
+                    border-bottom: 1px solid #ebebeb;
+                    .f-logo{
+                        display: flex;
+                        padding-left: 5px;
+                        img{
+                            height: 25px;
+                            border-radius: 50px;
+                        }
+                        .f-name{
+                            font-family: latoregular;
+                            color: #484848;
+                            font-size: 11px;
+                            margin-left: 10px;
+                        }
+                    }
+                    .badge{
+                        font-size: 8px;
+                        font-family: latoblack;
+                        padding: 5px 7px;
+                        border-radius: 2px;
+                        margin: 0 2px;
+                        height: 20px;
+                        text-transform: uppercase;
+                    }
+                    .badge-gray{
+                        color: #fff;
+                        background-color: #a9abad;
+                    }
+                    .badge-outline{
+                        color: #999b9e;
+                        background-color: #ffffff;
+                        border: 1px solid #a9abad;
+                    }
+                    .btn-details{
+                        background-color: transparent;
+                        border: 0;
+                        outline: 0;
+                        font-size: 10px;
+                        font-family: latoblack;
+                        color: #c1c8d0;
+                    }
+                }
+                .c-body{
+                    padding: 10px 10px;
+                    .f-timing{
+                        padding: 10px 0;
+                        margin-bottom: 0;
+                        .dept-time, .arrvl-time{
+                            font-family: latobold;
+                            font-size: 12px;
+                            color: #231f20;
+                        }
+                        .flight-type {
+                            display: inline-block;
+                            width: 130px;
+                            height: 13px;
+                            margin: 0px 10px;
+                            &.direct-flight{
+                                background: url(../../../../assets/images/flight/direct-flight.png) center center no-repeat;
+                                background-size: cover;
+                            }
+                            &.one-stop{
+                                background: url(../../../../assets/images/flight/one-stop.png) center center no-repeat;
+                                background-size: contain;
+                            }
+                        }
+                    }
+                }
+            }
+            .right-panel{
+                border: 1px solid #ebebeb;
+                border-left: 0;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+                padding: 0;
+                .input-hidden{
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 999;
+                    cursor: pointer;
+                }
+                .book-panel{
+                    display: table;
+                    width: 100%;
+                    padding: 0 20px;
+                    height: 100%;
+                    border-bottom-right-radius: 5px;
+                    .class{
+                        font-family: latoitalic;
+                        color: #c1c8d0;
+                        font-size: 14px;
+                        margin-top: 35px;
+                        margin-bottom: 15px;
+                    }
+                    .p-from{
+                        display: block;
+                        font-size: 12px;
+                        color: #c1c8d0;
+                        font-family: latoregular;
+                    }
+                    .price{
+                        font-size: 18px;
+                        font-family: latobold;
+                        color: #5db5ff;
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+                    .radio-btn{
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        border-radius: 50px;
+                        border: 2px solid #ccc;
+                    }
+                }
+                input[type=radio]:hover + .book-panel{
+                    background-color: #5db5ff;
+                    .class{
+                        color: #ffffff;
+                    }
+                    .p-from{
+                        color: #ffffff;
+                    }
+                    .price{
+                        color: #ffffff;
+                    }
+                    .radio-btn{
+                        border: 2px solid #fff;
+                    }
+                }
+                input[type=radio]:checked + .book-panel {
+                    background-color: #5db5ff;
+                    .class{
+                        color: #ffffff;
+                    }
+                    .p-from{
+                        color: #ffffff;
+                    }
+                    .price{
+                        color: #ffffff;
+                    }
+                    .radio-btn{
+                        border: 2px solid #fff;
+                        &::before{
+                            height: 10px;
+                            width: 10px;
+                            position: absolute;
+                            content: ' ';
+                            display: inline-block;
+                            font-size: 12px;
+                            text-align: center;
+                            line-height: 20px;
+                            background: #ffffff;
+                            border-radius: 50px;
+                            top: 3px;
+                            left: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer-sticky-bar{
+        z-index: 999;
+        background-color: #ebebeb;
+        padding: 0px 20px;
+        margin: 0 -15px;
+        position: sticky;
+        bottom: 0;
+        .col-auto{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .flight-logo{
+            display: flex;
+            align-items: center;
+            img{
+                height: 30px;
+                border-radius: 50px;
+            }
+            p{
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 10px;
+                font-family: latobold;
+                color: #484848;
+                margin-bottom: 0;
+                span{
+                    display: block;
+                    padding: 0;
+                }
+            }
+        }
+        .dept-time, .arrvl-time{
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+            padding-left: 10px;
+            p{
+                font-size: 14px;
+                font-family: latoregular;
+                color: #484848;
+                line-height: 14px;
+                margin: 0;
+                span.s-name{
+                    font-family: latobold;
+                    color: #231f20;
+                }
+                span.date{
+                    font-size: 10px;
+                }
+            }
+        }
+        .arrvl-time{
+            padding-left: 25px;
+            padding-right: 10px;
+            // border-left: 1px solid #ccc;
+            i.fa{
+                position: absolute;
+                left: -7px;
+            }
+            
+        }
+        .details{
+            display: flex;
+            align-items: center;
+            padding-right: 30px;
+            padding-left: 15px;
+            .trip-icon{
+                background: url(../../../../assets/images/flight/one-way.png) center center no-repeat;
+                height: 25px;
+                width: 25px;
+                display: block;
+                border: 1px solid #ccc;
+                border-radius: 50px;
+                position: absolute;
+                right: -13px;
+                background-color: #ebebeb;
+                background-position: center 7px;
+            }
+            p{
+                line-height: 14px;
+                margin: 0;
+                text-align: right;
+            }
+            .d-btn{
+                font-size: 10px;
+                color: #f47921;
+                font-family: latoblack;
+            }
+            .price{
+                font-size: 18px;
+                color: #5db5ff;
+                font-family: latoblack;
+            }
+        }
+        .p-l-30{
+            padding-left: 30px;
+        }
+        .total-price{
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #ccc;
+            padding-left: 25px;
+            p.price{
+                font-family: latoblack;
+                font-size: 10px;
+                color: #130504;
+                display: inline-block;
+                margin: 0;
+                margin-right: 30px;
+                text-transform: uppercase;
+                span{
+                    font-size: 18px;
+                    color: #5db5ff;
+                    font-family: latoblack;
+                }
+            }
+        }
+    }
+}

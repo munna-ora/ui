@@ -1,0 +1,1928 @@
+<div class="listing-form" [formGroup]="addPropertyForm">
+  <form-wizard>
+    <wizard-step formGroupName="step1" [title]="'Step1'" [isValid]="addPropertyForm.get('step1').valid">
+      <h4 class="title">What type of property you are listing ?</h4>
+      <div class="d-flex text-center mt-30">
+        <div class="property-type">
+          <input type="radio" name="propertyType" id="homestay" value="homestay" class="input-hidden" formControlName="propertyType"/>
+          <label class="items" for="homestay">
+            <img src="assets/images/homestay-icon.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name">Homestay</p>
+        </div>
+        <div class="property-type">
+          <input type="radio" name="propertyType" id="guestHouse" value="guestHouse" class="input-hidden" formControlName="propertyType"/>
+          <label class="items" for="guestHouse">
+            <img src="assets/images/guesthouse-icon.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name">Guest house</p>
+        </div>
+        <div class="property-type">
+            <input type="radio" name="propertyType" id="hotel" value="hotel" class="input-hidden" formControlName="propertyType"/>
+          <label class="items" for="hotel">
+            <img src="assets/images/hotel-icon.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name">Hotel</p>
+        </div>
+        <div class="property-type">
+            <input type="radio" name="propertyType" id="payingGuest" value="payingGuest" class="input-hidden" formControlName="propertyType"/>
+          <label class="items" for="payingGuest">
+            <img src="assets/images/payingguest-icon.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name">Paying guest</p>
+        </div>
+      </div>
+    </wizard-step>
+    <!-- Step 2 -->                                 
+    <wizard-step formGroupName="step2" [title]="'Step2'" [isValid]="addPropertyForm.get('step2').valid">
+      <div *ngIf="addPropertyForm.get('step2').valid === false && addPropertyForm.get('step2').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+      </div>
+      <div class="row">
+          <div class="col-md-4 plr-5">
+            <div class="form-group bg-input">
+              <span class="icon i-property-name"></span>
+              <input type="text" class="form-control" placeholder="Property name" formControlName="name" [ngClass]="{'is-invalid': addPropertyForm.get('step2')['controls'].name.errors && addPropertyForm.get('step2')['controls'].name.touched}">
+            </div>
+          </div>
+          <div class="col-md-4 plr-5">
+            <div class="form-group bg-input">
+              <span class="icon i-property-address"></span>
+              <input type="text" class="form-control" placeholder="Property address" formControlName="address" [ngClass]="{'is-invalid': addPropertyForm.get('step2')['controls'].address.errors && addPropertyForm.get('step2')['controls'].address.touched}">
+            </div>
+          </div>
+          <div class="col-md-4 plr-5">
+            <div class="form-group bg-input">
+              <textarea class="form-control textarea" placeholder="Write propety description" formControlName="description" [ngClass]="{'is-invalid': addPropertyForm.get('step2')['controls'].description.errors && addPropertyForm.get('step2')['controls'].description.touched}"></textarea>
+            </div>
+          </div>
+          <!-- <div class="col-md-6">
+
+          </div> -->
+        </div>
+    </wizard-step>
+    <!-- / Step 2 --> 
+    <!-- / Step 3 --> 
+    <wizard-step formGroupName="step3" [title]="'Step3'" [isValid]="addPropertyForm.get('step3').valid">
+        <div *ngIf="addPropertyForm.get('step3').valid === false && addPropertyForm.get('step3').touched" class="alert alert-danger"> 
+            <div>All fields are required</div>
+        </div>
+        <div class="form-group bg-input d-flex align-items-center mb-3">
+          <span class="icon i-guest-access"></span>
+          <input type="text" class="form-control ml-20" placeholder="Mention guest access areas " formControlName="guestAccess" [ngClass]="{'is-invalid': addPropertyForm.get('step3')['controls'].guestAccess.errors && addPropertyForm.get('step3')['controls'].guestAccess.touched}">
+          <!-- <tag-input class="tag-input" [(ngModel)]='guestAccess' secondary-placeholder="+ access" placeholder="+ access"></tag-input> -->
+        </div>
+        <div class="form-group bg-input d-flex align-items-center mb-3">
+          <span class="icon i-nearby"></span>
+          <input type="text" class="form-control ml-20" placeholder="Enter Nearby Places" formControlName="places" [ngClass]="{'is-invalid': addPropertyForm.get('step3')['controls'].places.errors && addPropertyForm.get('step3')['controls'].places.touched}">
+          <!-- <tag-input class="tag-input" [(ngModel)]='nearbyPlaces' secondary-placeholder="+ nearby place" placeholder="+ nearby place"></tag-input> -->
+        </div>
+    </wizard-step>
+    <!-- / Step 3 --> 
+    <!-- Step 4 -->                 
+    <wizard-step formGroupName="step4" [title]="'Step4'" [isValid]="addPropertyForm.get('step4').valid">
+        <div *ngIf="addPropertyForm.get('step4').valid === false && addPropertyForm.get('step4').touched" class="alert alert-danger"> 
+            <div>All fields are required</div>
+        </div>
+      <h4 class="title">Select Space Rules:</h4>
+        <div class="d-flex text-center mt-15">
+          <div class="property-type">
+            <input type="radio" name="ruleName" id="couple" value="couple" class="input-hidden" formControlName="ruleName" />
+            <label class="items" for="couple">
+              <img src="assets/images/elements/couplefriendly.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Couple Friendly</p>
+          </div>
+          <div class="property-type">
+              <input type="radio" name="ruleName" id="pet" value="pet" class="input-hidden" formControlName="ruleName" />
+            <label class="items" for="pet">
+              <img src="assets/images/elements/pet.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Pet friendly</p>
+          </div>
+          <div class="property-type">
+              <input type="radio" name="ruleName" id="smoking" value="smoking" class="input-hidden" formControlName="ruleName" />
+            <label class="items" for="smoking">
+              <img src="assets/images/elements/smoking.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Smoking</p>
+          </div>
+          <div class="property-type">
+              <input type="radio" name="ruleName" id="alcohol" value="alcohol" class="input-hidden" formControlName="ruleName" />
+            <label class="items" for="alcohol">
+              <img src="assets/images/elements/alcohol.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Alcohol</p>
+          </div>
+        </div>
+        <h4 class="title mt-4">Select special experiences:</h4>
+        <div class="form-group bg-input">
+          <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Special experience'" [data]="specialExperienceList" [settings]="dropdownSettings" name="specialExperience" formControlName="specialExperience"></ng-multiselect-dropdown>
+        </div>
+    </wizard-step>
+    <!-- / Step 4 --> 
+    <!-- Step 5 -->       
+    <wizard-step formGroupName="step5" [title]="'Step5'" [isValid]="addPropertyForm.get('step5').valid">
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="title">Check in time:</h4>
+            <div class="form-group">
+              <ngb-timepicker [meridian]="meridian" formControlName="checkInTime"></ngb-timepicker>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">Check out time: </h4>
+            <div class="form-group">
+              <ngb-timepicker [meridian]="meridian" formControlName="checkOutTime"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+        <h4 class="title">Strict check in: </h4>
+        <div class="form-group">
+          <div class="form-group toggle-radio-btn">
+            <input id="strict-check-on" class="toggle toggle-left" name="strictCheckIn" value="yes" type="radio" formControlName="strictCheckIn">
+            <label for="strict-check-on" class="toggle-btn p-0">Yes</label>
+            <input id="strict-check-off" class="toggle toggle-right" name="strictCheckIn" value="no" type="radio" formControlName="strictCheckIn">
+            <label for="strict-check-off" class="toggle-btn p-0">No</label>
+          </div>
+        </div>
+    </wizard-step>
+    <!-- / Step 5 --> 
+    <!-- Step 6 -->    
+    <wizard-step formGroupName="step6" [title]="'Step6'" [isValid]="addPropertyForm.get('step6').valid">
+        <h4 class="title">Upload cover photo:</h4>
+        <div class="form-group bg-input d-flex align-items-center mb-3">
+          <span class="icon i-upload-one"></span>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input ml-20" id="coverPhoto" (change)="onCoverImgChange($event)" >
+            <input type="hidden" formControlName="coverPhotoImg"/>
+            <label class="custom-file-label" for="coverPhoto">
+              <ng-template [ngIf]="addPropertyForm.get('step6')['controls'].coverPhotoImg.value !== ''">
+                  {{addPropertyForm.get('step6')['controls'].coverPhotoImg.value}}
+              </ng-template> 
+              <ng-template [ngIf]="addPropertyForm.get('step6')['controls'].coverPhotoImg.value === ''">
+                  Choose file
+              </ng-template> 
+            </label>
+          </div>
+        </div>
+        <h4 class="title">Upload more photos:</h4>
+        <div class="form-group bg-input d-flex align-items-center mb-3">
+          <span class="icon i-upload-multi"></span>
+          <div class="custom-file">
+            <input type="file" multiple class="custom-file-input ml-20" id="morePhotoFile" (change)="onMorePhotoChange($event)">
+            <input type="hidden" formControlName="morePhotoImgs"/>
+            <label class="custom-file-label" for="morePhotoFile">
+                <ng-template [ngIf]="addPropertyForm.get('step6')['controls'].morePhotoImgs.value !== ''">
+                    {{addPropertyForm.get('step6')['controls'].morePhotoImgs.value}}
+                </ng-template> 
+                <ng-template [ngIf]="addPropertyForm.get('step6')['controls'].morePhotoImgs.value === ''">
+                    Choose file
+                </ng-template> 
+            </label>
+          </div>
+        </div>
+    </wizard-step>
+    <!-- / Step 6 -->  
+    <!-- Step 7 -->    
+    <wizard-step formGroupName="step7" [title]="'Step7'" [isValid]="addPropertyForm.get('step7').valid">
+        <h4 class="title">Do you want to list entire apartment? </h4>
+        <div class="form-group toggle-radio-btn text-center mt-2">
+          <input id="entire-apart-on" class="toggle toggle-left" name="entireApartment" value="Y" type="radio" formControlName="entireApartment">
+          <label for="entire-apart-on" class="toggle-btn">Yes</label>
+          <input id="entire-apart-off" class="toggle toggle-right" name="entireApartment" value="N" type="radio" formControlName="entireApartment">
+          <label for="entire-apart-off" class="toggle-btn">No</label>
+        </div>
+    </wizard-step>
+    <!-- / Step 7 --> 
+    <!-- Step 8 -->   
+    <wizard-step formGroupName="step8" [title]="'Step8'" [isValid]="addPropertyForm.get('step8').valid">
+        <div *ngIf="addPropertyForm.get('step8').valid === false && addPropertyForm.get('step8').touched" class="alert alert-danger"> 
+            <div>All fields are required</div>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col-md-5 plr-5">
+          <div class="form-group bg-input">
+            <span class="icon i-appartment-name"></span>
+            <input type="text" class="form-control" placeholder="Enter apartment name" formControlName="apartmentName" [ngClass]="{'is-invalid': addPropertyForm.get('step8')['controls'].apartmentName.errors && addPropertyForm.get('step8')['controls'].apartmentName.touched}">
+          </div>
+        </div>
+        <div class="col-md-5 plr-5">
+          <div class="form-group bg-input">
+            <span class="icon i-appartment-number"></span>
+            <input type="text" class="form-control" placeholder="Enter apartment number" formControlName="apartmentNumber" [ngClass]="{'is-invalid': addPropertyForm.get('step8')['controls'].apartmentNumber.errors && addPropertyForm.get('step8')['controls'].apartmentNumber.touched}">
+          </div>
+        </div>
+      </div>
+    </wizard-step>
+    <!-- / Step 8 --> 
+    <!-- Step 9 -->   
+    <wizard-step formGroupName="step9" [title]="'Step9'" [isValid]="addPropertyForm.get('step9').valid">
+        <h4 class="title">Select stay type: </h4>
+        <div class="d-flex text-center mt-15">
+          <div class="property-type">
+            <input type="radio" name="stayTypeName" id="longTerm" class="input-hidden" formControlName="stayTypeName" value="Long Term"/>
+            <label class="items" for="longTerm">
+              <img src="assets/images/elements/long-term.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Long Term</p>
+          </div>
+          <div class="property-type">
+            <input type="radio" name="stayTypeName" id="shortTerm" class="input-hidden" formControlName="stayTypeName" value="Short Term"/>
+            <label class="items" for="shortTerm">
+              <img src="assets/images/elements/shortTerm.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Short Term</p>
+          </div>
+          <div class="property-type">
+            <input type="radio" name="stayTypeName" id="bothTerm" class="input-hidden" formControlName="stayTypeName" value="Both"/>
+            <label class="items" for="bothTerm">
+              <img src="assets/images/elements/both-term.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Both</p>
+          </div>
+        </div>
+    </wizard-step>
+    <!-- / Step 9 --> 
+    <!-- Step 10 -->   
+    <wizard-step formGroupName="step10" [title]="'Step10'" [isValid]="addPropertyForm.get('step10').valid">
+      <h4 class="title">Select sex category: </h4>
+      <div class="d-flex text-center mt-15">
+        <div class="property-type">
+          <input type="radio" name="sexCategory" id="sMale" class="input-hidden" value="Male" formControlName="sexCategory"/>
+          <label class="items" for="sMale">
+            <img src="assets/images/elements/male.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name mt-0">Male</p>
+        </div>
+        <div class="property-type">
+          <input type="radio" name="sexCategory" id="sFemale" class="input-hidden" value="Female" formControlName="sexCategory"/>
+          <label class="items" for="sFemale">
+            <img src="assets/images/elements/female.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name mt-0">Female</p>
+        </div>
+        <div class="property-type">
+          <input type="radio" name="sexCategory" id="sBoth" class="input-hidden" value="Both" formControlName="sexCategory"/>
+          <label class="items" for="sBoth">
+            <img src="assets/images/elements/both.png" alt="">
+            <span class="item-checked"></span>
+          </label>
+          <p class="name mt-0">Both</p>
+        </div>
+      </div>
+    </wizard-step>
+    <!-- / Step 10 --> 
+    <!-- Step 11 --> 
+    <wizard-step formGroupName="step11" [title]="'Step11'" [isValid]="addPropertyForm.get('step11').valid">
+      <h4 class="title">Do you have multiple rooms? </h4>
+      <div class="form-group toggle-radio-btn text-center mt-2">
+        <input id="multi-room-on" class="toggle toggle-left" name="multipleRoom" value="true" type="radio" formControlName="multipleRoom">
+        <label for="multi-room-on" class="toggle-btn">Yes</label>
+        <input id="multi-room-off" class="toggle toggle-right" name="multipleRoom" value="false" type="radio" formControlName="multipleRoom">
+        <label for="multi-room-off" class="toggle-btn">No</label>
+      </div>
+    </wizard-step>
+    <!-- / Step 11 --> 
+    <!-- Step 12 -->                   
+    <wizard-step formGroupName="step12" [title]="'Step12'" [isValid]="addPropertyForm.get('step12').valid">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="title">Select Accommodation Type: </h4>
+          <div class="d-flex text-center mt-15">
+            <div class="property-type">
+              <input type="radio" name="accommodationName" id="privateRoom" class="input-hidden" value="PRIVATE" formControlName="accommodationName"/>
+              <label class="items" for="privateRoom">
+                <img src="assets/images/elements/private-room.png" alt="">
+                <span class="item-checked"></span>
+              </label>
+              <p class="name mt-0">Private</p>
+            </div>
+            <div class="property-type">
+              <input type="radio" name="accommodationName" id="sharedRoom" class="input-hidden" value="SHARED" formControlName="accommodationName"/>
+              <label class="items" for="sharedRoom">
+                <img src="assets/images/elements/shared-room.png" alt="">
+                <span class="item-checked"></span>
+              </label>
+              <p class="name mt-0">Shared</p> 
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <h4 class="title">Total Rooms:</h4>
+            <ng-number-picker class="ng-number-picker mt-25" [(value)]="totalRoomsVal" (valueChange)="updateRoomCount($event)"></ng-number-picker>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-8">
+          <h4 class="title text-center">Select Room Category: </h4>
+          <div class="form-group bg-input h-auto">
+            <select class="form-control" formControlName="roomCategory">
+              <option value="cat1">Cat 1</option>
+              <option value="cat2">Cat 2</option>
+              <option value="cat3">Cat 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <select class="form-control">
+          <option value="">Cat 1</option>
+          <option value="">Cat 2</option>
+          <option value="">Cat 3</option>
+        </select>
+      </div> -->
+      <!-- <div class="form-group">
+        <label for="" class="mr-30">Total Rooms:</label>
+        <ng-number-picker class="ng-number-picker"></ng-number-picker>
+      </div> -->
+    </wizard-step>
+    <!-- / Step 12 --> 
+    <!-- Step 13 -->                   
+    <wizard-step formGroupName="step13" [title]="'Step13'" [isValid]="addPropertyForm.get('step13').valid">
+      <h4 class="title">Select specialities:</h4>
+      <div class="form-group bg-input">
+        <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Select specialities'" [data]="specialitiesList" formControlName="specialities" [settings]="dropdownSettings" name="specialities"></ng-multiselect-dropdown>
+      </div>
+
+      <h4 class="title mt-4">Select amenities:</h4>
+      <div class="form-group bg-input">
+        <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Select amenities'" [data]="amenitiesList" formControlName="amenities" [settings]="dropdownSettings" name="amenities"></ng-multiselect-dropdown>
+      </div>
+    </wizard-step>
+    <!-- Step 13 --> 
+    <!-- Step 14 -->  
+    <wizard-step formGroupName="step14" [title]="'Step14'" [isValid]="addPropertyForm.get('step14').valid">
+        <h4 class="title">Upload room images:</h4>
+        <div class="form-group bg-input d-flex align-items-center mb-3">
+          <span class="icon i-upload-one"></span>
+          <div class="custom-file">
+            <input type="file" multiple class="custom-file-input ml-20" id="roomImages" name="filename" (change)="onMoreUploadRoomImages($event)">
+            <input type="hidden" formControlName="roomVsImages"/>
+            <label class="custom-file-label" for="roomImages">
+                <ng-template [ngIf]="addPropertyForm.get('step14')['controls'].roomVsImages.value !== ''">
+                    {{addPropertyForm.get('step14')['controls'].roomVsImages.value}}
+                </ng-template> 
+                <ng-template [ngIf]="addPropertyForm.get('step14')['controls'].roomVsImages.value === ''">
+                    Choose file
+                </ng-template>
+            </label>
+          </div>
+        </div>
+      </wizard-step>
+     <!-- / Step 14 -->  
+
+     <!-- Step 15 -->  
+      <wizard-step formGroupName="step15" [title]="'Step15'" [isValid]="addPropertyForm.get('step15').valid">
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="title fs-18">Number of adults: </h4>
+            <div class="form-group">
+              <ng-number-picker class="ng-number-picker" [(value)]="addPropertyForm.get('step15')['controls'].noOfGuest.value" (valueChange)="updateAdultCount($event)"></ng-number-picker>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="title fs-18">Number of Child: </h4>
+            <div class="form-group">
+              <ng-number-picker class="ng-number-picker" [(value)]="addPropertyForm.get('step15')['controls'].noOfChild.value" (valueChange)="updateChildCount($event)"></ng-number-picker>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="title fs-18">Do you allow extra cot? </h4>
+            <div class="form-group mt-3 mb-0">
+              <div class="form-group toggle-radio-btn">
+                <input id="extraCot-on" class="toggle toggle-left" name="cotAvailable" value="Y" type="radio" formControlName="cotAvailable">
+                <label for="extraCot-on" class="toggle-btn p-0">Yes</label>
+                <input id="extraCot-off" class="toggle toggle-right" name="cotAvailable" value="N" type="radio" formControlName="cotAvailable">
+                <label for="extraCot-off" class="toggle-btn p-0">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="title fs-18">Number Of COT allowed: </h4>
+            <div class="form-group">
+              <ng-number-picker class="ng-number-picker" [(value)]="addPropertyForm.get('step15')['controls'].numOfCot.value" (valueChange)="updateCotCount($event)"></ng-number-picker>
+            </div>
+          </div>
+        </div>
+      </wizard-step>
+     <!-- / Step 15 -->  
+
+      <!-- Step 16 -->  
+      <wizard-step formGroupName="step16" [title]="'Step16'" [isValid]="addPropertyForm.get('step16').valid">
+        <h4 class="title">Select your meal plan: </h4>
+        <div class="d-flex text-center mt-15">
+          <div class="property-type">
+            <input type="radio" name="sexCategory" id="dailyMeal" class="input-hidden" checked/>
+            <label class="items" for="dailyMeal">
+              <img src="assets/images/elements/daily-meal.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Daily</p>
+          </div>
+          <div class="property-type">
+            <input type="radio" name="sexCategory" id="weeklyMeal" class="input-hidden" />
+            <label class="items" for="weeklyMeal">
+              <img src="assets/images/elements/weekly-meal.png" alt="">
+              <span class="item-checked"></span>
+            </label>
+            <p class="name mt-0">Weekly</p>
+          </div>
+        </div>
+      </wizard-step>
+      <!-- / Step 16 -->  
+
+       <!-- Step 17 -->  
+      <wizard-step formGroupName="step17" [title]="'Step17'" [isValid]="addPropertyForm.get('step17').valid">
+        <h4 class="title">Meal plan: </h4>
+        <div class="mealAccordian">
+          <ngb-accordion #mealAcc="ngbAccordion" [closeOthers]="true">
+            <ngb-panel title="Monday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Tuesday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Wednesday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Thusday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Friday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Saturday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Sunday">
+              <ng-template ngbPanelContent>
+                <table class="table table-bordered meal-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-left p-l-15">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-left p-l-15">
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </wizard-step>
+       <!-- / Step 17 -->  
+
+       <!-- Step 18 -->  
+       <wizard-step formGroupName="step18" [title]="'Step18'" [isValid]="addPropertyForm.get('step18').valid">
+        <div *ngIf="addPropertyForm.get('step18').valid === false && addPropertyForm.get('step18').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="title">Price per night: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-inr" aria-hidden="true"></i></div>
+                </div>
+                <input type="text" class="form-control" placeholder="Amount" formControlName="roomPricePerNight" [ngClass]="{'is-invalid': addPropertyForm.get('step18')['controls'].roomPricePerNight.errors && addPropertyForm.get('step18')['controls'].roomPricePerNight.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerNight.errors && addPropertyForm.get('step18')['controls'].roomPricePerNight.touched"> 
+                <div *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerNight.errors.required">Enter Room Price per Night</div>
+                <div *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerNight.errors.pattern">Enter number</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">Price per month: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-inr" aria-hidden="true"></i></div>
+                </div>
+                <input type="text" class="form-control" placeholder="Amount" formControlName="roomPricePerMonth" [ngClass]="{'is-invalid': addPropertyForm.get('step18')['controls'].roomPricePerMonth.errors && addPropertyForm.get('step18')['controls'].roomPricePerMonth.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerMonth.errors && addPropertyForm.get('step18')['controls'].roomPricePerMonth.touched"> 
+                <div *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerMonth.errors.required">Enter Room Price per Month</div>
+                <div *ngIf="addPropertyForm.get('step18')['controls'].roomPricePerMonth.errors.pattern">Enter number</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">COT price: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-inr" aria-hidden="true"></i></div>
+                </div>
+                <input type="text" class="form-control" placeholder="Amount" formControlName="cotPrice" [ngClass]="{'is-invalid': addPropertyForm.get('step18')['controls'].cotPrice.errors && addPropertyForm.get('step18')['controls'].cotPrice.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step18')['controls'].cotPrice.errors && addPropertyForm.get('step18')['controls'].cotPrice.touched"> 
+                <div *ngIf="addPropertyForm.get('step18')['controls'].cotPrice.errors.required">Enter Cot Price</div>
+                <div *ngIf="addPropertyForm.get('step18')['controls'].cotPrice.errors.pattern">Enter number</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">Commission: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">%</div>
+                </div>
+                <input type="text" class="form-control" placeholder="Amount" formControlName="commission" [ngClass]="{'is-invalid': addPropertyForm.get('step18')['controls'].commission.errors && addPropertyForm.get('step18')['controls'].commission.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step18')['controls'].commission.errors && addPropertyForm.get('step18')['controls'].commission.touched"> 
+                <div *ngIf="addPropertyForm.get('step18')['controls'].commission.errors.required">Enter Commision</div>
+                <div *ngIf="addPropertyForm.get('step18')['controls'].commission.errors.pattern">Enter number</div>
+                <div *ngIf="addPropertyForm.get('step18')['controls'].commission.errors.max">Percentage should not be greater than 100</div>
+            </div> -->
+          </div>
+        </div>
+      </wizard-step>
+       <!-- / Step 18 -->  
+      
+       <!-- Step 19 -->  
+      <wizard-step formGroupName="step19" [title]="'Step19'" [isValid]="addPropertyForm.get('step19').valid">
+        <div *ngIf="addPropertyForm.get('step19').valid === false && addPropertyForm.get('step19').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="title">Discount weekly: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">%</div>
+                </div>
+                <input type="text" class="form-control" placeholder="Percentage" formControlName="hostDiscountWeekly" [ngClass]="{'is-invalid': addPropertyForm.get('step19')['controls'].hostDiscountWeekly.errors && addPropertyForm.get('step19')['controls'].hostDiscountWeekly.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountWeekly.errors && addPropertyForm.get('step19')['controls'].hostDiscountWeekly.touched"> 
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountWeekly.errors.required">Enter Weekly Discount</div>
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountWeekly.errors.pattern">Enter number</div>
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountWeekly.errors.max">Percentage should not be greater than 100</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">Discount monthly: </h4>
+            <div class="form-group bg-input h-auto mb-15">
+              <div class="input-gp input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">%</div>
+                </div>
+                <input type="text" class="form-control" placeholder="Percentage" formControlName="hostDiscountMonthly" [ngClass]="{'is-invalid': addPropertyForm.get('step19')['controls'].hostDiscountMonthly.errors && addPropertyForm.get('step19')['controls'].hostDiscountMonthly.touched}">
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountMonthly.errors && addPropertyForm.get('step19')['controls'].hostDiscountMonthly.touched"> 
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountMonthly.errors.required">Enter Monthly Commision</div>
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountMonthly.errors.pattern">Enter number</div>
+                <div *ngIf="addPropertyForm.get('step19')['controls'].hostDiscountMonthly.errors.max">Percentage should not be greater than 100</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <h4 class="title">Price Drop? </h4>
+            <div class="form-group">
+              <div class="form-group toggle-radio-btn">
+                <input id="priceDrop-on" class="toggle toggle-left" name="priceDrop" value="Y" type="radio" formControlName="priceDrop">
+                <label for="priceDrop-on" class="toggle-btn p-0">Yes</label>
+                <input id="priceDrop-off" class="toggle toggle-right" name="priceDrop" value="N" type="radio" formControlName="priceDrop">
+                <label for="priceDrop-off" class="toggle-btn p-0">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </wizard-step>
+       <!-- / Step 19 -->  
+
+      <!-- Step 20 -->  
+      <wizard-step formGroupName="step20" [title]="'Step20'" [isValid]="addPropertyForm.get('step20').valid">
+        <div *ngIf="addPropertyForm.get('step20').valid === false && addPropertyForm.get('step20').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <h4 class="title">Cancellation policy:</h4>
+        <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+          <label class="f-label">Before 24 hours</label>
+          <div class="input-gp input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">%</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Percentage" formControlName="cancellationSlab1" [ngClass]="{'is-invalid': addPropertyForm.get('step20')['controls'].cancellationSlab1.errors && addPropertyForm.get('step20')['controls'].cancellationSlab1.touched}">
+          </div>
+        </div>
+        <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors && addPropertyForm.get('step20')['controls'].cancellationSlab1.touched"> 
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.required">Enter Percentage</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.pattern">Enter number</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.max">Percentage should not be greater than 100</div>
+        </div> -->
+        <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+          <label class="f-label">Before 48 hours</label>
+          <div class="input-gp input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">%</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Percentage" formControlName="cancellationSlab2" [ngClass]="{'is-invalid': addPropertyForm.get('step20')['controls'].cancellationSlab2.errors && addPropertyForm.get('step20')['controls'].cancellationSlab2.touched}">
+          </div>
+        </div>
+        <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors && addPropertyForm.get('step20')['controls'].cancellationSlab1.touched"> 
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.required">Enter Percentage</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.pattern">Enter number</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab1.errors.max">Percentage should not be greater than 100</div>
+        </div> -->
+        <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+          <label class="f-label">Before 72 hours</label>
+          <div class="input-gp input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">%</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Percentage" formControlName="cancellationSlab3" [ngClass]="{'is-invalid': addPropertyForm.get('step20')['controls'].cancellationSlab3.errors && addPropertyForm.get('step20')['controls'].cancellationSlab3.touched}">
+          </div>
+        </div>
+        <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab3.errors && addPropertyForm.get('step20')['controls'].cancellationSlab3.touched"> 
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab3.errors.required">Enter Percentage</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab3.errors.pattern">Enter number</div>
+            <div *ngIf="addPropertyForm.get('step20')['controls'].cancellationSlab3.errors.max">Percentage should not be greater than 100</div>
+        </div> -->
+      </wizard-step>
+      <!-- / Step 20 -->  
+      
+      <!-- Step 21 -->  
+      <wizard-step formGroupName="step21" [title]="'Step21'" [isValid]="addPropertyForm.get('step21').valid">
+        <div *ngIf="addPropertyForm.get('step21').valid === false && addPropertyForm.get('step21').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <h4 class="title">Bank details</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <input type="text" class="form-control" placeholder="Account number" formControlName="accountNumber" [ngClass]="{'is-invalid': addPropertyForm.get('step21')['controls'].accountNumber.errors && addPropertyForm.get('step21')['controls'].accountNumber.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step21')['controls'].accountNumber.errors && addPropertyForm.get('step21')['controls'].accountNumber.touched"> 
+                <div>Enter Account number</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <input type="text" class="form-control" placeholder="Full name" formControlName="accountHolderName" [ngClass]="{'is-invalid': addPropertyForm.get('step21')['controls'].accountHolderName.errors && addPropertyForm.get('step21')['controls'].accountHolderName.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step21')['controls'].accountHolderName.errors && addPropertyForm.get('step21')['controls'].accountHolderName.touched"> 
+                <div>Enter Full name</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <select class="form-control" formControlName="accountType">
+                <option value="Saving">Saving Account</option>
+                <option value="Current">Current Account</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <input type="text" class="form-control" placeholder="Bank name" formControlName="bankName" [ngClass]="{'is-invalid': addPropertyForm.get('step21')['controls'].bankName.errors && addPropertyForm.get('step21')['controls'].bankName.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step21')['controls'].bankName.errors && addPropertyForm.get('step21')['controls'].bankName.touched"> 
+                <div>Enter Bank Name</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <input type="text" class="form-control" placeholder="Branch name" formControlName="branchName" [ngClass]="{'is-invalid': addPropertyForm.get('step21')['controls'].branchName.errors && addPropertyForm.get('step21')['controls'].branchName.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step21')['controls'].branchName.errors && addPropertyForm.get('step21')['controls'].branchName.touched"> 
+                <div>Enter Branch Name</div>
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group bg-input h-auto mb-15">
+              <input type="text" class="form-control" placeholder="IFSC code" formControlName="ifscCode" [ngClass]="{'is-invalid': addPropertyForm.get('step21')['controls'].ifscCode.errors && addPropertyForm.get('step21')['controls'].ifscCode.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step21')['controls'].ifscCode.errors && addPropertyForm.get('step21')['controls'].ifscCode.touched"> 
+                <div>Enter IFSC code</div>
+            </div> -->
+          </div>
+        </div>
+      </wizard-step>
+      <!-- / Step 21 -->  
+
+      <!-- Step 22 -->  
+      <wizard-step formGroupName="step22" [title]="'Step22'" [isValid]="addPropertyForm.get('step22').valid">
+        <div *ngIf="addPropertyForm.get('step22').valid === false && addPropertyForm.get('step22').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <h4 class="title">Upload Documents</h4>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+              <label class="f-label">Document type</label>
+              <select class="form-control" formControlName="documentName">
+                <option value="">Select document type</option>
+                <option value="PAN CARD">Pan Card</option>
+                <option value="AADHAR">Aadhar Card</option>
+              </select>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step22')['controls'].documentName.errors && addPropertyForm.get('step22')['controls'].documentName.touched"> 
+                <div>Select Document Type</div>
+            </div> -->
+          </div>
+          <div class="col-md-12">
+            <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+              <label class="f-label">Document number</label>
+              <input type="text" class="form-control" placeholder="Document ID" formControlName="documentNumber" [ngClass]="{'is-invalid': addPropertyForm.get('step22')['controls'].documentNumber.errors && addPropertyForm.get('step22')['controls'].documentNumber.touched}">
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step22')['controls'].documentNumber.errors && addPropertyForm.get('step22')['controls'].documentNumber.touched"> 
+                <div>Enter Document Number</div>
+            </div> -->
+          </div>
+          <div class="col-md-12">
+            <div class="form-group bg-input d-flex align-items-center mb-3">
+              <span class="icon i-upload-one"></span>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input ml-20" id="documentUpload" (change)="onDocumentUpload($event)">
+                <input type="hidden" formControlName="documentFile"/>
+                <label class="custom-file-label" for="documentUpload">
+                    <ng-template [ngIf]="addPropertyForm.get('step22')['controls'].documentFile.value !== ''">
+                        {{addPropertyForm.get('step22')['controls'].documentFile.value}}
+                    </ng-template> 
+                    <ng-template [ngIf]="addPropertyForm.get('step22')['controls'].documentFile.value === ''">
+                        Choose file
+                    </ng-template>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </wizard-step>
+      <!-- / Step 22 -->  
+      
+      <!-- Step 23 -->  
+      <wizard-step formGroupName="step23" [title]="'Step23'" [isValid]="addPropertyForm.get('step23').valid">
+        <div *ngIf="addPropertyForm.get('step23').valid === false && addPropertyForm.get('step23').touched" class="alert alert-danger"> 
+          <div>All fields are required</div>
+        </div>
+        <h4 class="title">Business start & end date</h4>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+              <label for="" class="f-label">Start date:</label>
+              <div class="input-group">
+                <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                        name="bstartDate" ngbDatepicker #bstartDate="ngbDatepicker" (click)="bstartDate.toggle()" formControlName="startDate" [ngClass]="{'is-invalid': addPropertyForm.get('step23')['controls'].startDate.errors && addPropertyForm.get('step23')['controls'].startDate.touched}">
+                <div class="input-group-append">
+                  <button class="btn calendar checkin-pick" (click)="bstartDate.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step23')['controls'].startDate.errors && addPropertyForm.get('step23')['controls'].startDate.touched"> 
+                <div>Select Start Date</div>
+            </div> -->
+          </div>
+          <div class="col-md-12">
+            <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+              <label for="" class="f-label">End date:</label>
+              <div class="input-group">
+                <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                        name="bendDate" ngbDatepicker #bendDate="ngbDatepicker" (click)="bendDate.toggle()" formControlName="endDate" [ngClass]="{'is-invalid': addPropertyForm.get('step23')['controls'].endDate.errors && addPropertyForm.get('step23')['controls'].endDate.touched}">
+                <div class="input-group-append">
+                  <button class="btn calendar checkout-pick" (click)="bendDate.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step23')['controls'].endDate.errors && addPropertyForm.get('step23')['controls'].endDate.touched"> 
+                <div>Select End Date</div>
+            </div> -->
+          </div>
+        </div>
+      </wizard-step>
+      <!-- / Step 23 -->  
+      
+      <!-- Step 24 -->  
+      <wizard-step formGroupName="step24" [title]="'Step24'" [isValid]="addPropertyForm.get('step24').valid" (onComplete)="submitPropertyForm()">
+        <div [ngSwitch]="isCompleted">
+          <div *ngSwitchDefault>
+            <div *ngIf="addPropertyForm.get('step24').valid === false && addPropertyForm.get('step24').touched" class="alert alert-danger"> 
+              <div>All fields are required</div>
+            </div>
+            <h4 class="title">Provide additional information</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group bg-input d-flex align-items-center mb-3">
+                  <input type="text" class="form-control" placeholder="Contact person name" formControlName="contactName" [ngClass]="{'is-invalid': addPropertyForm.get('step24')['controls'].contactName.errors && addPropertyForm.get('step24')['controls'].contactName.touched}">
+                </div>
+                <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step24')['controls'].contactName.errors && addPropertyForm.get('step24')['controls'].contactName.touched"> 
+                    <div>Enter Contact Name</div>
+                </div> -->
+              </div>
+              <div class="col-md-6">
+                <div class="form-group bg-input d-flex align-items-center mb-3">
+                  <input type="text" class="form-control" placeholder="Alternative mobile number" formControlName="altMobile" [ngClass]="{'is-invalid': addPropertyForm.get('step24')['controls'].altMobile.errors && addPropertyForm.get('step24')['controls'].altMobile.touched}">
+                </div>
+                <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step24')['controls'].altMobile.errors && addPropertyForm.get('step24')['controls'].altMobile.touched"> 
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].altMobile.errors.required">Enter Alternate Mobile Number</div>
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].altMobile.errors.pattern || addPropertyForm.get('step24')['controls'].altMobile.errors.maxLength">Enter a valid Mobile Number</div>
+                </div> -->
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="form-group bg-input d-flex align-items-center mb-3">
+                  <input type="text" class="form-control" placeholder="Landline number" formControlName="landline" [ngClass]="{'is-invalid': addPropertyForm.get('step24')['controls'].landline.errors && addPropertyForm.get('step24')['controls'].landline.touched}">
+                </div>
+                <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step24')['controls'].landline.errors && addPropertyForm.get('step24')['controls'].landline.touched"> 
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].landline.errors.required">Enter Landline Number</div>
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].landline.errors.pattern">Enter a valid Landline Number</div>
+                </div> -->
+              </div>
+              <div class="col-md-6">
+                <div class="form-group bg-input d-flex align-items-center mb-3">
+                  <input type="email" class="form-control" placeholder="Alternative email ID" formControlName="altEmail" [ngClass]="{'is-invalid': addPropertyForm.get('step24')['controls'].altEmail.errors && addPropertyForm.get('step24')['controls'].altEmail.touched}">
+                </div>
+                <!-- <div class="alert alert-danger" *ngIf="addPropertyForm.get('step24')['controls'].altEmail.errors && addPropertyForm.get('step24')['controls'].altEmail.touched"> 
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].altEmail.errors.required">Enter Alternate Email</div>
+                    <div *ngIf="addPropertyForm.get('step24')['controls'].altEmail.errors.email">Enter a valid Email Address</div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="true">
+            <div class="text-center">
+                <img src="assets/images/elements/thumbsup.png" alt="">
+                <h4 class="title">Thank you!</h4>
+                <h5 class="fs-18">You have successfully listed your property with us.</h5>
+              </div>
+          </div>
+          <!-- <div *ngSwitchCase="false">
+              <div class="text-center">
+                  <h4 class="title">Error Submitting Form!</h4>
+                </div>
+            </div> -->
+        </div>
+      </wizard-step>
+       <!-- / Step 24 -->  
+  </form-wizard>
+  <!-- form value : {{addPropertyForm.value | json }} -->
+</div>

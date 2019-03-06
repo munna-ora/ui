@@ -1,0 +1,80 @@
+<nav class="navbar navbar-light bg-light fixed-top top-navbar">
+  <div class="container">
+      <div class="nav-mobile-toggler">
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="navbar-brand border-right">
+          <a class=" pr-3" routerLink="/"><img src="assets/images/logo_orastays.png" class="header-logo" /></a>
+      </div>
+      <div class="navbar-expand mr-auto">
+        <div class="navbar-nav">
+          <span class="heading">India’s first standardized homestay experience</span>
+        </div>
+      </div>
+      <div class="navbar-expand ml-auto navbar-nav">
+        <div class="navbar-nav">
+          <button type="button" class="btn btn-light btn-sm mr-3 fs-12 host-btn" routerLink="/host"><i class="fa fa-address-book-o host-icon" aria-hidden="true"></i> <span class="d-none d-sm-block">List your property</span></button>
+          <!-- <button type="button" class="btn btn-light btn-sm mr-2 fs-12 help-btn"><i class="help-icon" aria-hidden="true"></i> <span class="d-none d-sm-block">HELP</span></button> -->
+          <div ngbDropdown placement="bottom-right" class="d-inline-block user-dropdown">
+            <button class="btn dropdown-btn" id="dropdownBasic2" ngbDropdownToggle [style.backgroundImage]="isLogined && userInfo.userVsInfo?.imageUrl ? 'url(assets/images/'+ userInfo.userVsInfo.imageUrl +')'  : 'url(assets/images/account_icon.png)'"></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button type="button" *ngIf="!isLogined" class="btn dropdown-item" (click)="openLoginSignUpModal('loginTab')" id="loginBtn"><i class="fa fa-lock pr-1"></i> LOGIN</button>
+              <button type="button" *ngIf="!isLogined" class="btn dropdown-item" (click)="openLoginSignUpModal('signupTab')"><i class="fa fa-lock pr-1"></i> SIGNUP</button>
+              <button type="button" *ngIf="isLogined" class="btn dropdown-item" routerLink="/dashboard"><i class="fa fa-user pr-1"></i> PROFILE</button>
+              <button type="button" *ngIf="isLogined" class="btn dropdown-item" (click)="logOut()"><i class="fa fa-power-off pr-1"></i> LOGOUT</button>
+            </div>
+          </div>
+          <!--
+          <button type="button" *ngIf="!isLogined" class="btn btn-light btn-sm mr-2 fs-12 signup-btn d-none d-sm-block" (click)="openLoginSignUpModal('signupTab')">SIGNUP</button> 
+          <button type="button" *ngIf="!isLogined" class="btn btn-primary btn-sm login-btn fs-12 login-btn" (click)="openLoginSignUpModal('loginTab')"><i class="fa fa-lock pr-1 lock-icon"></i><i class="mobile-icon" aria-hidden="true"></i> <span class="text">LOGIN</span></button>
+          <button type="button" *ngIf="isLogined" class="btn btn-primary btn-sm login-btn fs-12 login-btn" (click)="logOut()"><i class="fa fa-power-off pr-1"></i><i class="mobile-icon" aria-hidden="true"></i> <span class="text">LOGOUT</span></button>
+              -->
+        </div>
+      </div>
+
+      <div class="collapse navbar-collapse mobile-navbar"
+       [ngClass]="{ 'show': navbarOpen }">
+        <div class="clearfix">
+          <a class="close-btn" (click)="toggleNavbar()"></a>
+          <!-- <button class="close-btn" (click)="toggleNavbar()"><i class="fa fa-close"></i></button> -->
+        </div>
+        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/team">Teams</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/career">Career</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/media">Media</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/press-kit">Press Kit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/privacy-policy">Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cancellation-policy">Cancellation Policy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/terms-conditions">Terms & Conditions</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+<!-- Coming Soon Popup -->
+<button style="display:none" #comingSoonModalBtn (click)="openComingSoon(comingSoon)"></button>
+<ng-template #comingSoon let-d="dismiss">
+  <img width="100%" src="../../../assets/images/coming-soon.jpg"/>
+</ng-template>

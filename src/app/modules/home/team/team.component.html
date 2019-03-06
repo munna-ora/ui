@@ -1,0 +1,55 @@
+<div class="team-container mt-76">
+  <div class="container-fluid header-image-slide p-0 head-img-container">
+    <img class="w-100" src="assets/images/team/team_banner.png" />
+    <div class="text-container w-450">
+        <h4 class="text-blue fs-42"> Every Successful Venture 
+          is Backed by a Strong Team</h4>
+      </div>
+  </div>
+
+  <!-- Sticky Menu -->
+  <app-sticky-menu></app-sticky-menu>
+
+  <div class="container-fluid position-relative pt-30 pb-60">
+    <div class="container behind-screen-section">
+      <h3 class="mb-30">Behind the screen</h3>
+      <div class="row">
+        <div class="col-md-6 pl-0 pr-0">
+          <img class="h-100" src="assets/images/team/team_saransh.png" alt="">
+        </div>
+        <div class="col-md-6 first-block">
+          <h5 class="tname">Mr. Saransh Kumar</h5>
+          <p class="tdesig">CEO & Founder (Orastays)</p>
+          <p class="tdesc">A Management graduate with technology in his mind and hospitality in his heart, Saransh Kumar began his journey with Sinha’s Home Pvt Ltd. – a long-term homestay and guest-house accommodation. </p>
+          <p class="tdesc">His first landmark venture was a homestay for 8 women in 2013. This journey of trust, respect and empathy took him a long way. Soon he expanded to Bangalore and Mumbai. </p>
+          <p class="tdesc">Influenced by bnb in Europe, he wanted to introduce a similar product back home.  Orastays is a bnb specialising in both short-term and long-term homestays. </p>
+          <div #teamBlock1 hidden>
+            <p class="tdesc">This concept of shared economy which monetises hosts and creates local experiences for guests fascinated him. The company is onboarding properties in their technological platform. Travellers will not just get pocket friendly standardised homestay accommodations but also flight booking and car booking, all in the same ecosystem. Orastays is determined to fill the gap of 200,000 hotels rooms that fall short all over India.</p>
+            <p class="tdesc">Saransh, <strong> CEO of Orastays</strong>, adept at technology and innovation, believes in honesty and loyalty and invites customer feedback directly at <a href="mailto:saransh@orastays.com">saransh@orastays.com</a> . </p>
+            <p class="tdesc">Highly skilled at business formation, strategy and execution, he holds keen interest in UI/UX & Technology. Author of “A love Life So Painful”, he is a romantic at heart and an innovator integrating an Ora community that cares. </p>
+          </div>
+          <a class="read-more-btn c-pointer" (click)="teamBlock1.hidden = !teamBlock1.hidden"> {{teamBlock1.hidden ? 'read more [+]' : 'read less [-]'}} </a>
+          <!-- <a href="" class="read-more-btn"> Read on [+]</a> -->
+          <hr class="hr-sm">
+        </div>
+        <div class="col-md-6 second-block">
+          <h5 class="tname">Namita Nayak</h5>
+          <p class="tdesig">MD & Co-founder (Orastays)</p>
+          <p class="tdesc">A strong sense of business analysis, planning and administration, she is a trendsetter fascinated by the concept of shared economy in the hospitality industry. But what motivated her to build Orastays?  A humanitarian at heart, she wished to empower homemakers, retired elderlies, and differently abled people. </p>
+          <p class="tdesc">She encouraged such people to let out their place at pocket friendly prices to guests. This helped them increase their income and provide guests a home experience. </p>
+          <p class="tdesc">She has been in the business of shared economy for six years, but now is driving it with technology. Onboarding people and building a community is the principal thought behind the aggregation of attractive and pocket friendly standardized homestays in one single platform. </p>
+              
+          <div #teamBlock2 hidden>
+              <p class="tdesc">With help from partners, friends, and supporters, she moves on with passion earned from community support. The reward of this entrepreneurship is sweeter than its monetary gains. She feels satisfied to see a house owner going through rapid financial growth and waits to meet the next guest while building a lifelong friendship.</p>
+              <p class="tdesc"> A pet lover and all heart, she reaches out to poor children to improve their lives. Hosting is in the Orastays DNA and she is instrumental in bringing like-minded people on the same platform.  </p>
+          </div>
+          <a class="read-more-btn c-pointer" (click)="teamBlock2.hidden = !teamBlock2.hidden"> {{teamBlock2.hidden ? 'read more [+]' : 'read less [-]'}} </a>
+          <hr class="hr-sm">
+        </div>
+        <div class="col-md-6 pl-0 pr-0 overflow-hidden">
+            <img class="h-100" src="assets/images/team/team_namita.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

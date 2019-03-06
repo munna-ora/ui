@@ -1,0 +1,102 @@
+.container{
+    // display: flex;
+    max-width: 100%;
+    padding: 0 30px;
+    .price-drop{
+        font-family: latoregular;
+        color: #2c2c2c;
+        font-size: 16px;
+        text-decoration: line-through;
+    }
+    .price-new{
+        font-family: latoblack;
+        color: #2c2c2c;
+        font-size: 20px;
+    }
+    .per-night{
+        font-family: latoregular;
+        color: #2c2c2c;
+        font-size: 12px;
+    }
+    .profile-info{
+        display: flex;
+        img{
+            height: 50px;
+        }
+        p{
+            font-family: latoregular;
+            color: #231f20;
+            font-size: 11px;
+            margin: 0;
+            margin-left: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            a{
+                color: #f47921;
+            }
+        }
+    }
+    .form-area{
+        display: -webkit-inline-box;
+        top: 7px;
+        
+        .m-r-20{
+            margin-right: 20px;
+        }
+        .date-picker{
+            max-width: 250px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 0;
+            .input-group{
+                background: #fff;
+                border-radius: 5px;
+                .input-group-append{
+                    margin-left: 0;
+                    button{
+                        padding: 0;
+                        background-color: transparent;
+                        border-color: transparent;
+                        margin-right: 0;
+                        padding-left: 0px;
+                        i{
+                            padding-left: 10px;
+                            font-size: 12px;
+                            color: #969494;
+                            line-height: 32px;
+                        }
+                    }
+                }
+                .form-control{
+                    border-right: 0;
+                    border-left: 0;
+                    border: none;
+                    font-size: 12px;
+                    font-family: latoblack;
+                    &.checkin{
+                        border-radius: 5px 0px 0px 5px;
+                    }
+                    &.checkout{
+                        border-radius: 0px 5px 5px 0px;
+                        text-align: left;
+                        width: 0px !important;
+                    }
+                }
+                .calander-forma{
+                    background-image: url(../../../../assets/images/property-details/calander-forma.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    display: block;
+                    width: 24px;
+                    height: 20px;
+                    background-size: 100%;
+                    margin-top: 9px;
+                    margin-left: -12px;
+                    z-index: 1;
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}

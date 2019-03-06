@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="row form-area d-flex align-items-center justify-content-center">
+    <div class="col-auto">
+      <div *ngIf="bookStayObj != {}">
+       <span class="price-new pr-2">Total Price: </span> <span class="price-drop pr-2" *ngIf="bookStayObj?.totalAmount"><i class="fa fa-inr" aria-hidden="true"></i> {{bookStayObj?.totalAmount | number: '1.0-0'}}</span> <span class="price-new" *ngIf="bookStayObj?.amountPayable"> <i class="fa fa-inr" aria-hidden="true"></i> {{bookStayObj?.amountPayable | number: '1.0-0'}}</span> <!--<span class="per-night"> per night</span>-->
+      </div>
+    </div>
+    <div class="col-auto d-inherit">
+      <div class="form-group date-picker">
+        <div class="input-group">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar checkin-pick"  type="button"><i class="fa fa-calendar"></i></button>
+          </div>
+          <input class="form-control checkin" placeholder="Check in"
+                  name="checkIndp" autocomplete="off" [ngModel]="checkInDate">
+          <span class="calander-forma"></span>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar checkout-pick" type="button"><i class="fa fa-calendar"></i></button>
+          </div>
+          <input class="form-control checkout" placeholder="Check out"
+                  name="checkOutdp" autocomplete="off" [ngModel]="checkOutDate">
+        </div>
+      </div>
+    <!-- </div>
+    <div class="col-auto"> -->
+      <div  class="d-inline-block hotelBookDropdown">
+        <button type="button" class="btn btn-light m-r-20"><i class="fa fa-user-o m-r-5" aria-hidden="true"></i> {{totalNoOfGuest}} Guests</button>
+        <!-- <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <div >
+            <div>
+              <h5>Room 1</h5>
+            </div>
+            <div class="form-row align-items-end" >
+              <div class="col-auto">
+                <div class="form-group m-0">
+                  <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                  <input type="hidden">
+                  <ng-number-picker class="ng-number-picker" [(value)]="noOfGuest" [min] ="1"  [max]="'6'" (onChange)="onNumberChanged($event)"></ng-number-picker>
+                </div>
+              </div>
+              <div class="col-auto ml-4">
+                <div class="form-group m-0">
+                  <label for="" class="d-block text">Children <span> (1 to 12 yrs)</span></label>
+                  <input type="hidden" >
+                  <ng-number-picker class="ng-number-picker" [(value)]="noOfChild" [min] ="0" [max]="'4'" (onChange)="onNumberChanged($event)"></ng-number-picker>
+                </div>
+              </div>
+              <div class="col-auto ml-4">
+                <button type="button" class="btn btn-outline-dark btn-sm" (click)="removeRoom(i)">[+] ADD ROOM</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto ml-4">
+            <button type="button" class="btn btn-outline-dark btn-sm" (click)="addRoom()">[+] ADD ROOM</button>
+          </div>
+        </div> -->
+      </div>
+    <!-- </div>
+    <div class="col-auto"> -->
+      <!-- <button class="btn btn-light m-r-20"><i class="fa fa-user-o m-r-5" aria-hidden="true"></i> Guests</button> -->
+      <button class="btn btn-primary" (click)="bookYourStayForm()">book your stay</button>
+    </div>
+    <div class="col-auto">
+      <div class="profile-info">
+        <img src="../../../../assets/images/property-details/profile-img.png" alt="">
+        <p>Hey, I’m Sarita!<br>
+            hi am a fun loving easy go lucky person who enjoys hosting ...<br>
+            <a class="c-pointer" (click)="openModal(viewHostDetails)"> know your host [+]</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <ng-template #viewHostDetails let-modal>
+    <div class="modal-container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="row host-info">
+        <div class="col-md-4">
+          <div class="host-img">
+            <img src="assets/images/property-details/Layer 53.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4 class="title">Hey, I’m Chaitali!</h4>
+          <p class="small-desc">Kolkata, India · Joined in January 2015</p>
+          <div class="list-info">
+            <ul>
+              <li> <strong>Specialities: </strong>  I work in insurance, love traveling and cooking.</li>
+              <li> <strong>Schooling: </strong>  Loreto House, Loreto College.</li>
+              <li> <strong>Languages: </strong>  Bengali, English, Hindi</li>
+            </ul>
+          </div>
+          <div class="icon-set d-flex align-items-center">
+            <div class="superhost d-flex align-items-center">
+              <i class="icon-supperhost"></i>
+              <span>Superhost</span>
+            </div>
+            <div class="reviews d-flex align-items-center">
+              <i class="icon-review"></i>
+              <span>90 Reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="review-sec">
+          <div class="review-header">
+            <h5>Reviews (90)</h5>
+            <p>Reviews From Guests</p>
+          </div>
+          <div class="review-body">
+            <div class="review-item d-flex justify-content-start">
+              <div class="c-img">
+                <img alt="" src="assets/images/thumbs/user1.png">
+              </div>
+              <div class="">
+                <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more [+]</a></p>
+                <p class="date-rating">From India · December 2018 ·
+                  <i class="fa fa-flag-o" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+            <hr>
+            <div class="review-item d-flex justify-content-start">
+              <div class="c-img">
+                <img alt="" src="assets/images/thumbs/user1.png">
+              </div>
+              <div class="">
+                <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more [+]</a></p>
+                <p class="date-rating">From India · December 2018 ·
+                  <i class="fa fa-flag-o" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>

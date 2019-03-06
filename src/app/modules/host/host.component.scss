@@ -1,0 +1,291 @@
+.host-listing-section{
+    .host-listing-head{
+        position: relative;
+        .header-content{
+            position: absolute;
+            top: 50px;
+        }
+        .title{
+            font-family: abrialfatface;
+            font-size: 60px;
+            color: #ffffff;
+        }
+        .icon-calculator{
+            width: 20px;
+            margin-left: 5px;
+        }
+        .info{
+            font-family: latobolditalic;
+            color: #ffffff;
+            font-size: 16px;
+            position: relative;
+    
+            span{
+                color: #f47921;
+            }
+            .arrow{
+                position: absolute;
+                top: 5px;
+                right: 7px;
+            }
+        }
+        .scroll-icon{
+            display: inline-block;
+            position: absolute;
+            bottom: 22px;
+            left: calc(50% - 12px);
+        }
+    }
+    h3{
+        color: #231f20;
+        font-family: latobolditalic;
+        font-size: 36px;
+    }
+    .ora-orange-logo{
+        background: url(../../../assets/images/ora-orange-logo.png) no-repeat;
+        background-size: 100%;
+        width: 78px;
+        height: 31px;
+        display: inline-block;
+        margin-left: 8px;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        // padding-left: 1.3em;
+        color: #231f20;
+        font-family: latoitalic;
+        font-size: 16px; 
+    }
+    li:before {
+        content: " ";
+        font-family: FontAwesome;
+        display: inline-block;
+        margin-left: -1.3em;
+        width: 60px;
+        background: url(../../../assets/images/tick-orange.png) center center no-repeat;
+        background-size: auto;
+        height: 14px;
+    }
+    .commas{
+        display: inline-block;
+        color: #c5c4c4;
+        font-family: bali;
+        font-size: 110px;
+        -moz-transform: rotate(-90.0deg);
+        -o-transform: rotate(-90.0deg);
+        -webkit-transform: rotate(180.0deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
+        margin-top: -74px;
+        margin-left: -10px;
+    }
+    .comma-text{
+        font-family: latolightitalic;
+        color: #231f20;
+        font-size: 24px;
+        margin-top: -10px;
+    }
+    .small-text{
+        font-size: 14px;
+        color: #231f20;
+        font-family: latoblackitalic;
+        span{
+            font-family: latoitalic;
+        }
+    }
+    .video-container{
+        border-radius: 10px;
+    }
+    .lh-25{
+        line-height: 25px;
+    }
+    .accordion .card-header:after {
+        font-family: 'FontAwesome';  
+        content: "\f068";
+        float: right; 
+    }
+    .accordion .card-header.collapsed:after {
+        /* symbol for "collapsed" panels */
+        content: "\f067"; 
+    }
+    .accordion{
+        // display: flex;
+        ::ng-deep .card{
+            margin-bottom: 30px;
+            box-shadow: 0px 8px 0px 0px #dbdbdb;
+            border-radius: 6px;
+            display: inline-flex;
+            width: 49%;
+        }
+        ::ng-deep .card:nth-of-type(odd) {
+            margin-right: 10px;
+        }
+        ::ng-deep .card:nth-of-type(even) {
+            margin-left: 10px;
+        }
+        ::ng-deep h5{
+            display: flex;
+        }
+        ::ng-deep h5 .btn{
+            text-decoration: none;
+            width: 100%;
+            padding: 0;
+        }
+        ::ng-deep h5 .btn span{
+            color: #231f20 !important;
+            font-family: latoitalic;
+            font-size: 16px;
+            display: flex;
+        }
+        ::ng-deep .arrow{
+            background: url(../../../assets/images/plus-icon.png) center center no-repeat;
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            margin-right: 15px;
+            text-decoration: none;
+            background-size: 100%;
+        }
+        ::ng-deep .collapsed .arrow{
+            background: url(../../../assets/images/minus-icon.png) center center no-repeat;
+            background-size: 100%;
+        }
+    }
+}
+
+.plr-5{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.mt-15{
+    margin-top: 15px !important;
+}
+.h-40{
+    height: 40px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-25{
+    margin-top: 25px;
+}
+.p-l-15{
+    padding-left: 15px !important;
+}
+::ng-deep{
+    .mealAccordian{
+        .accordion{
+            .card{
+                width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+                border: 1px solid #ccc !important;
+                display: block !important;
+                .card-header {
+                    display: inherit !important;
+                    border: 0 !important;
+                    padding: 0px 15px !important;
+                    h5{
+                        display: flex !important;
+                        width: 100% !important;
+                        text-align: left !important;
+                        button{
+                            text-decoration: none !important;
+                            width: 100% !important;
+                            padding: 0 !important;
+                            font-family: latoregular !important;
+                            font-size: 12px !important;
+                            width: 100% !important;
+                            text-align: left !important;
+                            color: #231f20 !important;
+                        }
+                    }
+                }
+                .card-body{
+                    padding: 2px 20px !important;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep{
+    .ng-number-picker{
+        margin-top: 10px;
+        .input-group {
+            .input-group-text.decrease {
+                color: #c9c7c7;
+                font-size: 35px !important;
+                background: #ffffff;
+            }
+            .input-group-text.increase {
+                background: #ffffff;
+                color: #f47921;
+            }
+            .input-group-text {
+                font-size: 24px !important;
+                line-height: 17px;
+            }
+        }
+    }
+}
+.toggle-radio-btn {
+    margin-top: 10px;
+    display: inline-block;
+}
+.fs-18{
+    font-size: 18px;
+}
+::ng-deep{
+    .ngb-tp{
+        margin-top: 10px;
+        margin-left: 10px;
+        .ngb-tp-input-container{
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: auto !important;
+            margin-right: 15px;
+            .btn-link{
+                padding: 4px 8px !important;
+                font-size: 14px !important;
+                color: #c9c7c7 !important;
+                font-family: latolight;
+                &:first-child{
+                    color: #f47921 !important;
+                }
+                .chevron{
+                    &::before{
+                        border-width: 2px 2px 0 0;
+                    }
+                }
+            }
+            .form-control{
+                border: 0;
+                font-size: 14px;
+                color: #231f20;
+                font-family: latoblack;
+            }
+        }
+        .ngb-tp-spacer{
+            display: none;
+        }
+        .ngb-tp-meridian{
+            .btn{
+                font-size: 14px !important;
+                color: #231f20 !important;
+                font-family: latoblack !important;
+                border: 0;
+                outline: 0;
+            }
+        }
+    }
+}
+.btn.calendar {
+    background: #fff;
+    border-color: #ced4da;
+    border-left: 0;
+}

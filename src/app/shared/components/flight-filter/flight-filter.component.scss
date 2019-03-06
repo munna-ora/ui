@@ -1,0 +1,332 @@
+.filter-container{
+    // padding-top: 26px;
+    // padding-bottom: 26px;
+    .flight-found{
+        display: flex;
+        span.icon{
+            background: url(../../../../assets/images/flight/flight-icon.png) no-repeat;
+            width: 37px;
+            height: 36px;
+            display: block;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+            line-height: 36px;
+            color: #231f20;
+            font-size: 14px;
+            font-family: latobold;
+            
+            span{
+                color: #f47921;
+            }
+        }
+    }
+}
+.pb-25{
+    padding-bottom: 25px;
+}
+.left-panel-blue{
+    background-color: #3f6db8;
+    padding-left: 40px;
+    text-align: left;
+    position: relative;
+    .flight-icon{
+        background: url(../../../../assets/images/flight/flight-bullet.png) center center no-repeat;
+        display: block;
+        position: absolute;
+        bottom: 25px;
+        right: 0;
+        width: 300px;
+        height: 25px;
+        z-index: 111;
+        margin-right: -152px;
+        background-size: contain;;
+    }
+    .flight-icon-roundtrip{
+        background: url(../../../../assets/images/flight/flight-bullet-roundtrip.png) center center no-repeat;
+        display: block;
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+        width: 300px;
+        height: 45px;
+        z-index: 111;
+        margin-right: -152px;
+        background-size: contain;
+    }
+}
+.right-panel-blue{
+    background-color: #4878c2;
+    text-align: right;
+    padding-right: 40px;
+}
+.last-panel-blue{
+    background-color: #4878c2;
+    padding-right: 10px;
+    text-align: left;
+    padding: 0;
+    .filter-panel{
+        padding: 20px 5px 15px 15px;
+        .btn-filter{
+            padding: 0;
+            background-color: transparent;
+            color: #fff;
+            font-size: 12px;
+            font-family: latobold;
+        }
+        .check-box{
+            font-size: 12px;
+            font-family: latoblack;
+            color: #fff;
+            margin-bottom: 0;
+            padding-left: 20px;
+            margin-right: 10px;
+            .checkmark{
+                border: 2px solid #ffffff;
+                height: 15px;
+                width: 15px;
+                top: 2px;
+                &::after {
+                    left: 3px;
+                    top: 0px;
+                    width: 5px;
+                    height: 8px;
+                    border: solid #ffffff;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    .date-filter{
+        background-color: #fff;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px 15px 10px 15px;
+        .text{
+            padding: 0;
+            margin: 0;
+            font-size: 10px;
+            font-family: latoblack;
+            color: #c1c1c1;
+        }
+        .date-picker{
+            font-size: 14px;
+            font-family: latobold;
+            color: #130504;
+        }
+        button{
+            background: none;
+            border: 0;
+            padding: 0;
+            margin: 0 0px 0px 10px;
+            cursor: pointer;
+            color: #c1c8d0;
+            &:hover{
+                color: #f47921;
+            }
+            .date-left-btn{
+
+            }
+            .date-right-btn{
+
+            }
+        }
+    }
+}
+.h-top{
+    padding: 20px 0px 10px 0px;
+    span{
+        font-size: 12px;
+        font-family: latoblack;
+        color: #5f93e4;
+        text-transform: uppercase;
+    }
+}
+.h-bottom{
+    padding: 10px 0px 20px 0px;
+    h5{
+        font-size: 14px;
+        font-family: latobold;
+        color: #fff;
+        margin: 0;
+    }
+    span{
+        font-family: latoregular;
+        font-size: 10px;
+        color: #fff;
+        display: block;
+    }
+}
+
+.filter-container{
+    .filter-panel{
+        padding: 20px 5px 15px 0px;
+        .btn-filter{
+            padding: 0;
+            background-color: transparent;
+            color: #fff;
+            font-size: 12px;
+            font-family: latobold;
+        }
+        .check-box{
+            font-size: 12px;
+            font-family: latoblack;
+            color: #fff;
+            margin-bottom: 0;
+            padding-left: 20px;
+            margin-right: 10px;
+            .checkmark{
+                border: 2px solid #ffffff;
+                height: 15px;
+                width: 15px;
+                top: 2px;
+                &::after {
+                    left: 3px;
+                    top: 0px;
+                    width: 5px;
+                    height: 8px;
+                    border: solid #ffffff;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    .radio-group{
+        h6{
+            font-size: 12px;
+            font-family: latoblack;
+            color: #ffffff;
+            margin-bottom: 3px;
+            margin-top: 10px;
+        }
+    }
+    .radio-weth{
+        padding-right:5px;
+        display: inline-block;
+        text-align: center;
+        .items{
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0.5;
+            img{
+                height: 15px;
+            }
+        }
+        .name{
+            font-size: 10px;
+            font-family: latobold;
+            color: #cee0fd;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            // opacity: 0.5;
+        }
+        .input-hidden{
+            position: absolute;
+            left: -9999px;
+        }
+        input[type=radio]:checked + label {
+            opacity: 1;
+            span{
+                display: block !important;
+            }
+        }
+    }
+    .right-panel-blue{
+        .filter-panel .d-inline-block{
+            margin-top: 20px;
+            margin-left: 10px;
+            .check-box{
+                margin-right: 30px;
+                padding-left: 25px;
+            }
+        }
+    }
+    .btn-group-toggle{
+        display: inline-block;
+        .btn-checkbox-filter{
+            font-family: latolight;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 50px;
+            color: #6e97db;
+            border: 1px solid #6e97db;
+            margin-right: 10px;
+            margin-bottom: 8px;
+        }
+        .btn-checkbox-filter:not(:disabled):not(.disabled):active, .btn-checkbox-filter:not(:disabled):not(.disabled).active, .show > .btn-checkbox-filter.dropdown-toggle {
+            color: #ffffff;
+            background-color: #5db5ff;
+            border-color: #5db5ff;
+        }
+    }
+    h6{
+        font-size: 12px;
+        font-family: latoblack;
+        color: #ffffff;
+        margin-bottom: 3px;
+        margin-bottom: 10px;
+    }
+    .airlines{
+        padding-top: 70px;
+        padding-left: 10px;
+    }
+    .price-range{
+        padding-top: 60px;
+        padding-left: 10px;
+        ::ng-deep{
+            .ng5-slider{
+                .ng5-slider-selection {
+                    z-index: 2;
+                    background: #5db5ff;
+                    border-radius: 3px;
+                }
+                .ng5-slider-bar {
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    z-index: 1;
+                    background: #d8e0f3;
+                    border-radius: 2px;
+                }
+                .ng5-slider-pointer {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    top: -9px;
+                    background-color: #fff;
+                    z-index: 3;
+                    border-radius: 16px;
+                }
+                .ng5-slider-pointer:after {
+                    content: '';
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    border-radius: 50px;
+                    background: #fff;
+                    border: 3px solid #68baff;
+                }
+                .ng5-slider-bubble {
+                    cursor: default;
+                    bottom: 16px;
+                    padding: 1px 1px;
+                    font-size: 11px;
+                    font-family: latoblack;
+                    color: #99c0ff;
+                    &.ng5-slider-limit {
+                        color: #99c0ff;
+                    }
+                }
+            } 
+        }
+    }
+}

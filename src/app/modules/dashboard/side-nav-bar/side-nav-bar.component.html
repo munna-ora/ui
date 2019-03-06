@@ -1,0 +1,215 @@
+<div class="sidebar">
+  <nav class="sidebar-nav ps ps--active-y">
+    <div class="profile-info" *ngIf="userProfileDetails != {}">
+      <div class="btn-group">
+        <div class="sec-user-img" *ngIf="!userProfileDetails?.userVsInfo?.imageUrl">{{userProfileDetails?.userVsInfo?.name ? getShortName(userProfileDetails?.userVsInfo?.name) : ''}}</div>
+        <img class="user-img" *ngIf="userProfileDetails?.userVsInfo?.imageUrl" src="assets/images/{{userProfileDetails?.userVsInfo?.imageUrl}}" alt="">
+        <button class="btn btn-edit" type="button" (click)="openModal(editProfileModal)"><i class="pencil-icon"></i></button>
+      </div>
+      <label class="username" *ngIf="userProfileDetails?.userVsInfo?.name">{{userProfileDetails?.userVsInfo?.name}}</label>
+    </div>
+    <ul class="nav">
+      <li class="nav-item" *ngIf="userRole == 1">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="nav-icon"></i> Properties
+            <span class="badge badge-info">04</span>
+          </a>
+      </li>
+      <li class="nav-item" *ngIf="userRole == 1">
+          <a class="nav-link" (click)="scrollToDiv('dashboard','revenueBlock')">
+            <i class="nav-icon"></i> Revenue
+          </a>
+      </li>
+      <li class="nav-item" *ngIf="userRole == 1">
+          <a class="nav-link" (click)="scrollToDiv('dashboard','calenderBlock')">
+            <i class="nav-icon"></i> Calendar
+          </a>
+      </li>
+      <li class="nav-item" *ngIf="userRole == 1">
+          <a class="nav-link" (click)="scrollToDiv('dashboard','inventoryBlock')">
+            <i class="nav-icon"></i> Inventory
+          </a>
+      </li>
+      <!-- <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" routerLinkActive="active">
+            <i class="nav-icon"></i> Analytics
+          </a>
+      </li> -->
+      <li class="nav-item" *ngIf="userRole == 1">
+          <a class="nav-link" (click)="openModal(contactOraModal)" routerLinkActive="active">
+            <i class="nav-icon"></i> Contact ORA
+          </a>
+      </li>
+      
+      <!-- User Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/bookings" routerLinkActive="active">
+          <i class="nav-icon"></i> My bookings
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/booking-cancellation" routerLinkActive="active">
+          <i class="nav-icon"></i> View cancellations
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard/support" routerLinkActive="active">
+          <i class="nav-icon"></i> My support
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Edit Profile Popup -->
+<ng-template #editProfileModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="modal-basic-title">Edit/Add profile</h4>
+    <div class="profile-img">
+      <div class="sec-user-img" style="width:100px;height:100px" *ngIf="!userProfileDetails?.userVsInfo?.imageUrl">{{userProfileDetails?.userVsInfo?.name ? getShortName(userProfileDetails?.userVsInfo?.name) : ''}}</div>
+      <img *ngIf="userProfileDetails?.userVsInfo?.imageUrl" src="{{userProfileDetails?.userVsInfo?.imageUrl}}" alt="">
+      <div class="file btn">
+        <span class="cam-img"></span>
+        <input type="file" name="file"/>
+      </div>
+    </div>
+    <form class="form-component">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <select name="" class="form-control">
+              <option value="">Mr.</option>
+              <option value="">Mrs.</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter your name" value="{{userProfileDetails?.userVsInfo?.name}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="+91 9123654780" disabled value="+91 {{userProfileDetails?.mobileNumber}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Alternative Number">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" value="host@gmail.com" disabled value="{{userProfileDetails?.emailId}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Alternative Email Id">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="">Date of birth</label>
+            <input type="text" class="form-control" placeholder="6th Aug 1980">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label for="">Language</label>
+            <ng-multiselect-dropdown class="form-control" [placeholder]="'Select Language'" [data]="languageList" [(ngModel)]="languageSelected" [settings]="languageDropdownSettings" name="language"></ng-multiselect-dropdown>
+          </div>
+        </div>
+      </div>
+      <h5>Additional informations</h5>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="">Profession</label>
+            <ng-multiselect-dropdown class="form-control" [placeholder]="'Select domain'" [data]="domainList" [(ngModel)]="domainSelected" [settings]="domainDropdownSettings" name="domain"></ng-multiselect-dropdown>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="">Interests</label>
+            <ng-multiselect-dropdown class="form-control" [placeholder]="'Select Interest'" [data]="interestList" [(ngModel)]="interestSelected" [settings]="interestDropdownSettings" name="interest"></ng-multiselect-dropdown>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="">Biography</label>
+            <textarea name="" class="form-control h100">{{userProfileDetails?.userVsInfo?.bioInfo}}</textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button type="button" class="btn btn-primary float-right" (click)="modal.close('Save click')">Submit</button>
+  </div>
+</ng-template>
+
+<!-- Contact ORA Popup -->
+<ng-template #contactOraModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title mb-25">Contact ORA</h4>
+    <form class="form-component" [formGroup]="contactOraForm" (ngSubmit)="onSubmitContactOraForm()">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="userName" placeholder="Enter your name" readonly [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+              <div *ngIf="f.userName.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="mobileNumber" readonly [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }">
+            <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.mobileNumber.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" formControlName="emailId" readonly [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+              <div *ngIf="f.emailId.errors.required">Email is required</div>
+              <div *ngIf="f.emailId.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5>Purpose</h5>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <select name="" class="form-control" formControlName="contactPurposeId" [ngClass]="{ 'is-invalid': submitted && f.contactPurposeId.errors }">
+              <option value="">Select purpose</option>
+              <option *ngFor="let item of purposeList" [ngValue]="item.contactPurposeId">{{ item.contactPurposeName }}</option>
+            </select>
+            <div *ngIf="submitted && f.contactPurposeId.errors" class="invalid-feedback">
+              <div *ngIf="f.contactPurposeId.errors.required">Purpose is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <textarea name="" class="form-control h100" formControlName="message" placeholder="Type your message here" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"></textarea>
+            <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+              <div *ngIf="f.message.errors.required">Message is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,93 @@
+.testimonial-container{
+    .testimonial-section{
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        h4.title{
+            font-size: 45px;
+            color: #2c2c2c;
+            font-family: latolight;
+            margin-bottom: 20px;
+        }
+        p.desc{
+            font-family: latoregular;
+            color: #2c2c2c;
+            font-size: 16px;
+        }
+        .testimonial-carousel{
+            margin-top: 50px;
+            .item{
+                padding: 0 50px;
+            }
+            .user-img{
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+                margin-right: 40px;
+                display: block;
+                position: relative;
+                background-image: url(../../../../assets/images/ora-circle.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                img{
+                    height: 100%;
+                    padding: 10px;
+                    position: inherit;
+                    bottom: -10px;
+                }
+            }
+            .comments{
+                .semicolon{
+                    display: inline-block;
+                    color: #c5c4c4;
+                    font-family: bali;
+                    font-size: 110px;
+                    -moz-transform: rotate(-90deg);
+                    -o-transform: rotate(-90deg);
+                    -webkit-transform: rotate(180deg);
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
+                    margin-top: -74px;
+                    margin-left: -10px;
+                }
+                .desc{
+                    font-family: latolightitalic;
+                    font-size: 22px;
+                    color: #231f20;
+                    span{
+                        width: 50px;
+                        display: inline-block;
+                    }
+                }
+                .name{
+                    font-family: latoblackitalic;
+                    font-size: 20px;
+                    color: #231f20;
+                    font-size: 18px;
+                    margin: 0;
+                }
+                .date{
+                    font-family: latoitalic;
+                    font-size: 14px;
+                    color: #231f20;
+                }
+            }
+            .slide-right-btn, .slide-left-btn{
+                position: absolute;
+                top: 50%;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+                &:hover{
+                    color: #f47921;
+                }
+            }
+            .slide-right-btn{
+                right: 0;
+            }
+            .slide-left-btn{
+                left: 0;
+            }
+        }
+    }
+}

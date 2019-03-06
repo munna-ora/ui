@@ -1,0 +1,203 @@
+.list-flight{
+    .flight-card{
+        margin-right: 0px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 0px -1px #ebebeb;
+        margin: 0 30px 0px 50px;
+        &.first{
+            margin: 0;
+            margin-left: -15px;
+            .c-header{
+                padding-left: 60px !important;
+            }
+            .c-body{
+                padding-left: 60px !important;
+            }
+            .book-panel{
+                .radio-btn{
+                    right: 50px !important;
+                }
+            }
+        }
+        .sl-no{
+            font-family: latoregular;
+            font-size: 14px;
+            color: #484848;
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            z-index: 111;
+        }
+        .left-panel{
+            border: 1px solid #ebebeb;
+            padding: 0;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            .c-header{
+                padding: 10px 20px;
+                border-bottom: 1px solid #ebebeb;
+                .f-logo{
+                    img{
+                        height: 30px;
+                        border-radius: 50px;
+                    }
+                    .f-name{
+                        font-family: latoregular;
+                        color: #484848;
+                        font-size: 12px;
+                        margin-left: 10px;
+                    }
+                }
+                .badge{
+                    font-size: 10px;
+                    font-family: latoblack;
+                    padding: 5px 7px;
+                    border-radius: 2px;
+                    margin: 0 2px;
+                    height: 20px;
+                    text-transform: uppercase;
+                }
+                .badge-gray{
+                    color: #fff;
+                    background-color: #a9abad;
+                }
+                .badge-outline{
+                    color: #999b9e;
+                    background-color: #ffffff;
+                    border: 1px solid #a9abad;
+                }
+                .btn-details{
+                    background-color: transparent;
+                    border: 0;
+                    outline: 0;
+                    font-size: 12px;
+                    font-family: latoblack;
+                    color: #c1c8d0;
+                }
+            }
+            .c-body{
+                padding: 10px 20px;
+                .f-timing{
+                    padding: 10px 0;
+                    margin-bottom: 0;
+                    .dept-time, .arrvl-time{
+                        font-family: latobold;
+                        font-size: 14px;
+                        color: #231f20;
+                    }
+                    .flight-type {
+                        display: inline-block;
+                        width: 270px;
+                        height: 20px;
+                        margin: 0px 20px;
+                        &.direct-flight{
+                            background: url(../../../../assets/images/flight/direct-flight.png) center center no-repeat;
+                            background-size: auto;
+                        }
+                        &.one-stop{
+                            background: url(../../../../assets/images/flight/one-stop.png) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+        }
+        .right-panel{
+            border: 1px solid #ebebeb;
+            border-left: 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            padding: 0;
+            .input-hidden{
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 999;
+                cursor: pointer;
+            }
+            .book-panel{
+                display: table;
+                width: 100%;
+                padding: 0 20px;
+                height: 100%;
+                border-bottom-right-radius: 5px;
+                .class{
+                    font-family: latoitalic;
+                    color: #c1c8d0;
+                    font-size: 14px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .p-from{
+                    display: block;
+                    font-size: 12px;
+                    color: #c1c8d0;
+                    font-family: latoregular;
+                }
+                .price{
+                    font-size: 18px;
+                    font-family: latobold;
+                    color: #5db5ff;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+                .radio-btn{
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    border-radius: 50px;
+                    border: 2px solid #ccc;
+                }
+            }
+            input[type=radio]:hover + .book-panel{
+                background-color: #5db5ff;
+                .class{
+                    color: #ffffff;
+                }
+                .p-from{
+                    color: #ffffff;
+                }
+                .price{
+                    color: #ffffff;
+                }
+                .radio-btn{
+                    border: 2px solid #fff;
+                }
+            }
+            input[type=radio]:checked + .book-panel {
+                background-color: #5db5ff;
+                .class{
+                    color: #ffffff;
+                }
+                .p-from{
+                    color: #ffffff;
+                }
+                .price{
+                    color: #ffffff;
+                }
+                .radio-btn{
+                    border: 2px solid #fff;
+                    &::before{
+                        height: 10px;
+                        width: 10px;
+                        position: absolute;
+                        content: ' ';
+                        display: inline-block;
+                        font-size: 12px;
+                        text-align: center;
+                        line-height: 20px;
+                        background: #ffffff;
+                        border-radius: 50px;
+                        top: 3px;
+                        left: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,439 @@
+.header-image-slide{
+    margin-top: 76px;
+    img{
+        max-height: 320px;
+    }
+}
+
+
+.flight-list-section{
+    .pt-24{
+        padding-top: 24px;
+    }
+    
+    .filter-more-btn{
+        color: #f47921;
+        font-size: 12px;
+        font-family: latobold;
+    }
+    .flight-listing-area{
+        .h-top{
+            padding: 40px 0px 15px 0px;
+            span{
+                font-size: 12px;
+                font-family: latoblack;
+                color: #5f93e4;
+                text-transform: uppercase;
+            }
+        }
+        .h-bottom{
+            padding: 15px 0px 20px 0px;
+            h5{
+                font-size: 14px;
+                font-family: latobold;
+                color: #fff;
+                margin: 0;
+            }
+            span{
+                font-family: latoregular;
+                font-size: 10px;
+                color: #fff;
+                display: block;
+            }
+        }
+    }
+
+    
+    .footer-sticky-bar.oneway-sticky{
+        z-index: 999;
+        background-color: #ebebeb;
+        padding: 0px 20px;
+        margin: 0 -15px;
+        position: sticky;
+        bottom: 0;
+        .col-auto{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .flight-logo{
+            display: flex;
+            align-items: center;
+            img{
+                height: 30px;
+                border-radius: 50px;
+            }
+            p{
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 10px;
+                font-family: latobold;
+                color: #484848;
+                margin-bottom: 0;
+                span{
+                    display: block;
+                    padding: 0;
+                }
+            }
+        }
+        .dept-time, .arrvl-time{
+            display: flex;
+            align-items: center;
+            padding-right: 40px;
+            p{
+                font-size: 14px;
+                font-family: latoregular;
+                color: #484848;
+                line-height: 14px;
+                margin: 0;
+                span.s-name{
+                    font-family: latobold;
+                    color: #231f20;
+                }
+                span.date{
+                    font-size: 10px;
+                }
+            }
+        }
+        .arrvl-time{
+            padding-left: 40px;
+            padding-right: 20px;
+            border-left: 1px solid #ccc;
+            .trip-icon{
+                background: url(../../../assets/images/flight/one-way.png) center center no-repeat;
+                height: 25px;
+                width: 25px;
+                display: block;
+                border: 1px solid #ccc;
+                border-radius: 50px;
+                position: absolute;
+                left: -13px;
+                background-color: #ebebeb;
+                background-position: center 7px;
+            }
+        }
+        .details{
+            display: flex;
+            align-items: center;
+            padding-right: 40px;
+            padding-left: 15px;
+            p{
+                line-height: 14px;
+                margin: 0;
+                text-align: right;
+            }
+            .d-btn{
+                font-size: 10px;
+                color: #f47921;
+                font-family: latoblack;
+            }
+            .price{
+                font-size: 18px;
+                color: #5db5ff;
+                font-family: latoblack;
+            }
+        }
+        .total-price{
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #ccc;
+            padding-left: 40px;
+            p.price{
+                font-family: latoblack;
+                font-size: 10px;
+                color: #130504;
+                display: inline-block;
+                margin: 0;
+                margin-right: 30px;
+                text-transform: uppercase;
+                span{
+                    font-size: 18px;
+                    color: #5db5ff;
+                    font-family: latoblack;
+                }
+            }
+        }
+    }
+    .footer-sticky-bar.roundtrip-sticky{
+        z-index: 999;
+        background-color: #ebebeb;
+        padding: 0px 20px;
+        margin: 0 -15px;
+        position: sticky;
+        bottom: 0;
+        .col-auto{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .flight-logo{
+            display: flex;
+            align-items: center;
+            img{
+                height: 30px;
+                border-radius: 50px;
+            }
+            p{
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 10px;
+                font-family: latobold;
+                color: #484848;
+                margin-bottom: 0;
+                span{
+                    display: block;
+                    padding: 0;
+                }
+            }
+        }
+        .dept-time, .arrvl-time{
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+            padding-left: 10px;
+            p{
+                font-size: 14px;
+                font-family: latoregular;
+                color: #484848;
+                line-height: 14px;
+                margin: 0;
+                span.s-name{
+                    font-family: latobold;
+                    color: #231f20;
+                }
+                span.date{
+                    font-size: 10px;
+                }
+            }
+        }
+        .arrvl-time{
+            padding-left: 25px;
+            padding-right: 10px;
+            // border-left: 1px solid #ccc;
+            i.fa{
+                position: absolute;
+                left: -7px;
+            }
+            
+        }
+        .details{
+            display: flex;
+            align-items: center;
+            padding-right: 30px;
+            padding-left: 15px;
+            .trip-icon{
+                background: url(../../../assets/images/flight/one-way.png) center center no-repeat;
+                height: 25px;
+                width: 25px;
+                display: block;
+                border: 1px solid #ccc;
+                border-radius: 50px;
+                position: absolute;
+                right: -13px;
+                background-color: #ebebeb;
+                background-position: center 7px;
+            }
+            p{
+                line-height: 14px;
+                margin: 0;
+                text-align: right;
+            }
+            .d-btn{
+                font-size: 10px;
+                color: #f47921;
+                font-family: latoblack;
+            }
+            .price{
+                font-size: 18px;
+                color: #5db5ff;
+                font-family: latoblack;
+            }
+        }
+        .p-l-30{
+            padding-left: 30px;
+        }
+        .total-price{
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #ccc;
+            padding-left: 25px;
+            p.price{
+                font-family: latoblack;
+                font-size: 10px;
+                color: #130504;
+                display: inline-block;
+                margin: 0;
+                margin-right: 30px;
+                text-transform: uppercase;
+                span{
+                    font-size: 18px;
+                    color: #5db5ff;
+                    font-family: latoblack;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .personal-info{
+    @media (min-width: 576px){
+        .modal-dialog {
+            max-width: 600px;
+            margin: 1.75rem auto;
+        }   
+    }
+    .modal-container{
+        padding: 30px;
+    }
+    .form-control{
+        height: 45px;
+        font-size: 14px;
+        font-family: latoitalic;
+        color: #484848;
+    }
+    .short-desc{
+        color: #acacac;
+        font-size: 14px;
+        font-family: latoregular;
+        margin-bottom: 30px;
+    }
+    .flight-footer{
+        margin: 0px -30px -30px -30px;
+        .btn-left{
+            width: 50%;
+            height: 60px;
+            border-radius: 0;
+            border-bottom-left-radius: 5px;
+            background-color: #4069b9;
+            color: #fff;
+            font-size: 14px;
+            font-family: latobold;
+            i{
+                margin-left: 50px;
+            }
+        }
+        .btn-right{
+            width: 50%;
+            height: 60px;
+            border-radius: 0;
+            border-bottom-right-radius: 5px;
+            background-color: #5db5ff;
+            color: #fff;
+            font-size: 14px;
+            font-family: latobold;
+            i{
+                margin-left: 50px;
+            }
+        }
+        
+    }
+}
+
+::ng-deep{
+    .modal-popup.payment{
+        .modal-content{
+            padding-bottom: 0;
+        }
+        @media (min-width: 992px){
+            .modal-dialog {
+                max-width: 950px !important;
+            }
+        }
+        h3{
+            font-size: 16px;
+            font-family: latobold;
+        }
+        .book-summary{
+            h5{
+                font-family: latobold;
+                font-size: 16px;
+            }
+            table td{
+                font-family: latoregular;
+                font-size: 14px;
+                color: #130504;
+                padding: 10px 0;
+                border: 0;
+            }
+            tr.border-tb{
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+            }
+            .t-gray{
+                color: #a8adb2;
+            }
+            .total{
+                font-family: latobold !important;
+                color: #130504 !important;
+                font-size: 16px !important;
+            }
+        }
+        .flight-footer{
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+            .btn{
+                width: 50%;
+                border: 0;
+                border-radius: 0;
+                height: 50px;
+                font-size: 12px;
+                &.btn-left{
+                    background: #5db5ff;
+                    color: #fff;
+                }
+                &.btn-right{
+                    border-bottom-right-radius: 5px;
+                    background: #fff;
+                    color: #5db5ff;
+                }
+            }
+        }
+    }
+    .nav-tabs {
+        border: 0;
+        .nav-link{
+            background-color: #fff;
+            border: 0;
+            font-family: latobold;
+            font-size: 12px;
+            color: #a8adb2;
+            text-transform: uppercase;
+            &.active{
+                color: #f47921;
+                border-bottom: 2px solid #f47921;
+            }
+        }
+    }
+    .tab-content{
+        padding: 20px 0;
+        .credit-card{
+            .c-body{
+                margin: 10px 0px 20px -15px;
+            }
+            .card-img{
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                width: 100px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                img{
+                    margin: 0 auto;
+                }
+            }
+            label.form-l{
+                font-size: 12px;
+                color: #130504;
+                font-family: latoblack;
+            }
+        }
+    }
+}
+.pos-sticky-right{
+    // height: 100%;
+    // /* overflow: auto; */
+    // position: -webkit-sticky;
+    // position: sticky;
+    // top: 76px;
+    // z-index: 111;
+}

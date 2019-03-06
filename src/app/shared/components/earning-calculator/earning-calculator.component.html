@@ -1,0 +1,42 @@
+<div class="modal-container earning-calculator">
+  <div class="header">
+    <h4 class="title">Calculate your earning as an Ora host</h4>
+  </div>
+  <div class="calculator-form">
+    <h5>Find out what you could earn</h5>
+    <form [formGroup]="earningCalculatorForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="location" placeholder="Enter your location" autocorrect="off" autocapitalize="off" spellcheck="off"  #search   [ngClass]="{ 'is-invalid': earningCalculatorForm.controls['location'].touched && earningCalculatorForm.controls['location'].errors }">
+              </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+            <input type="number"  class="form-control"  formControlName="noOfGuest" placeholder="Number of guest" [ngClass]="{ 'is-invalid': earningCalculatorForm.controls['noOfGuest'].touched && earningCalculatorForm.controls['noOfGuest'].errors }">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+              <select class="form-control" placeholder="Pick a stay" formControlName="propertyTypeId" [ngClass]="{ 'is-invalid': earningCalculatorForm.controls['propertyTypeId'].touched && earningCalculatorForm.controls['propertyTypeId'].errors }">
+                  <option value="" selected>Pick a stay</option>
+                  <option *ngFor="let propertyType of propertyTypes" [ngValue]="propertyType.propertyTypeId">{{ propertyType.name }}</option>
+                </select>
+            </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6">
+          <h6 *ngIf="totalEarningAmount"><i class="fa fa-inr" aria-hidden="true"></i> {{totalEarningAmount | number:'.2'}}</h6>
+          <span *ngIf="totalEarningAmount">per month <i class="fa fa-question-circle-o" aria-hidden="true"></i></span>
+        </div>
+        <div class="col-md-6 text-right">
+          <button type="submit" class="btn btn-primary">Calculate Earning</button>
+          <!--
+             <button class="btn btn-primary" (click)="onStartHosting()">Start hosting</button>
+          -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

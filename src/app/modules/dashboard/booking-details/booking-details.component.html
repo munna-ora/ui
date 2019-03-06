@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div class="cancellation-table">
+    <div class="header">
+      <h3 class="float-left m-0">My booking details</h3>
+      <!-- <form action=""> -->
+        <div class="form-group float-right m-0 d-flex bd-highlight">
+          <button class="btn btn-dark btn-sm mr-3">Print</button>
+          <button class="btn btn-dark btn-sm mr-3">Email</button>
+          <button class="btn btn-danger btn-sm">Cancel booking</button>
+        </div>
+      <!-- </form> -->
+      <div class="clearfix"></div>
+    </div>
+    <div class="row p-10">
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <div class="d-flex justify-content-between w-100">
+              <h5>Stay details <span>|  Booking ID - ORA29100626</span></h5>
+              <p><span class="first">Brickwood Express homestay</span> <br>
+                <span class="second"> <i class="fa fa-map-marker" aria-hidden="true"></i> Salt Lake, Sector 1, Bidhannagar, Kolkata - 700091, West Bengal, India</span></p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3 b-right">
+                <h6><i></i><span class="first">Check in</span><br><small class="second">6th Jan, Sunday 2019, 14:00 PM</small></h6>
+              </div>
+              <div class="col-md-3 b-right">
+                <h6><i></i><span class="first">Check out</span><br><small class="second">8th Jan, Tuesday 2019, 12:00 AM</small></h6>
+              </div>
+              <div class="col-md-2 b-right">
+                <h6><i></i><span class="first">Total No. of rooms</span><br><small class="second">Room - 1</small></h6>
+              </div>
+              <div class="col-md-2 b-right">
+                <h6><i></i><span class="first">Total no. of Days</span><br><small class="second">2 Days</small></h6>
+              </div>
+              <div class="col-md-2">
+                <h6><i></i><span class="first">Total No. of guests</span><br><small class="second">2 Guests (2 Adults)</small></h6>
+              </div>
+            </div>
+            <h5 class="mt-4 mb-3">Customer details</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest Name</th>
+                  <th>Company</th>
+                  <th>guests address</th>
+                  <th>mobile number</th>
+                  <th>email address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mr. Saransh Kumar</td>
+                  <td>-</td>
+                  <td>Salt Lake, Sector 1, Bidhannagar,
+                      Kolkata - 700091, West Bengal, India
+                  </td>
+                  <td>+91 6290493191</td>
+                  <td>saransh@orastays.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card mt-4">
+          <div class="card-header">
+            <h5>Payment details</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ora amount</th>
+                  <th>ora discount</th>
+                  <th>host discount</th>
+                  <th>offer amount</th>
+                  <th>GST (%)</th>
+                  <th>GST amount</th>
+                  <th class="text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <strong> <i class="fa fa-inr" aria-hidden="true"></i> 7,062</strong></td>
+                  <td><strong> <i class="fa fa-inr" aria-hidden="true"></i> 262</strong></td>
+                  <td><strong> <i class="fa fa-inr" aria-hidden="true"></i> 262</strong></td>
+                  <td><strong> <i class="fa fa-inr" aria-hidden="true"></i> 262</strong></td>
+                  <td><strong> 18%</strong></td>
+                  <td><strong> <i class="fa fa-inr" aria-hidden="true"></i> 262</strong></td>
+                  <td class="text-right"><strong><i class="fa fa-inr" aria-hidden="true"></i>  7,153</strong> </td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="text-right">
+                      <strong>Total amount</strong> <br>
+                      <span>Convience fees (Including 18% GST)</span>
+                  </td>
+                  <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>  7,153 <br> <i class="fa fa-inr" aria-hidden="true"></i>  200</td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="text-right">
+                      <strong class="bold-text">Total payable amount</strong>
+                  </td>
+                  <td class="text-right"><strong class="bold-text"><i class="fa fa-inr" aria-hidden="true"></i> 7,353</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="text-right">
+                      <strong>Advance paid amount</strong> <br>
+                      <span class="text-red">Pending amount</span>
+                  </td>
+                  <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>  7,153 <br> <i class="fa fa-inr" aria-hidden="true"></i>  2000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cancellation confirmation modal -->
+<ng-template #cancelBooking let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="text-center">
+        <h4 class="modal-title">Are you sure!</h4>
+        <p class="text">you want to cancel your booking?</p>
+
+        <button type="button" class="btn btn-primary btn-sm mr-4" (click)="modal.close('Save click')">Yes</button>
+        <button type="button" class="btn btn-dark btn-sm" (click)="modal.close('Save click')">No</button>
+    </div>
+  </div>
+</ng-template>

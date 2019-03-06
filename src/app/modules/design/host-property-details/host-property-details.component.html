@@ -1,0 +1,785 @@
+<div class="dashboard-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav ps ps--active-y">
+      <div class="profile-info">
+        <div class="btn-group mr-3">
+          <img class="user-img" src="assets/images/dashboard/prop_host.png" alt="">
+          <button class="btn btn-edit" type="button"><i class="pencil-icon"></i></button>
+        </div>
+        <label class="username">Saiyed Hussain</label>
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="colors.html">
+              <i class="nav-icon"></i> Properties
+              <span class="badge badge-info">04</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Revenue
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Calendar
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Inventory
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Analytics
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">
+              <i class="nav-icon"></i> Contact ORA
+            </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="container-fluid">
+      <div class="header-bg-container">
+        <img src="assets/images/dashboard/host-details-bg.png" alt="">
+      </div>
+      <div class="property-details-container">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="float-left">Property details</h3>
+            <button type="button" class="btn btn-edit float-right"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <div class="clearfix"></div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                  <img src="assets/images/dashboard/prop_1.jpg" class="rounded mx-auto d-block w-100">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5 class="card-title">Property type</h5>
+                    <p>Homestay</p>
+                  </div>
+                  <div class="col-md-3">
+                    <h5 class="card-title">Property name</h5>
+                    <p>Fusce facilisis maximus</p>
+                  </div>
+                  <div class="col-md-7">
+                    <h5 class="card-title">Property address</h5>
+                    <p>Fusce facilisis,16 B Saltlake city, Boishakhi Bazaar, Bidhannagar, Kolkata 700091, West bengal, India.</p>
+                  </div>
+                  <div class="col-md-12">
+                    <h5 class="card-title">Property description</h5>
+                    <p>Nulla eget nisl blandit nisl fermentum fringilla eu vel mi. Phasellus sit amet euismod purus, id consectetur dui. Mauris tristique lorem ut arcu interdum fermentum. Maecenas vulputate dignissim ligula, id placerat leo tincidunt sit amet. Nam consectetur nisi vel eleifend posuere. Suspendisse potenti. Donec non neque ut neque elementum venenatis. Donec vestibulum, lorem eget auctor scelerisque, lacus nibh aliquam arcu, et cursus neque lectus eu enim. Nulla iaculis purus quis mattis finibus. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion pb-4">
+          <ngb-accordion [closeOthers]="false" #acc="ngbAccordion" [activeIds]="accordianIds">
+            <ngb-panel id="panel-1">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Specifications </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <h5>Guest access</h5>
+                <label class="btn-tags"> Anenna </label>
+                <label class="btn-tags">Hendrerit</label>
+                <label class="btn-tags">Suspendisse</label>
+                <label class="btn-tags">Interdum</label>
+                <label class="btn-tags">Primis in faucibus</label>
+                <label class="btn-tags">Posuere</label>
+                <label class="btn-tags">Pellentesque</label>
+                <hr class="hr-b">
+
+                <h5>Nearby locations</h5>
+                <label class="btn-tags"> Suspendisse </label>
+                <label class="btn-tags"> Nunc vulputate sapien justo </label>
+                <label class="btn-tags"> Pellentesque </label>
+                <hr class="hr-b">
+
+                <h5>Space rules</h5>
+                <label class="check-box ng-star-inserted">
+                  Smooking <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  Drinkng <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  Pet friendly <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  ID proof <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <hr class="hr-b">
+
+                <h5>Special experience</h5>
+                <label class="check-box ng-star-inserted">
+                  Musical instrument <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  Yoga center <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  Spa <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <label class="check-box ng-star-inserted">
+                  Auditorium <input type="checkbox"><span class="checkmark"></span>
+                </label>
+                <hr class="hr-b">
+
+                <div class="form-group d-inline-table mr-50">
+                  <h5>Check in time </h5>
+                  <ngb-timepicker [(ngModel)]="checkInTime" [meridian]="meridian"></ngb-timepicker>
+                </div>
+                <div class="form-group d-inline-table mr-50">
+                  <h5>Check out time </h5>
+                  <ngb-timepicker [(ngModel)]="checkInTime" [meridian]="meridian"></ngb-timepicker>
+                </div>
+                <div class="form-group d-inline-table">
+                  <h5>Strick check in</h5>
+                  <div class="form-group toggle-radio-btn">
+                    <input id="strict-check-on" class="toggle toggle-left" name="strict-check" value="false" type="radio" checked>
+                    <label for="strict-check-on" class="toggle-btn p-0">Yes</label>
+                    <input id="strict-check-off" class="toggle toggle-right" name="strict-check" value="true" type="radio">
+                    <label for="strict-check-off" class="toggle-btn p-0">No</label>
+                  </div>
+                </div>
+                <hr class="hr-b">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h5>Upload cover photo</h5>
+                    <div class="custom-file mb-3">
+                      <input class="custom-file-input" id="customFile" name="filename" type="file">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Upload more images</h5>
+                    <div class="custom-file mb-3">
+                      <input class="custom-file-input" id="customFile" name="filename" type="file">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="panel-2">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Related Informations </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <h5>Do you want to list entire Apartment?</h5>
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-group toggle-radio-btn">
+                      <input id="entire-apprtmnt-on" class="toggle toggle-left" name="entire-apprtmnt" value="false" type="radio" checked>
+                      <label for="entire-apprtmnt-on" class="toggle-btn p-0">Yes</label>
+                      <input id="entire-apprtmnt-off" class="toggle toggle-right" name="entire-apprtmnt" value="true" type="radio">
+                      <label for="entire-apprtmnt-off" class="toggle-btn p-0">No</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ml-3">
+                    <input type="text" class="form-control" placeholder="Enter appartment name">
+                  </div>
+                  <div class="col-md-4 ml-2">
+                    <input type="text" class="form-control" placeholder="Enter appartment number">
+                  </div>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Select stay type</h5>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="stayType" checked />
+                  Long Term
+                </label>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="stayType" />
+                  Short Term
+                </label>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="stayType" />
+                  Both
+                </label>
+                <hr class="hr-b">
+
+                <h5>Select sex category </h5>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="sexCategory" checked />
+                  Male
+                </label>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="sexCategory" />
+                  Female
+                </label>
+                <label class="mr-3 c-pointer">
+                  <input type="radio" class="option-input radio" name="sexCategory" />
+                  Both
+                </label>
+                <hr class="hr-b">
+
+                <h5>Do you have multiple Rooms? </h5>
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-group toggle-radio-btn">
+                      <input id="multi-room-on" class="toggle toggle-left" name="multi-room" value="false" type="radio" checked>
+                      <label for="multi-room-on" class="toggle-btn p-0">Yes</label>
+                      <input id="multi-room-off" class="toggle toggle-right" name="multi-room" value="true" type="radio">
+                      <label for="multi-room-off" class="toggle-btn p-0">No</label>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group m-0">
+                      <label class="mr-30 d-block text">Accommodation type:</label>
+                      <label class="mr-3 c-pointer">
+                        <input type="radio" class="option-input radio" name="accomodationType" checked />
+                        Private
+                      </label>
+                      <label class="mr-3 c-pointer">
+                        <input type="radio" class="option-input radio" name="accomodationType" />
+                        Shared
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group m-0">
+                      <label class="d-block text">Select Room Category: </label>
+                      <select class="form-control">
+                        <option value="">Cat 1</option>
+                        <option value="">Cat 2</option>
+                        <option value="">Cat 3</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group m-0">
+                      <label class="d-block text">Total Rooms:</label>
+                      <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Specialities </h5>
+                <div class="form-group">
+                  <label class="check-box" *ngFor="let item of specialities">{{item}}
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Amenities</h5>
+                <div class="form-group">
+                  <label class="check-box" *ngFor="let item of amenities">{{item}}
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Counter</h5>
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-group">
+                      <label for="" class="mr-30 d-block text">Number of adults</label>
+                      <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group">
+                      <label for="" class="mr-30 d-block text">Number of child</label>
+                      <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group">
+                      <label for="" class="mr-30 d-block text">Do you allow extra Cot?</label>
+                      <div class="toggle-radio-btn">
+                        <input id="extra-cot-on" class="toggle toggle-left" name="extra-cot" value="false" type="radio" checked>
+                        <label for="extra-cot-on" class="toggle-btn p-0">Yes</label>
+                        <input id="extra-cot-off" class="toggle toggle-right" name="extra-cot" value="true" type="radio">
+                        <label for="extra-cot-off" class="toggle-btn p-0">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group">
+                      <label for="" class="mr-30 d-block text">Number of Cot allowed</label>
+                      <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Meal plan</h5>
+                <table class="table table-bordered m-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2">Meal</th>
+                      <th colspan="2">Chargeable</th>
+                      <th colspan="3">Type</th>
+                    </tr>
+                    <tr>
+                      <th>Yes</th>
+                      <th>No</th>
+                      <th>Veg</th>
+                      <th>Non-Veg</th>
+                      <th>Both</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                          Breakfast
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="bfType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          Major Meal 1
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m1Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          Major Meal 2
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="m2Type" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          Snacks
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="c-pointer">
+                          <input type="radio" class="option-input radio" name="sType" />
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="check-box">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr class="hr-b">
+
+                <h5>Price & commissions</h5>
+                <div class="form-row align-items-center">
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Price Per Night</label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">₹</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Amount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Price Per Month </label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">₹</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Amount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">COT Price </label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">₹</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Amount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Commission </label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Amount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Discount Weekly </label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage ">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Discount Monthly </label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label class="d-block text">Price Drop?</label>
+                      <div class="toggle-radio-btn">
+                        <input id="priceDrop-on" class="toggle toggle-left" name="priceDrop" value="false" type="radio" checked>
+                        <label for="priceDrop-on" class="toggle-btn p-0">Yes</label>
+                        <input id="priceDrop-off" class="toggle toggle-right" name="priceDrop" value="true" type="radio">
+                        <label for="priceDrop-off" class="toggle-btn p-0">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hr-b">
+
+                <h5>Cancellation policy</h5>
+                <div class="form-row align-items-center">
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Before 24 hrs.</label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Before 48 hrs.</label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto pr-3">
+                    <div class="form-group">
+                      <label for="" class="text">Before 72 hrs.</label>
+                      <div class="input-group price-box">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="panel-3">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Bank Details </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <div class="row">
+                  <div class="col-md-4">
+                    <h5>Account holder name</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Account holder name">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h5>Account number</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Account Number">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h5>Bank name</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Bank Name">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h5>Branch name</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Branch Name">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h5>Branch IFSC code</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="IFSC Code">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h5>Account type</h5>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option value="">Account Type</option>
+                        <option value="">Saving Account</option>
+                        <option value="">Current Account</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="panel-4">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Personal Details </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <div class="row">
+                  <div class="col-md-3">
+                      <h5>Document Type</h5>
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option value="">Select Document Type</option>
+                          <option value="">Doc Type</option>
+                          <option value="">Doc Type</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <h5>Document number</h5>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Document ID">
+                      </div>
+                  </div>
+                  <div class="col-auto">
+                      <h5>Upload document</h5>
+                      <div class="custom-file mb-3">
+                        <input type="file" class="custom-file-input" id="documentUploadBtn" name="filename">
+                        <label class="custom-file-label" for="documentUploadBtn">Choose file</label>
+                      </div>
+                  </div>
+                </div>
+
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="panel-5">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Business start & end date </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>Start date</h5>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                                name="dp" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkin-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>End date</h5>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                                name="dp" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar checkout-pick" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="panel-6">
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Provide addtional information </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <button type="button" class="btn edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>Contact person name</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Full Name">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>Alternate mobile number</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Mobile Number">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>Landline number</h5>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Landline Number">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>Alternate email address</h5>
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Email ID">
+                    </div>
+                  </div>
+                </div>
+                
+                <hr class="hr-b">
+                <div class="clearfix">
+                  <button class="btn btn-primary float-right p-lr-20">Save</button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,90 @@
+.media-room-container{
+    .pr-30{
+        padding-right: 30px;
+    }
+    .pl-30{
+        padding-left: 30px;
+    }
+    .pt-60{
+        padding-top: 60px;
+    }
+    .pb-60{
+        padding-bottom: 60px;
+    }
+    .mb-20{
+        margin-bottom: 20px;
+    }
+    .mb-40{
+        margin-bottom: 40px;
+    }
+    .read-more-btn{
+        color: #f47921;
+        font-family: latobolditalic;
+    }
+    h3{
+        font-family: latolight;
+        font-size: 50px;
+        color: #2c2c2c;
+        span.youtube-like{
+            font-family: latoregular;
+            background: url(../../../../assets/images/media/youtube-likes.png) no-repeat;
+            background-size: 100%;
+            width: 124px;
+            height: 24px;
+            display: inline-block;
+            margin-left: 8px;
+        }
+    }
+    p{
+        font-family: latolightitalic;
+        color: #2c2c2c;
+        font-size: 16px;
+    }
+    .press-release-section{
+        max-width: 95%;
+        .press-video{
+            img{
+                box-shadow: -120px -60px 0px 0px #ecedef;
+            }
+        }
+        .youtube-video{
+            margin-bottom: 20px;
+            img{
+                width: 100%;
+            }
+            p{
+                font-family: latoblack;
+                font-size: 12px;
+                color: #231f20;
+                margin-top: 10px;
+                span{
+                    font-family: latoregular;
+                    border-left: 1px solid #231f20;
+                    margin-left: 5px;
+                    padding-left: 5px;
+                }
+            }
+        }
+        .card{
+            box-shadow: 0px 8px 0px 0px #dbdbdb;
+            h6{
+                font-family: latoblack;
+                color: #231f20;
+                font-size: 16px;
+            }
+            h4{
+                font-family: latoblack;
+                font-size: 16px;
+                color: #2c2c2c;
+            }
+            p{
+                font-family: latolightitalic;
+                font-size: 16px;
+                color: #231f20;
+            }
+        }
+    }
+    .social-media-section{
+        max-width: 95%;
+    }
+}

@@ -1,0 +1,199 @@
+<!-- Filter -->
+<div class="row row-eq-height mr-0 filter-container" *ngIf="!expanded">
+  <div class="col-md-4 left-panel-blue pb-25">
+    <div class="filter-panel">
+      <button class="btn btn-filter" (click)="toggleFilter()">[+]  more Filter search </button>
+    </div>
+    <div class="radio-group">
+      <h6>DEPARTURE</h6>
+      <div class="d-flex justify-content-between">
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wh-1" name="departureRadio" type="radio">
+          <label class="items" for="wh-1">
+            <img alt="" src="assets/images/wh-1.png">
+            <p class="name">00:00-18:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wh-2" name="departureRadio" type="radio">
+          <label class="items" for="wh-2">
+            <img alt="" src="assets/images/wh-2.png">
+            <p class="name">18:00-12:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wh-3" name="departureRadio" type="radio">
+          <label class="items" for="wh-3">
+            <img alt="" src="assets/images/wh-3.png">
+            <p class="name">12:00-18:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wh-4" name="departureRadio" type="radio">
+          <label class="items" for="wh-4">
+            <img alt="" src="assets/images/wh-4.png">
+            <p class="name">18:00-00:00</p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="radio-group">
+      <h6>ARRIVAL</h6>
+      <div class="d-flex justify-content-between">
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wha-1" name="arrivalRadio" type="radio">
+          <label class="items" for="wha-1">
+            <img alt="" src="assets/images/wh-1.png">
+            <p class="name">00:00-18:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wha-2" name="arrivalRadio" type="radio">
+          <label class="items" for="wha-2">
+            <img alt="" src="assets/images/wh-2.png">
+            <p class="name">18:00-12:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wha-3" name="arrivalRadio" type="radio">
+          <label class="items" for="wha-3">
+            <img alt="" src="assets/images/wh-3.png">
+            <p class="name">12:00-18:00</p>
+          </label>
+        </div>
+        <div class="radio-weth">
+          <input checked="" class="input-hidden" id="wha-4" name="arrivalRadio" type="radio">
+          <label class="items" for="wha-4">
+            <img alt="" src="assets/images/wh-4.png">
+            <p class="name">18:00-00:00</p>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 right-panel-blue text-left">
+    <div class="filter-panel">
+      <div class="d-inline-block text-left">
+        <div class="col-auto p-0">
+          <div class="d-inline-block">
+            <label class="check-box ng-star-inserted">Direct 
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="check-box ng-star-inserted">1 Stop 
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="price-range">
+        <h6>Price</h6>
+        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 last-panel-blue airlines">
+    <h6>AIRLINES</h6>
+    <form [formGroup]="checkboxGroupForm">
+      <!-- <div class="card-body"> -->
+        <!-- <h5 class="card-title">Guest ratings</h5> -->
+        <!-- <div> -->
+          <div class="btn-group-toggle">
+            <label class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="checkbox" formControlName="airlines" ngbButton> All airlines
+            </label>
+          </div>
+          <div class="btn-group-toggle" *ngFor="let airlineName of airlineNames | keyvalue; let i = index;">
+            <label *ngIf="airlineName.value" class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="checkbox"  ngbButton> {{airlineName.value }}
+            </label>
+          </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    </form>
+    <!-- <div>
+      <div class="btn-group-toggle ng-untouched ng-pristine ng-valid" formarrayname="ratings" ng-reflect-name="ratings">
+        <label class="btn-checkbox-filter btn" ngbbuttonlabel="">
+        <input autocomplete="off" ngbbutton="" type="checkbox" ng-reflect-name="0" class="ng-untouched ng-pristine ng-valid"> Good </label>
+      </div>
+      <div class="btn-group-toggle ng-untouched ng-pristine ng-valid" formarrayname="ratings" ng-reflect-name="ratings">
+        <label class="btn-checkbox-filter btn" ngbbuttonlabel="">
+        <input autocomplete="off" ngbbutton="" type="checkbox" ng-reflect-name="1" class="ng-untouched ng-pristine ng-valid"> Very Good </label>
+      </div>
+      <div class="btn-group-toggle ng-untouched ng-pristine ng-valid" formarrayname="ratings" ng-reflect-name="ratings">
+        <label class="btn-checkbox-filter btn" ngbbuttonlabel="">
+        <input autocomplete="off" ngbbutton="" type="checkbox" ng-reflect-name="2" class="ng-untouched ng-pristine ng-valid"> Excellent </label>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<!-- Departure & Arrival -->
+<div class="row row-eq-height mr-0" *ngIf="expanded">
+  <div class="col-md-4 left-panel-blue">
+    <div class="h-top">
+      <span>Departure</span>
+    </div>
+  </div>
+  <div class="col-md-4 right-panel-blue">
+    <div class="d-inline-block text-left">
+      <div class="h-top">
+        <span>Arrival</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 last-panel-blue">
+    <div class="filter-panel d-flex justify-content-between">
+      <div class="col-auto p-0">
+          <button class="btn btn-filter" (click)="toggleFilter()">[+]  more Filter search </button>
+      </div>
+      <div class="col-auto p-0">
+        <div class="d-inline-block">
+          <label class="check-box ng-star-inserted">Direct 
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="check-box ng-star-inserted">1 Stop 
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat this for Multicity -->
+<div class="row row-eq-height mr-0">
+  <div class="col-md-4 left-panel-blue">
+    <div class="h-bottom">
+      <h5>{{flightSearchObj.multiCities[0].origin.cityName}} ({{flightSearchObj.multiCities[0].origin.cityCode}})</h5>
+      <span>{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}}</span>
+      <div class="flight-icon" *ngIf="flightSearchObj.tripType !== 'R'"></div>
+      <div class="flight-icon-roundtrip" *ngIf="flightSearchObj.tripType == 'R'"></div>
+    </div>
+  </div>
+  <div class="col-md-4 right-panel-blue">
+    <div class="d-inline-block text-left">
+      <div class="h-bottom">
+        <h5><h5>{{flightSearchObj.multiCities[0].destination.cityName}} ({{flightSearchObj.multiCities[0].destination.cityCode}})</h5></h5>
+        <span *ngIf="flightSearchObj.tripType == 'R'">{{parserFormatter.format(flightSearchObj.multiCities[0].arrival_date)}}</span>
+        <span *ngIf="flightSearchObj.tripType !== 'R'">{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 last-panel-blue">
+    <div class="date-filter">
+      <div class="float-left">
+        <p class="text">Depart</p>
+        <label for="" class="date-picker">26th Dec</label>
+      </div>
+      <div class="float-right">
+        <button><i class="date-left-btn fa fa-long-arrow-left"></i></button> 
+        <button><i class="date-right-btn fa fa-long-arrow-right"></i></button> 
+      </div>
+    </div>
+  </div>
+</div>
+

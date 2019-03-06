@@ -1,0 +1,2076 @@
+<div class="host-listing-section">
+  <!-- Header Image -->
+  <div class="container-fluid host-listing-head p-0 mt-76">
+    <img class="w-100" src="assets/images/host-listing-slider-img.png" />
+    <div class="container-fluid header-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="title">Ora Property Listing Here...</h2>
+              <p class="info">It only takes 15 minutes to register.<span> So let's get started...</span> !! <img class="arrow" src="assets/images/host-arrow.png" alt=""> </p>
+            <button class="btn btn-primary btn-md mt-2 pb-10" (click)="openModal(earningCalculator)">Calculate your earning <img class="icon-calculator" src="assets/images/icon-calculator.png" alt=""> </button>
+          </div>
+          <div class="col-md-6">
+            <div class="listing-form">
+              <form-wizard>
+                <wizard-step>
+                  <h4 class="title">What type of property you are listing ?</h4>
+                  <div class="d-flex text-center mt-30">
+                    <div class="property-type">
+                      <input type="radio" name="property-type" id="homestay" class="input-hidden" checked/>
+                      <label class="items" for="homestay">
+                        <img src="assets/images/homestay-icon.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name">Homestay</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="property-type" id="guestHouse" class="input-hidden" />
+                      <label class="items" for="guestHouse">
+                        <img src="assets/images/guesthouse-icon.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name">Guest house</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="property-type" id="hotel" class="input-hidden" />
+                      <label class="items" for="hotel">
+                        <img src="assets/images/hotel-icon.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name">Hotel</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="property-type" id="payingGuest" class="input-hidden" />
+                      <label class="items" for="payingGuest">
+                        <img src="assets/images/payingguest-icon.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name">Paying guest</p>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-4 plr-5">
+                      <div class="form-group bg-input">
+                        <span class="icon i-property-name"></span>
+                        <input type="text" class="form-control" placeholder="Property name">
+                      </div>
+                    </div>
+                    <div class="col-md-4 plr-5">
+                      <div class="form-group bg-input">
+                        <span class="icon i-property-address"></span>
+                        <input type="text" class="form-control" placeholder="Property address">
+                      </div>
+                    </div>
+                    <div class="col-md-4 plr-5">
+                      <div class="form-group bg-input">
+                        <textarea class="form-control textarea" placeholder="Write propety description"></textarea>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+
+                    </div> -->
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="form-group bg-input d-flex align-items-center mb-3">
+                    <span class="icon i-guest-access"></span>
+                    <input type="text" class="form-control ml-20" placeholder="Mention guest access areas ">
+                    <!-- <tag-input class="tag-input" [(ngModel)]='guestAccess' secondary-placeholder="+ access" placeholder="+ access"></tag-input> -->
+                  </div>
+                  <div class="form-group bg-input d-flex align-items-center mb-3">
+                    <span class="icon i-nearby"></span>
+                    <input type="text" class="form-control ml-20" placeholder="Enter Nearby Places">
+                    <!-- <tag-input class="tag-input" [(ngModel)]='nearbyPlaces' secondary-placeholder="+ nearby place" placeholder="+ nearby place"></tag-input> -->
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Select Space Rules:</h4>
+                  <div class="d-flex text-center mt-15">
+                    <div class="property-type">
+                      <input type="radio" name="space-rules" id="couple" class="input-hidden" checked/>
+                      <label class="items" for="couple">
+                        <img src="assets/images/elements/couplefriendly.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Couple Friendly</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="space-rules" id="pet" class="input-hidden" />
+                      <label class="items" for="pet">
+                        <img src="assets/images/elements/pet.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Pet friendly</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="space-rules" id="smoking" class="input-hidden" />
+                      <label class="items" for="smoking">
+                        <img src="assets/images/elements/smoking.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Smoking</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="space-rules" id="alcohol" class="input-hidden" />
+                      <label class="items" for="alcohol">
+                        <img src="assets/images/elements/alcohol.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Alcohol</p>
+                    </div>
+                  </div>
+                  <h4 class="title mt-4">Select special experiences:</h4>
+                  <div class="form-group bg-input">
+                    <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Special experience'" [data]="specialExperienceList" [(ngModel)]="specialExperience" [settings]="dropdownSettings" name="specialExperience"></ng-multiselect-dropdown>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4 class="title">Check in time:</h4>
+                      <div class="form-group">
+                        <ngb-timepicker [(ngModel)]="checkInTime" [meridian]="meridian"></ngb-timepicker>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">Check out time: </h4>
+                      <div class="form-group">
+                        <ngb-timepicker [(ngModel)]="checkOutTime" [meridian]="meridian"></ngb-timepicker>
+                      </div>
+                    </div>
+                  </div>
+                  <h4 class="title">Strict check in: </h4>
+                  <div class="form-group">
+                    <div class="form-group toggle-radio-btn">
+                      <input id="strict-check-on" class="toggle toggle-left" name="strict-check" value="false" type="radio" checked>
+                      <label for="strict-check-on" class="toggle-btn p-0">Yes</label>
+                      <input id="strict-check-off" class="toggle toggle-right" name="strict-check" value="true" type="radio">
+                      <label for="strict-check-off" class="toggle-btn p-0">No</label>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Upload cover photo:</h4>
+                  <div class="form-group bg-input d-flex align-items-center mb-3">
+                    <span class="icon i-upload-one"></span>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input ml-20" id="coverPhoto" name="filename">
+                      <label class="custom-file-label" for="coverPhoto">Choose file</label>
+                    </div>
+                  </div>
+                  <h4 class="title">Upload more photos:</h4>
+                  <div class="form-group bg-input d-flex align-items-center mb-3">
+                    <span class="icon i-upload-multi"></span>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input ml-20" id="morePhotoFile" name="filename">
+                      <label class="custom-file-label" for="morePhotoFile">Choose file</label>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Do you want to list entire apartment? </h4>
+                  <div class="form-group toggle-radio-btn text-center mt-2">
+                    <input id="entire-apart-on" class="toggle toggle-left" name="entire-apart" value="false" type="radio" checked>
+                    <label for="entire-apart-on" class="toggle-btn">Yes</label>
+                    <input id="entire-apart-off" class="toggle toggle-right" name="entire-apart" value="true" type="radio">
+                    <label for="entire-apart-off" class="toggle-btn">No</label>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row justify-content-center">
+                    <div class="col-md-5 plr-5">
+                      <div class="form-group bg-input">
+                        <span class="icon i-appartment-name"></span>
+                        <input type="text" class="form-control" placeholder="Enter apartment name">
+                      </div>
+                    </div>
+                    <div class="col-md-5 plr-5">
+                      <div class="form-group bg-input">
+                        <span class="icon i-appartment-number"></span>
+                        <input type="text" class="form-control" placeholder="Enter apartment number">
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Select stay type: </h4>
+                  <div class="d-flex text-center mt-15">
+                    <div class="property-type">
+                      <input type="radio" name="stayType" id="longTerm" class="input-hidden" checked/>
+                      <label class="items" for="longTerm">
+                        <img src="assets/images/elements/long-term.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Long Term</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="stayType" id="shortTerm" class="input-hidden" />
+                      <label class="items" for="shortTerm">
+                        <img src="assets/images/elements/shortTerm.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Short Term</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="stayType" id="bothTerm" class="input-hidden" />
+                      <label class="items" for="bothTerm">
+                        <img src="assets/images/elements/both-term.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Both</p>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Select sex category: </h4>
+                  <div class="d-flex text-center mt-15">
+                    <div class="property-type">
+                      <input type="radio" name="sexCategory" id="sMale" class="input-hidden" checked/>
+                      <label class="items" for="sMale">
+                        <img src="assets/images/elements/male.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Long Term</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="sexCategory" id="sFemale" class="input-hidden" />
+                      <label class="items" for="sFemale">
+                        <img src="assets/images/elements/female.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Short Term</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="sexCategory" id="sBoth" class="input-hidden" />
+                      <label class="items" for="sBoth">
+                        <img src="assets/images/elements/both.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Both</p>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Do you have multiple rooms? </h4>
+                  <div class="form-group toggle-radio-btn text-center mt-2">
+                    <input id="multi-room-on" class="toggle toggle-left" name="multi-room" value="false" type="radio" checked>
+                    <label for="multi-room-on" class="toggle-btn">Yes</label>
+                    <input id="multi-room-off" class="toggle toggle-right" name="multi-room" value="true" type="radio">
+                    <label for="multi-room-off" class="toggle-btn">No</label>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h4 class="title">Select Accommodation Type: </h4>
+                      <div class="d-flex text-center mt-15">
+                        <div class="property-type">
+                          <input type="radio" name="accomodationType" id="privateRoom" class="input-hidden" checked/>
+                          <label class="items" for="privateRoom">
+                            <img src="assets/images/elements/private-room.png" alt="">
+                            <span class="item-checked"></span>
+                          </label>
+                          <p class="name mt-0">Private</p>
+                        </div>
+                        <div class="property-type">
+                          <input type="radio" name="accomodationType" id="sharedRoom" class="input-hidden" />
+                          <label class="items" for="sharedRoom">
+                            <img src="assets/images/elements/shared-room.png" alt="">
+                            <span class="item-checked"></span>
+                          </label>
+                          <p class="name mt-0">Shared</p> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4 class="title">Total Rooms:</h4>
+                        <ng-number-picker class="ng-number-picker mt-25"></ng-number-picker>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center mt-20">
+                    <div class="col-md-8">
+                      <h4 class="title text-center">Select Room Category: </h4>
+                      <div class="form-group bg-input h-auto">
+                        <select class="form-control">
+                          <option value="">Cat 1</option>
+                          <option value="">Cat 2</option>
+                          <option value="">Cat 3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <select class="form-control">
+                      <option value="">Cat 1</option>
+                      <option value="">Cat 2</option>
+                      <option value="">Cat 3</option>
+                    </select>
+                  </div> -->
+                  <!-- <div class="form-group">
+                    <label for="" class="mr-30">Total Rooms:</label>
+                    <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                  </div> -->
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Select specialities:</h4>
+                  <div class="form-group bg-input">
+                    <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Select specialities'" [data]="specialitiesList" [(ngModel)]="specialities" [settings]="dropdownSettings" name="specialities"></ng-multiselect-dropdown>
+                  </div>
+
+                  <h4 class="title mt-25">Select amenities:</h4>
+                  <div class="form-group bg-input">
+                    <ng-multiselect-dropdown class="form-control multiSelect" [placeholder]="'Select amenities'" [data]="amenitiesList" [(ngModel)]="amenities" [settings]="dropdownSettings" name="amenities"></ng-multiselect-dropdown>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Upload room images:</h4>
+                  <div class="form-group bg-input d-flex align-items-center mb-3">
+                    <span class="icon i-upload-one"></span>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input ml-20" id="roomImages" name="filename">
+                      <label class="custom-file-label" for="roomImages">Choose file</label>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4 class="title fs-18">Number of adults: </h4>
+                      <div class="form-group">
+                        <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title fs-18">Number of Child: </h4>
+                      <div class="form-group">
+                        <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title fs-18">Do you allow extra cot? </h4>
+                      <div class="form-group">
+                        <div class="form-group toggle-radio-btn">
+                          <input id="extraCot-on" class="toggle toggle-left" name="extraCot" value="false" type="radio" checked>
+                          <label for="extraCot-on" class="toggle-btn p-0">Yes</label>
+                          <input id="extraCot-off" class="toggle toggle-right" name="extraCot" value="true" type="radio">
+                          <label for="extraCot-off" class="toggle-btn p-0">No</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title fs-18">Number Of COT allowed: </h4>
+                      <div class="form-group">
+                        <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Select your meal plan: </h4>
+                  <div class="d-flex text-center mt-15">
+                    <div class="property-type">
+                      <input type="radio" name="sexCategory" id="dailyMeal" class="input-hidden" checked/>
+                      <label class="items" for="dailyMeal">
+                        <img src="assets/images/elements/daily-meal.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Daily</p>
+                    </div>
+                    <div class="property-type">
+                      <input type="radio" name="sexCategory" id="weeklyMeal" class="input-hidden" />
+                      <label class="items" for="weeklyMeal">
+                        <img src="assets/images/elements/weekly-meal.png" alt="">
+                        <span class="item-checked"></span>
+                      </label>
+                      <p class="name mt-0">Weekly</p>
+                    </div>
+                  </div>
+                </wizard-step>
+
+                <wizard-step>
+                  <h4 class="title">Meal plan: </h4>
+                  <!-- <table class="table table-bordered meal-table">
+                    <thead>
+                      <tr>
+                        <th rowspan="2" class="text-left p-l-15">Meal</th>
+                        <th colspan="2">Chargeable</th>
+                        <th colspan="3">Type</th>
+                      </tr>
+                      <tr>
+                        <th>Yes</th>
+                        <th>No</th>
+                        <th>Veg</th>
+                        <th>Non-Veg</th>
+                        <th>Both</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-left p-l-15">
+                            Breakfast
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="bfType" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="bfType" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-left p-l-15">
+                            Major Meal 1
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="m1Type" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="m1Type" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-left p-l-15">
+                            Major Meal 2
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="m2Type" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="m2Type" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-left p-l-15">
+                            Snacks
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="sType" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="c-pointer">
+                            <input type="radio" class="option-input radio" name="sType" />
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label class="check-box">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+                  <div class="mealAccordian">
+                    <ngb-accordion #mealAcc="ngbAccordion" [closeOthers]="true">
+                      <ngb-panel title="Monday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Tuesday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Wednesday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Thusday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Friday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Saturday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                      <ngb-panel title="Sunday">
+                        <ng-template ngbPanelContent>
+                          <table class="table table-bordered meal-table">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="text-left p-l-15">Meal</th>
+                                <th colspan="2">Chargeable</th>
+                                <th colspan="3">Type</th>
+                              </tr>
+                              <tr>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Veg</th>
+                                <th>Non-Veg</th>
+                                <th>Both</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Breakfast
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="bfType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 1
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m1Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Major Meal 2
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="m2Type" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left p-l-15">
+                                    Snacks
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="c-pointer">
+                                    <input type="radio" class="option-input radio" name="sType" />
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                                <td>
+                                  <label class="check-box">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </ng-template>
+                      </ngb-panel>
+                    </ngb-accordion>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4 class="title">Price per night: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">₹</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Amount">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">Price per month: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">₹</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Amount">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">COT price: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">₹</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Amount">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">Commission: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">%</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Amount">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4 class="title">Discount weekly: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">%</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Percentage">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">Discount monthly: </h4>
+                      <div class="form-group bg-input h-auto mb-15">
+                        <div class="input-gp input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">%</div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Percentage">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="title">Price Drop? </h4>
+                      <div class="form-group">
+                        <div class="form-group toggle-radio-btn">
+                          <input id="priceDrop-on" class="toggle toggle-left" name="priceDrop" value="false" type="radio" checked>
+                          <label for="priceDrop-on" class="toggle-btn p-0">Yes</label>
+                          <input id="priceDrop-off" class="toggle toggle-right" name="priceDrop" value="true" type="radio">
+                          <label for="priceDrop-off" class="toggle-btn p-0">No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Cancellation policy:</h4>
+                  <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                    <label class="f-label">Before 24 hours</label>
+                    <div class="input-gp input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">%</div>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Percentage">
+                    </div>
+                  </div>
+                  <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                    <label class="f-label">Before 48 hours</label>
+                    <div class="input-gp input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">%</div>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Percentage">
+                    </div>
+                  </div>
+                  <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                    <label class="f-label">Before 72 hours</label>
+                    <div class="input-gp input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">%</div>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Percentage">
+                    </div>
+                  </div>
+                  <!-- <div class="form-group row">
+                    <label class="col-sm-4">Before 24 Hours</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4">Before 48 Hours</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4">Before 72 Hours</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">%</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage">
+                      </div>
+                    </div>
+                  </div> -->
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Bank details</h4>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <input type="text" class="form-control" placeholder="Account number">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <input type="text" class="form-control" placeholder="Full name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <select class="form-control">
+                          <option value="">Account type</option>
+                          <option value="">Saving Account</option>
+                          <option value="">Current Account</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <input type="text" class="form-control" placeholder="Bank name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <input type="text" class="form-control" placeholder="Branch name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input h-auto mb-15">
+                        <input type="text" class="form-control" placeholder="IFSC code">
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Upload Documents</h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                        <label class="f-label">Document type</label>
+                        <select class="form-control">
+                          <option value="">Select document type</option>
+                          <option value="">Doc Type</option>
+                          <option value="">Doc Type</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                        <label class="f-label">Document number</label>
+                        <input type="text" class="form-control" placeholder="Document ID">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group bg-input d-flex align-items-center mb-3">
+                        <span class="icon i-upload-one"></span>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input ml-20" id="documentUpload" name="filename">
+                          <label class="custom-file-label" for="documentUpload">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Business start & end date</h4>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                        <label for="" class="f-label">Start date:</label>
+                        <div class="input-group">
+                          <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                                  name="bstartDate" ngbDatepicker #bstartDate="ngbDatepicker" (click)="bstartDate.toggle()">
+                          <div class="input-group-append">
+                            <button class="btn calendar checkin-pick" (click)="bstartDate.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group bg-input h-auto mb-15 d-flex align-items-center">
+                        <label for="" class="f-label">End date:</label>
+                        <div class="input-group">
+                          <input class="form-control border-right-0" placeholder="DD/MM/YYYY"
+                                  name="bendDate" ngbDatepicker #bendDate="ngbDatepicker" (click)="bendDate.toggle()">
+                          <div class="input-group-append">
+                            <button class="btn calendar checkout-pick" (click)="bendDate.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <h4 class="title">Provide additional information</h4>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bg-input d-flex align-items-center mb-3">
+                        <input type="text" class="form-control" placeholder="Contact person name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input d-flex align-items-center mb-3">
+                        <input type="text" class="form-control" placeholder="Alternative mobile number">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <div class="form-group bg-input d-flex align-items-center mb-3">
+                        <input type="text" class="form-control" placeholder="Landline number">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group bg-input d-flex align-items-center mb-3">
+                        <input type="email" class="form-control" placeholder="Alternative email ID">
+                      </div>
+                    </div>
+                  </div>
+                </wizard-step>
+                <wizard-step>
+                  <div class="text-center">
+                    <img src="assets/images/elements/thumbsup.png" alt="">
+                    <h4 class="title">Thank you!</h4>
+                    <h5 class="fs-18">You have successfully listed your property with us.</h5>
+                  </div>
+                </wizard-step>
+              </form-wizard>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-icon"><a class="c-pointer" (click)="scroll(target)"><img src="assets/images/scroller.png" alt=""></a></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="container mt-70">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="assets/images/host-1.png" alt="">
+      </div>
+      <div class="col-md-9 pl-50">
+        <h3>Why host on <span class="ora-orange-logo"></span></h3>
+        <ul>
+          <li>The standard Lorem Ipsum passage, used since the 1500s</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </li>
+          <li>nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
+          <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Excepteur sint </li>
+          <li>occaecat cupidatat non proident, sunt in culpa qui officia deserunt Section 1.10.32 of "de </li>
+          <li #target>Finibus Sed ut perspiciatis unde omnis iste natus error sit </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-70">
+      <div class="col-md-7">
+        <h3 class="m-0">Read how other hosts feel about  <span class="ora-orange-logo"></span></h3>
+        <span class="commas">"</span>
+        <p class="comma-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Orastays has changed my life completely. I was retired and my source of income was limited. I couldn't meet the demands at home. Hosting has added to my income and there is a change in the way my family too waits for the next guest. There's excitement and happiness always in house. Thanks Ora."</p>
+          <p class="small-text">Owner ORA208976  | <span> Saltlake, Kolkata</span></p>
+      </div>
+      <div class="col-md-5">
+        <div class="embed-responsive embed-responsive-16by9 video-container">
+          <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0" allowfullscreen height="400"></iframe> -->
+          <iframe class="embed-responsive-item" width="100%" height="400" src="https://www.youtube.com/embed/yPKSpuso6K0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full width image -->
+    <div class="row mt-50">
+      <div class="col-md-12">
+        <img width="100%" class="rounded" src="assets/images/host-2.png" alt="">
+      </div>
+    </div>
+    
+    <!-- According Section -->
+    <div class="row mt-70 mb-70">
+      <div class="col-md-12">
+        <h3 class="m-0 mb-4 d-flex"><span class="ora-orange-logo mr-2 ml-0"></span> <span class="lh-25"> answers your questions</span>  </h3>
+        <div class="accordion">
+          <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Why is Orastays.com my best choice for hosting?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                  Orastays strives to be the most recognized global Standardized Homestay provider for Travelers. Being in the forefront of the industry, our full-service approach to hosting verifies the exact background of the guest sharing your home. We have a 24x7 support, in case of a problem or emergency, feel free to contact. We handle end -to-end billing and payment. Experiences with Orastays are memorable, we endeavour to build a network on personal relationship where profit is not measured in terms of dollars alone but lifelong bonding.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Do I have to set house rules?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                  It is important to set rules so that you and your guests are comfortable with each other right from the start  
+                  <p>Some suggestions for Hosts:</p>
+                  <p>Make indoor smoking rules</p> 
+                  <p>Mention how your guest should cooperate in home security</p> 
+                  <p>Mention kitchen usage rules</p> 
+                  <p>Mention if you have a pet or will allow a pet</p> 
+                  <p>Some suggestions for guests:</p> 
+                  <p>Take permission from the host if you are planning to have guests over</p> 
+                  <p>Have respect for the host and the home, treat it as your own</p>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> What should I do after I receive my guest’s reservation?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <p>Once you have a confirmed booking Orastays.com will send you their Email address</p>
+                <p>You can contact your guest through Emails before the arrival date.</p>
+                <p>You will get the contact telephone number of your guest through email.</p>
+                <p>However, if you are making the booking just three days ahead of your arrival then we will share all the information at once.</p>
+                <p>If you there are some last-minute changes do contact us at Orastays and we will help to fix it for you.</p>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Do I receive payment to host?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                  All hosts receive direct deposit hosting stipends. The amounts vary based on the type of accommodation provided. For more information about payments, please click on the payment help button or contact Orastays directly.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> How long does it take to get a guest placed in my home?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                  Once the application, self-assessment, interview, and background checks roll out the process of matching your homestay with guests starts. The wait is not entirely dependent on luck, how you prepared your profile and the attractive images of your property will have a lot to do with fetching guests. So, put your best foot forward and wait for your homestay to get busy.  Orastays offers all the support you need to make your property visible to guests.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Can we host if we have a pet? </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                  Orastays.com brings people with different likes and dislikes in one single platform. Just state clearly in your profile that you own a pet. There are many who would love the idea of sharing a home with a pet and those who do not will not choose your property.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+          <!-- <div class="container">
+              <div id="accordion" class="accordion">
+                  <div class="card mb-0">
+                      <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                          <a class="card-title">
+                              Item 1
+                          </a>
+                      </div>
+                      <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
+                          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                              aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </p>
+                      </div>
+                      <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                          <a class="card-title">
+                            Item 2
+                          </a>
+                      </div>
+                      <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+                          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                              aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </p>
+                      </div>
+                      <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                          <a class="card-title">
+                            Item 3
+                          </a>
+                      </div>
+                      <div id="collapseThree" class="collapse" data-parent="#accordion" >
+                          <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                              aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. samus labore sustainable VHS.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Earning Calculator -->
+<ng-template #earningCalculator let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-earning-calculator></app-earning-calculator>
+</ng-template>

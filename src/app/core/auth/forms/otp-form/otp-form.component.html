@@ -1,0 +1,24 @@
+<!-- Verify OTP Form -->
+<form  [formGroup]="otpForm" (ngSubmit)="onSubmit()" novalidate>
+   <p> <ngb-alert *ngIf="otpResentMessage" [type]="'success'" (close)="otpResentMessage = null">{{ otpResentMessage }}</ngb-alert> </p>
+  <div class="otp-heading mb-4">
+    <h3>Please enter the OTP to verify your acount </h3>
+    <p *ngIf="otpFor=='register'" class="m-0">A OTP has been sent to {{formData?.emailId}} or mobile {{formData?.mobileNumber}}</p>
+    <p *ngIf="otpFor == 'login'" class="m-0">A OTP has been sent to {{formData?.emailMobile}}</p>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter your OTP" formControlName="otp" [ngClass]="{ 'is-invalid': otpForm.controls['otp'].touched && otpForm.controls['otp'].errors }">
+    <div *ngIf="otpForm.controls['otp'].errors && otpForm.controls['otp'].touched"  class="invalid-feedback"> 
+      <div *ngIf="otpForm.controls['otp'].errors.required">Please enter the OTP to verify your acount</div>
+      <div *ngIf="otpForm.controls['otp'].errors.invalid">{{errorMessage}}</div>
+  </div>
+  </div>
+  <div class="text-right mt-4 clearfix">
+    <p class="change-tab-view">Not a memebr? <a href="javascript:void(0)" (click)="showLoginSignUpForm('signupTab')"> Sign
+        up</a></p>
+    <button class="btn btn-primary verifyBtn" type="submit">Validate OTP</button>
+  </div>
+  <div class="text-right mt-2">
+    <p class="resend-otp m-0">Resend <a href="javascript:void(0)" (click)="resendOtp()"> OTP</a></p>
+  </div>
+</form>

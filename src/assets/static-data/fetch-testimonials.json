@@ -1,0 +1,87 @@
+{
+  "responseCode": "200",
+  "responseMessage": "OK",
+  "responseBody": [
+    {
+      "status": 1,
+      "createdDate": "2018-12-20 12:54:54",
+      "createdBy": 1,
+      "languageId": "1",
+      "testimonialId": "1",
+      "title": "Test 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex .",
+      "userId": "1",
+      "parentId": "0",
+      "user": {
+        "status": 1,
+        "createdDate": "2018-12-22 22:56:15",
+        "createdBy": 0,
+        "userId": "1",
+        "mobileNumber": "9883741610",
+        "emailId": "chhetri679@gmail.com",
+        "userVsInfo": {
+          "status": 1,
+          "createdDate": "2018-12-22 22:56:15",
+          "createdBy": 1,
+          "userVsInfoId": "1",
+          "name": "Sudeep Chhetri",
+          "imageUrl": "dfdfsdfsdfsdf"
+        }
+      }
+    },
+    {
+      "status": 1,
+      "createdDate": "2018-12-20 12:54:54",
+      "createdBy": 1,
+      "languageId": "1",
+      "testimonialId": "1",
+      "title": "Test 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex .",
+      "userId": "1",
+      "parentId": "0",
+      "user": {
+        "status": 1,
+        "createdDate": "2018-12-22 22:56:15",
+        "createdBy": 0,
+        "userId": "1",
+        "mobileNumber": "9883741610",
+        "emailId": "chhetri679@gmail.com",
+        "userVsInfo": {
+          "status": 1,
+          "createdDate": "2018-12-22 22:56:15",
+          "createdBy": 1,
+          "userVsInfoId": "1",
+          "name": "Sudeep Chhetri",
+          "imageUrl": "dfdfsdfsdfsdf"
+        }
+      }
+    },
+    {
+      "status": 1,
+      "createdDate": "2018-12-20 12:54:54",
+      "createdBy": 1,
+      "languageId": "1",
+      "testimonialId": "1",
+      "title": "Test 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pharetra nisi, auctor congue ex .",
+      "userId": "1",
+      "parentId": "0",
+      "user": {
+        "status": 1,
+        "createdDate": "2018-12-22 22:56:15",
+        "createdBy": 0,
+        "userId": "1",
+        "mobileNumber": "9883741610",
+        "emailId": "chhetri679@gmail.com",
+        "userVsInfo": {
+          "status": 1,
+          "createdDate": "2018-12-22 22:56:15",
+          "createdBy": 1,
+          "userVsInfoId": "1",
+          "name": "Sudeep Chhetri",
+          "imageUrl": "dfdfsdfsdfsdf"
+        }
+      }
+    }
+  ]
+}

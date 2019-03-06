@@ -1,0 +1,561 @@
+<div class="property-details-container mt-76">
+  <div class="container-fluid mb-40 bg-w">
+    <div class="row row-eq-height">
+      <div class="col-md-2 top-heading pr-0 m-w-20">
+        <h1><span class="text-orange">ORA912255343</span> <span>Express Homestay<br>
+          in Slatlake, Kolkata</span> </h1>
+        <p class="top-text"><span class="bed-icon"></span><span class="text">1 bedroom </span><span class="text">1 bed </span><span class="text">1 bath</span></p>
+        <p class="desc">Its a beautiful penthouse on 10floor, with mesmerizing ambiance, AC, TV, Wi-fi,bathroom+geyser,adjoining pantry,etc providing comfort &luxury as it opens out into a well landscaped terrace+flower garden and a panoramic view.</p>
+        <div class="d-flex bottom-box">
+          <a href="" class="icon"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+          <a href="" class="icon"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+          <p class="rating-text"><span class="badge badge-secondary bg-orange">8.8</span><span class="cat-type"> Excellent,</span><span class="review"> 987 reviews</span></p>
+        </div>  
+      </div>
+      <div class="col-md-10 m-w-80">
+        <div class="row">
+          <div class="col-md-8 p-l-r-5">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-6 p-l-r-5">
+                <div><img class="w-100" src="../../../../assets/images/property-details/gallery/small-img-1.png" alt=""></div>
+                <div class="p-t-b-10"><img class="w-100" src="../../../../assets/images/property-details/gallery/small-img-2.png" alt=""></div>
+                <div><img class="w-100" src="../../../../assets/images/property-details/gallery/small-img-3.png" alt=""></div>
+              </div>
+              <div class="col-md-6 p-l-r-5 img-last-block">
+                <div class="p-b-5"><img src="../../../../assets/images/property-details/gallery/video-img-1.png" alt=""></div>
+                <div class="p-t-5"><img src="../../../../assets/images/property-details/gallery/map-image-1.png" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid position-relative">
+    <div class="container amenities-experience-section">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="backshadow"></div>
+          <img class="w-100" src="../../../../assets/images/property-details/amenities-bg-img.png" alt="">
+        </div>
+        <div class="col-md-7 p-l-30">
+          <h3>you can love for a long time with our <span> modern amenities </span></h3>
+          <div class="d-flex">
+              <button class="slide-left-btn" [hidden]="as_leftNavDisabled" (click)="moveLeft_as()"></button>
+              <div class="ameni-slider">
+                <drag-scroll (reachesLeftBound)="leftBoundStat_as($event)" (reachesRightBound)="rightBoundStat_as($event)" #ameniSlider>
+                  <div class="item">
+                    <img class="amenities-icon" drag-scroll-item 
+                    src="assets/images/property-details/tv_black.png"
+                    onmouseover="this.src='assets/images/property-details/tv_white.png'"
+                    onmouseout="this.src='assets/images/property-details/tv_black.png'" />
+                  </div>  
+                  <div class="item">
+                    <img class="amenities-icon" drag-scroll-item 
+                    src="assets/images/property-details/ac_black.png"
+                    onmouseover="this.src='assets/images/property-details/ac_white.png'"
+                    onmouseout="this.src='assets/images/property-details/ac_black.png'" />
+                  </div>  
+                  <div class="item">
+                    <img class="amenities-icon" drag-scroll-item 
+                    src="assets/images/property-details/wifi_black.png"
+                    onmouseover="this.src='assets/images/property-details/wifi_white.png'"
+                    onmouseout="this.src='assets/images/property-details/wifi_black.png'" />
+                  </div>  
+                  <div class="item">
+                    <img class="amenities-icon" drag-scroll-item 
+                    src="assets/images/property-details/swimmingpool_black.png"
+                    onmouseover="this.src='assets/images/property-details/swimmingpool_white.png'"
+                    onmouseout="this.src='assets/images/property-details/swimmingpool_black.png'" />
+                  </div>  
+                  <div class="item">
+                    <img class="amenities-icon" drag-scroll-item 
+                    src="assets/images/property-details/carparking_black.png"
+                    onmouseover="this.src='assets/images/property-details/carparking_white.png'"
+                    onmouseout="this.src='assets/images/property-details/carparking_black.png'" />
+                  </div>  
+                  <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/tv_black.png"
+                      onmouseover="this.src='assets/images/property-details/tv_white.png'"
+                      onmouseout="this.src='assets/images/property-details/tv_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/ac_black.png"
+                      onmouseover="this.src='assets/images/property-details/ac_white.png'"
+                      onmouseout="this.src='assets/images/property-details/ac_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/wifi_black.png"
+                      onmouseover="this.src='assets/images/property-details/wifi_white.png'"
+                      onmouseout="this.src='assets/images/property-details/wifi_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/swimmingpool_black.png"
+                      onmouseover="this.src='assets/images/property-details/swimmingpool_white.png'"
+                      onmouseout="this.src='assets/images/property-details/swimmingpool_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/carparking_black.png"
+                      onmouseover="this.src='assets/images/property-details/carparking_white.png'"
+                      onmouseout="this.src='assets/images/property-details/carparking_black.png'" />
+                    </div> 
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/tv_black.png"
+                      onmouseover="this.src='assets/images/property-details/tv_white.png'"
+                      onmouseout="this.src='assets/images/property-details/tv_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/ac_black.png"
+                      onmouseover="this.src='assets/images/property-details/ac_white.png'"
+                      onmouseout="this.src='assets/images/property-details/ac_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/wifi_black.png"
+                      onmouseover="this.src='assets/images/property-details/wifi_white.png'"
+                      onmouseout="this.src='assets/images/property-details/wifi_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/swimmingpool_black.png"
+                      onmouseover="this.src='assets/images/property-details/swimmingpool_white.png'"
+                      onmouseout="this.src='assets/images/property-details/swimmingpool_black.png'" />
+                    </div>  
+                    <div class="item">
+                      <img class="amenities-icon" drag-scroll-item 
+                      src="assets/images/property-details/carparking_black.png"
+                      onmouseover="this.src='assets/images/property-details/carparking_white.png'"
+                      onmouseout="this.src='assets/images/property-details/carparking_black.png'" />
+                    </div>                   
+                  </drag-scroll>
+              </div>
+              <button class="slide-right-btn" [hidden]="as_rightNavDisabled" (click)="moveRight_as()"></button>
+          </div>
+          <h4>Special experiences</h4>
+            <ul>
+              <li>Music - Rabidra Sangeet</li>
+              <li>Foodie - Bengali Food</li>
+              <li>Nature Photography</li>
+              <li>Life drawing with live music</li>
+              <li>City tour by bike</li>
+              <li>Health & Wellness</li>
+            </ul>
+        </div>
+      </div>
+      <div class="guest-space-btn-group">
+        <div class="guest-access-btn">
+          <a class=""><i class="guest-access-icon"></i><span>Guest <br> Access</span></a>
+          <div class="guest-access-list">
+            <ul>
+              <li>Use of Kitchen</li>
+              <li>Balcony</li>
+              <li>Common area</li>
+              <li>Common bathroom</li>
+              <li>Garden area</li>
+              <li>Dining</li>
+            </ul>
+          </div>
+        </div>
+        <div class="space-rules-btn">
+          <a class=""><i class="space-rules-icon"></i><span>Space <br> Rules</span></a>
+          <div class="space-rules-list">
+            <ul>
+              <li class="crose">Couple Frinedly</li>
+              <li class="right">Smocking</li>
+              <li class="right">friendly</li>
+              <li class="crose">Alchohol</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-w">
+    <div class="near-location-section">
+      <div class="row">
+        <div class="col-md-7 p-l-40">
+          <h3>Near by <span> locations </span></h3>
+          <div class="d-flex">
+              <!-- <button class="slide-left-btn" (click)="moveLeft_ls()"></button> -->
+              <div class="location-slider">
+                <drag-scroll (reachesLeftBound)="leftBoundStat_ls($event)" (reachesRightBound)="rightBoundStat_ls($event)" #locationSlider>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="card">
+                      <h4><span class="icon"></span> Victoria Memorial Hall</h4>
+                      <p>The Victoria Memorial Hall is India's largest and one of its oldest museum libraries. Dedicated to art history, it has been an unalienable part of the Memorial since its foundation. It is believed to have been created in 1562 ...</p>
+                      <a href="">Read on [+]</a>
+                    </div>
+                  </div>
+                </drag-scroll>
+              </div>
+              <button class="slide-right-btn" (click)="moveRight_ls()"></button>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="backshadow"></div>
+          <img class="w-100" src="../../../../assets/images/property-details/near-location.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-w">
+    <div class="policies-section">
+      <h3>Policies</h3>
+      <div class="row">
+        <div class="col-md-6 p-l-20">
+          <h4>House Rules</h4>
+          <div class="card-block">
+            <div class="icon">
+                <img src="../../../../assets/images/property-details/house-rules.png" alt="">
+            </div>
+            <div>
+              <p>No pets<br>
+                Check-in is anytime after 3PM and check out by 12PM (noon)<br>
+                Self check-in with building staff
+              </p>
+              <a href="">Read on [+]</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>Cancellations</h4>
+          <div class="card-block">
+            <div class="icon">
+                <img src="../../../../assets/images/property-details/cancellation.png" alt="">
+            </div>
+            <div>
+              <p>Flexible - Free cancellation for 48 hours <br>
+                  After that, cancel up to 24 hours before check-in and get a full refund, minus the service fee.
+              </p>
+              <a href="">Read more about the policy [+]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="container-fluid bg-w">
+    <div class="review-sec">
+      <div class="review-header d-flex justify-content-between">
+        <h5>987 Reviews</h5>
+        <select name="" class="form-control sortBy">
+          <option value="">Sort by - Latest</option>
+        </select>
+      </div>
+      <div class="review-body">
+        <div class="review-item d-flex justify-content-start">
+          <div class="c-img">
+            <img src="assets/images/thumbs/user1.png" alt="">
+          </div>
+          <div class="">
+            <p class="name">Saiyed Hussain</p>
+            <p class="date-rating">
+              <span class="date">24 Nov. 2018</span>
+              <span class="text">Rating</span>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+            </p>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more</a> </p>
+          </div>
+        </div>
+        <hr>
+        <div class="review-item d-flex justify-content-start">
+          <div class="c-img">
+            <img src="assets/images/thumbs/user1.png" alt="">
+          </div>
+          <div class="">
+            <p class="name">Saiyed Hussain</p>
+            <p class="date-rating">
+              <span class="date">24 Nov. 2018</span>
+              <span class="text">Rating</span>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+            </p>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more</a> </p>
+          </div>
+        </div>
+        <hr>
+        <div class="review-item d-flex justify-content-start">
+          <div class="c-img">
+            <img src="assets/images/thumbs/user1.png" alt="">
+          </div>
+          <div class="">
+            <p class="name">Saiyed Hussain</p>
+            <p class="date-rating">
+              <span class="date">24 Nov. 2018</span>
+              <span class="text">Rating</span>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+              <i class="fa fa-star-o start-icon" aria-hidden="true"></i>
+            </p>
+            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more</a> </p>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="d-flex justify-content-end">
+        <nav>
+          <ul class="pagination pagination-sm">
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-caret-left"></i></a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-caret-right"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid bg-w">
+    <div class="recomended-section">
+      <h4>Recommended homestays</h4>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="../../../../assets/images/property-details/prop-img-1.png" alt="Card image cap">
+            <div class="card-body">
+              <h6 class="card-title">ENTIRE APARTMENT · 2 BEDS</h6>
+              <h5>2kms from airport, modern decor, quiet, free WiFi!</h5>
+              <p class="card-text">₹1,599 per night</p>
+              <p class="card-rating"><span class="badge badge-primary">7.6</span> Good , <span class="text-gray">1765 reviews</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="../../../../assets/images/property-details/prop-img-2.png" alt="Card image cap">
+            <div class="card-body">
+              <h6 class="card-title">ENTIRE APARTMENT · 2 BEDS</h6>
+              <h5>2kms from airport, modern decor, quiet, free WiFi!</h5>
+              <p class="card-text">₹1,599 per night</p>
+              <p class="card-rating"><span class="badge badge-primary">7.6</span> Good , <span class="text-gray">1765 reviews</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="../../../../assets/images/property-details/prop-img-3.png" alt="Card image cap">
+            <div class="card-body">
+              <h6 class="card-title">ENTIRE APARTMENT · 2 BEDS</h6>
+              <h5>2kms from airport, modern decor, quiet, free WiFi!</h5>
+              <p class="card-text">₹1,599 per night</p>
+              <p class="card-rating"><span class="badge badge-primary">7.6</span> Good , <span class="text-gray">1765 reviews</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="../../../../assets/images/property-details/prop-img-4.png" alt="Card image cap">
+            <div class="card-body">
+              <h6 class="card-title">ENTIRE APARTMENT · 2 BEDS</h6>
+              <h5>2kms from airport, modern decor, quiet, free WiFi!</h5>
+              <p class="card-text">₹1,599 per night</p>
+              <p class="card-rating"><span class="badge badge-primary">7.6</span> Good , <span class="text-gray">1765 reviews</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid static-floating-bar bg-w">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 form-area">
+          <div>
+            <span class="price-drop">₹2,500</span> <span class="price-new"> ₹1,255 </span> <span class="per-night"> per night</span>
+          </div>
+            
+          <div class="form-group date-picker">
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkin-pick" (click)="checkInd.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              <input class="form-control checkin" placeholder="Check in"
+                      name="checkIndp" ngbDatepicker [placement]="'top-left'" #checkInd="ngbDatepicker" (click)="checkInd.toggle()">
+              <span class="calander-forma"></span>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkout-pick" (click)="checkOutd.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              <input class="form-control checkout" placeholder="Check out"
+                      name="checkOutdp" ngbDatepicker [placement]="'top-left'" #checkOutd="ngbDatepicker" (click)="checkOutd.toggle()">
+            </div>
+          </div>
+          <div ngbDropdown class="d-inline-block hotelBookDropdown" [placement]="'top-left'">
+            <button type="button" class="btn btn-light m-r-20" ngbDropdownToggle><i class="fa fa-user-o m-r-5" aria-hidden="true"></i> Guests</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <div >
+                <div>
+                  <h5>Room 1</h5>
+                </div>
+                <div class="form-row align-items-end" >
+                  <div class="col-auto">
+                    <div class="form-group m-0">
+                      <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                      <input type="hidden">
+                      <ng-number-picker class="ng-number-picker" [min] ="1"  [max]="'6'"></ng-number-picker>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <div class="form-group m-0">
+                      <label for="" class="d-block text">Children <span> (1 to 12 yrs)</span></label>
+                      <input type="hidden" >
+                      <ng-number-picker class="ng-number-picker" [min] ="0" [max]="'4'"></ng-number-picker>
+                    </div>
+                  </div>
+                  <div class="col-auto ml-4">
+                    <button type="button" class="btn btn-outline-dark btn-sm">[+] ADD ROOM</button>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-auto ml-4">
+                <button type="button" class="btn btn-outline-dark btn-sm" (click)="addRoom()">[+] ADD ROOM</button>
+              </div> -->
+            </div>
+          </div>
+          <!-- <button class="btn btn-light m-r-20"><i class="fa fa-user-o m-r-5" aria-hidden="true"></i> Guests</button> -->
+          <button class="btn btn-primary" routerLink="/property-booking">book your stay</button>
+        </div>
+        <div class="col-md-4">
+          <div class="profile-info">
+            <img src="../../../../assets/images/property-details/profile-img.png" alt="">
+            <p>Hey, I’m Sarita!<br>
+                hi am a fun loving easy go lucky person who enjoys hosting ...<br>
+                <a class="c-pointer" (click)="openModal(viewHostDetails)"> know your host [+]</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #viewHostDetails let-modal>
+    <div class="modal-container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="row host-info">
+        <div class="col-md-4">
+          <div class="host-img">
+            <img src="assets/images/property-details/Layer 53.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4 class="title">Hey, I’m Chaitali!</h4>
+          <p class="small-desc">Kolkata, India · Joined in January 2015</p>
+          <div class="list-info">
+            <ul>
+              <li> <strong>Specialities: </strong>  I work in insurance, love traveling and cooking.</li>
+              <li> <strong>Schooling: </strong>  Loreto House, Loreto College.</li>
+              <li> <strong>Languages: </strong>  Bengali, English, Hindi</li>
+            </ul>
+          </div>
+          <div class="icon-set d-flex align-items-center">
+            <div class="superhost d-flex align-items-center">
+              <i class="icon-supperhost"></i>
+              <span>Superhost</span>
+            </div>
+            <div class="reviews d-flex align-items-center">
+              <i class="icon-review"></i>
+              <span>90 Reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="review-sec">
+          <div class="review-header">
+            <h5>Reviews (90)</h5>
+            <p>Reviews From Guests</p>
+          </div>
+          <div class="review-body">
+            <div class="review-item d-flex justify-content-start">
+              <div class="c-img">
+                <img alt="" src="assets/images/thumbs/user1.png">
+              </div>
+              <div class="">
+                <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more [+]</a></p>
+                <p class="date-rating">From India · December 2018 ·
+                  <i class="fa fa-flag-o" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+            <hr>
+            <div class="review-item d-flex justify-content-start">
+              <div class="c-img">
+                <img alt="" src="assets/images/thumbs/user1.png">
+              </div>
+              <div class="">
+                <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque molestie urna, sit amet imperdiet ante dignissim pretium. Aenean venenatis eros non egestas vehicula. Ut varius lobortis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non venenatis ante. Aliquam eget ultrices libero... <a class="read-more"> read more [+]</a></p>
+                <p class="date-rating">From India · December 2018 ·
+                  <i class="fa fa-flag-o" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

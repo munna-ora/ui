@@ -1,0 +1,42 @@
+.p-10{
+    padding: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+} 
+.pb-40{
+    padding-bottom: 40px !important;
+}
+h3{
+    color: #f47921;
+    font-family: latoblack;
+    font-size: 26px;
+}
+.toggle-radio-btn{
+    // width: 200px;
+    margin-right: 20px;
+}
+.daterangepicker{
+    width: 300px;
+    .calendar{
+        border-color: #ced4da;
+        background: #fff;
+        color: #8a8787;
+        border-left: 0;
+    }
+}
+.main-section{
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .header{
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+}
+.form-group{
+    label{
+        font-size: 14px;
+        font-family: latobolditalic;
+        color: #130504;
+    }
+}

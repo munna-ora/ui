@@ -1,0 +1,41 @@
+.terms-condotions{
+    text-align: justify;
+    h3{
+        font-size: 28px;
+        font-family: latobold;
+        margin-bottom: 15px;
+    }
+    p{
+        font-size: 14px;
+        font-family: latoregular;
+    }
+    ul{
+        padding-left: 10px;
+        list-style-type: none;
+        counter-reset: item;
+        li{
+            // list-style: decimal;
+            counter-increment: item;
+            font-size: 20px;
+            font-family: latobold;
+            margin-bottom: 20px;
+            font-family: latobold;
+            &::before {
+                content: counters(item, ".") ". ";
+                font-family: latobold;
+            }
+            ul{
+                padding-left: 20px;
+                li{
+                    font-size: 14px;
+                    font-family: latoregular;
+                    margin-bottom: 15px;
+                    &::before {
+                        content: counters(item, ".") " ";
+                        font-family: latobold;
+                    }
+                }
+            }
+        }
+    }
+}

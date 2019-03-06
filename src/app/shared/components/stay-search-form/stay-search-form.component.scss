@@ -1,0 +1,44 @@
+.details-page{
+    display: flex;
+    .dpicker, .roomGuest, .submitBtn{
+        display: inline-block;
+        margin-right: 20px;
+        margin-top: 0 !important;
+    }
+    .submitBtn .btn{
+        padding: 0.375rem 0.75rem !important;
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        border-radius: 0.25rem !important;
+        align-items: center;
+    }
+    .checkin-pick{
+        color: #a2a0a0;
+        border-color: #dee1e4;
+        border-left: 0;
+        border-right: 0;
+    }
+    .checkout-pick{
+        color: #a2a0a0;
+        border-color: #dee1e4;
+        border-left: 0;
+    }
+    .hotelBookDropdown {
+        .dropdown-toggle{
+            height: 40px;
+            width: 150px;
+        }
+        .dropdown-menu.show {
+            display: block;
+            width: max-content;
+            padding: 15px 20px;
+        }
+    }
+}
+::ng-deep{
+    .close-btn{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}

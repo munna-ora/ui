@@ -1,0 +1,848 @@
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <h6>Kolkata to Bengaluru</h6>
+      <p>31st DEC 2018</p>
+    </ng-template>
+    <!-- Flight List -->
+    <div class="top-head">
+      <p>Kolkata <i class="fa fa-long-arrow-right"></i> Bengaluru</p>
+    </div>
+    <div class="list-flight">
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">01</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-1.png" alt="">
+                  <span class="f-name">Spicejet - SG-742</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">Non stop</span>
+                    <span class="badge badge-outline">02:30 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">02</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-2.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">03</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-3.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">04</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">05</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-5.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">06</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <h6>Bengaluru to Mumbai</h6>
+      <p>2nd JAN 2019</p>
+    </ng-template>
+
+    <div class="top-head">
+      <p>Bengaluru <i class="fa fa-long-arrow-right"></i> Mumbai</p>
+    </div>
+    <div class="list-flight">
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">01</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-1.png" alt="">
+                  <span class="f-name">Spicejet - SG-742</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">Non stop</span>
+                    <span class="badge badge-outline">02:30 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">02</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-2.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">03</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-3.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">04</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">05</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-5.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">06</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <h6>Mumbai to Kolkata</h6>
+      <p>4th JAN 2019</p>
+    </ng-template>
+
+    <div class="top-head">
+      <p>Mumbai <i class="fa fa-long-arrow-right"></i> Kolkata</p>
+    </div>
+    <div class="list-flight">
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">01</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-1.png" alt="">
+                  <span class="f-name">Spicejet - SG-742</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">Non stop</span>
+                    <span class="badge badge-outline">02:30 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">02</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-2.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">03</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-3.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type direct-flight"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">04</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">05</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-5.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4 position-relative">
+        <div class="row row-eq-height flight-card first">
+          <span class="sl-no">06</span>
+          <div class="col-sm-8 left-panel">
+            <div class="c-header">
+              <div class="row">
+                <div class="col-4 f-logo text-left">
+                  <img src="assets/images/flight/fl-4.png" alt="">
+                  <span class="f-name">Lufthansa - LN-762</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span class="badge badge-gray">0  stop</span>
+                    <span class="badge badge-outline">01:45 hrs.</span>
+                </div>
+                <div class="col-4 text-right">
+                  <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                </div>
+              </div>
+            </div>
+            <div class="c-body">
+              <p class="f-timing">
+                <span class="dept-time">14:30 PM</span>
+                <span class="flight-type one-stop"></span>
+                <span class="arrvl-time">07:00 PM</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 right-panel">
+            <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+            <div class="book-panel" for="flight1">
+              <h4 class="class">Business class</h4>
+              <span class="p-from">From</span>
+              <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> 34,581</span>
+              <span class="radio-btn"></span>
+            </div>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </mat-tab>
+</mat-tab-group>

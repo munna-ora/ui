@@ -1,0 +1,58 @@
+.view-container{
+    .p-tb-50{
+        padding: 50px 0;
+    }
+    .booking-sec {
+       padding: 0 50px;
+    }
+.confirmation-form{
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px 30px;
+    text-align: center;
+    img{
+    }
+    h4.title{
+        font-size: 30px;
+        font-family: latobold;
+        color: #130504;
+        margin: 15px 0;
+    }
+    p.book-id{
+        font-size: 16px;
+        font-family: latoregular;
+        color: #130504;
+        margin-bottom: 25px;
+        span{
+            font-family: latobold;
+        }
+    }
+    .c-card{
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100px;
+        padding: 10px 5px;
+        h5{
+            font-family: latoblack;
+            font-size: 16px;
+            color: #231f20;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        span{
+            font-family: latobold;
+            color: #f47921;
+        }
+    }
+    .book-link{
+        font-size: 14px;
+        font-family: latoregular;
+        margin: 20px 0;
+        a{
+            color: #f47921;
+        }
+    }
+ }
+}

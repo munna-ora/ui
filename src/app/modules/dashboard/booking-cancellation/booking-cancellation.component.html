@@ -1,0 +1,117 @@
+<div class="container-fluid">
+  <div class="cancellation-table">
+    <div class="header">
+      <h3 class="float-left m-0">My cancellation</h3>
+      <!-- <form action=""> -->
+        <div class="form-group float-right m-0 d-flex bd-highlight">
+          <div class="form-group toggle-radio-btn">
+            <input id="switch-off" class="toggle toggle-left" name="switch" value="true" type="radio" checked>
+            <label for="switch-off" class="toggle-btn p-0" style="margin-right: 5px;">Stays</label>
+            <input id="switch-on" class="toggle toggle-right" name="switch" value="false" type="radio">
+            <label for="switch-on" class="toggle-btn p-0">Flights</label>
+          </div>
+          <div class="form-group m-0 daterangepicker">
+            <div class="input-group">
+              <input class="form-control border-right-0" placeholder="Check in"
+                      name="dpChIn" ngbDatepicker (click)="dpHotel.toggle()">
+              <input class="form-control dtpickerHide" placeholder="Depart"
+                  name="dp" ngbDatepicker #dpHotel="ngbDatepicker" 
+                  ngModel [displayMonths]="1" [dayTemplate]="tHotel" outsideDays="hidden" 
+                  [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              <input class="form-control border-right-0" placeholder="Check out"
+                      name="dpChOut" ngbDatepicker (click)="dpHotel.toggle()">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              
+              <ng-template #tHotel let-date let-focused="focused">
+                  <span class="custom-day"
+                        [class.focused]="focused"
+                        [class.range]="isRangeHotel(date)"
+                        [class.faded]="isHoveredHotel(date) || isInsideHotel(date)"
+                        (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                  </span>
+                </ng-template>
+            </div>
+          </div>
+        </div>
+      <!-- </form> -->
+      <div class="clearfix"></div>
+    </div>
+    <div class="row p-10">
+      <div class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Property name</th>
+              <th>Booking ID</th>
+              <th>Check in / Check out</th>
+              <th>Paid amount</th>
+              <th>Refund amount</th>
+              <th>Cancellation ID</th>
+              <th>Booking status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Homestay</td>
+              <td>Brickwood Express homestay</td>
+              <td>ORA000026</td>
+              <td>08/10/2018 - 10/10/2018</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7,062</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7020</td>
+              <td>ORA5654851</td>
+              <td>Cancelled on 04/10/2018</td>
+            </tr>
+            <tr>
+              <td>Hotel</td>
+              <td>Brickwood Express homestay</td>
+              <td>ORA0000123</td>
+              <td>06/11/2018 - 07/11/2018</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 3,600</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 3,450</td>
+              <td>ORA9965240</td>
+              <td>Cancelled on 11/10/2018</td>
+            </tr>
+            <tr>
+              <td>Hotel</td>
+              <td>Brickwood Express homestay</td>
+              <td>ORA0000332</td>
+              <td>10/12/2018 - 12/12/2018</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 5,300</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 5,180</td>
+              <td>ORA29100213</td>
+              <td>Cancelled on 05/11/2018</td>
+            </tr>
+            <tr>
+              <td>Homestay</td>
+              <td>Rainbow Prwmium homestay</td>
+              <td>ORA000054</td>
+              <td>05/01/2019 - 06/01/2019</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 4,900</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 4,750</td>
+              <td>ORA0000213</td>
+              <td>Cancelled on 01/01/2019</td>
+            </tr>
+            <tr>
+              <td>Guest House</td>
+              <td>Grand Premium hotel</td>
+              <td>ORA000086</td>
+              <td>14/01/2019 - 16/01/2019</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 5,520</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 5,050</td>
+              <td>ORA000535</td>
+              <td>Cancelled on 11/01/2019</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

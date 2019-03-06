@@ -1,0 +1,248 @@
+
+<div class="container-fluid flight-list-section mt-76" *ngIf="routeName !== '/flight/flight-booking'">
+  <div class="row">
+    <!-- Filter Section -->
+    <div class="col-md-3 pos-sticky-right">
+      <!--
+        <app-flight-search-form [flightSearchObj]="flightSearchObj" [pageName]="'FLIGHT'" (searchFormSubmitted)="searchFormSubmitted($event)"></app-flight-search-form>
+      -->
+       <app-flight-quick-search [totalResultCount]="totalFlightFound" [flightSearchObj]="flightSearchObj" (searchFormSubmitted)="searchFormSubmitted($event)"></app-flight-quick-search>
+    </div>
+    
+    <!-- flight List Section -->
+    <div class="col-md-9">
+        <div class="loader" *ngIf="loading">
+            <div class="loading"></div>
+        </div>
+      <!-- flight List -->
+      <div class="flight-listing-area mb-4" *ngIf="!loading">
+        <div class="row">
+          <div class="col-md-12 pos-sticky-right">
+            <app-flight-filter *ngIf="totalFlightFound" [flightSearchObj]="flightSearchObj" [airlineNames]="airlineNames"></app-flight-filter>
+          </div>
+        </div>
+        
+        <!-- <router-outlet></router-outlet> -->
+        <app-oneway *ngIf="tripType=='O' && totalFlightFound"  [flightData]="flightList" [flightSearchObj]="flightSearchObj" (flightSelectedEvent)="onFlightSelected($event)"></app-oneway>
+        <app-roundtrip *ngIf="tripType=='R' && totalFlightFound" [flightData]="flightList" [flightSearchObj]="flightSearchObj" (flightSelectedEvent)="onFlightSelected($event)"></app-roundtrip>
+        <app-multicity *ngIf="tripType=='M'"></app-multicity>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Sticky bar Oneway Trip -->
+  <div class="footer-sticky-bar oneway-sticky" *ngIf="tripType=='O' && selectedFlightData">
+    <div class="d-flex justify-content-center">
+      <div class="col-auto flight-logo">
+        <img src="assets/images/flight/{{selectedFlightData.OD[0].FS[0].vc}}.png" alt="">
+        <p>{{getAirlineName(selectedFlightData.OD[0].FS[0].vc)}} <span> {{selectedFlightData.OD[0].FS[0].vc}} - {{selectedFlightData.OD[0].FS[0].fl}}</span></p>
+      </div>
+      <div class="col-auto dept-time">
+        <p>{{selectedFlightData.OD[0].FS[0].dd}} | <span class="s-name">{{selectedFlightData.OD[0].FS[0].dac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}} </span></p>
+      </div>
+      <div class="col-auto arrvl-time">
+        <i class="trip-icon"></i>
+        <p>{{selectedFlightData.OD[0].FS[0].ad}} |  <span class="s-name">{{selectedFlightData.OD[0].FS[0].aac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}} </span></p>
+      </div>
+      <div class="col-auto details">
+        <p>
+          <span class="price">₹ {{getFareDepart(selectedFlightData.ID) | number:'.0'}}</span><br>
+          <span class="d-btn">Details</span>
+        </p>
+      </div>
+      <div class="col-auto total-price">
+        <p class="price">All Total <br> <span>₹{{getFareDepart(selectedFlightData.ID) | number:'.0'}}</span></p>
+        <button class="btn btn-primary" (click)="goTobookingPage()">Book your flight</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Sticky bar Round Trip -->
+  <div class="footer-sticky-bar roundtrip-sticky" *ngIf="tripType=='R' && selectedFlightData">
+    <div class="d-flex justify-content-center">
+      <div class="col-auto flight-logo">
+        <img src="assets/images/flight/{{selectedFlightData[0].OD[0].FS[0].vc}}.png" alt="">
+        <p>{{getAirlineName(selectedFlightData[0].OD[0].FS[0].vc)}} <span> {{selectedFlightData[0].OD[0].FS[0].vc}} - {{selectedFlightData[0].OD[0].FS[0].fl}}</span></p>
+      </div>
+      <div class="col-auto dept-time">
+          <p>{{selectedFlightData[0].OD[0].FS[0].dd}} | <span class="s-name">{{selectedFlightData[0].OD[0].FS[0].dac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}} </span></p>
+      </div>
+      <div class="col-auto arrvl-time">
+        <i class="fa fa-long-arrow-right"></i>
+        <!-- <i class="trip-icon"></i> -->
+        <p>{{selectedFlightData[0].OD[0].FS[0].ad}} |  <span class="s-name">{{selectedFlightData[0].OD[0].FS[0].aac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].flightDepartDate)}} </span></p>
+      </div>
+      <div class="col-auto details border-right">
+        <i class="trip-icon"></i>
+        <p>
+          <span class="price">₹ {{getFareDepart(selectedFlightData[0].ID) | number:'.0'}}</span><br>
+          <span class="d-btn">Details</span>
+        </p>
+      </div>
+      <div class="col-auto flight-logo p-l-30">
+        <img src="assets/images/flight/{{selectedFlightData[1].OD[0].FS[0].vc}}.png" alt="">
+        <p>{{getAirlineName(selectedFlightData[1].OD[0].FS[0].vc)}} <span> {{selectedFlightData[1].OD[0].FS[0].vc}} - {{selectedFlightData[1].OD[0].FS[0].fl}}</span></p>
+      </div>
+      <div class="col-auto dept-time">
+          <p>{{selectedFlightData[1].OD[0].FS[0].dd}} | <span class="s-name">{{selectedFlightData[1].OD[0].FS[0].dac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].arrival_date)}} </span></p>
+      </div>
+      <div class="col-auto arrvl-time">
+        <!-- <i class="trip-icon"></i> -->
+        <i class="fa fa-long-arrow-right"></i>
+        <p>{{selectedFlightData[1].OD[0].FS[0].ad}} |  <span class="s-name">{{selectedFlightData[1].OD[0].FS[0].aac}}</span> <br> <span class="date">{{parserFormatter.format(flightSearchObj.multiCities[0].arrival_date)}} </span></p>
+      </div>
+      <div class="col-auto details">
+        <p>
+          <span class="price">₹{{getFareReturn(selectedFlightData[1].ID) | number:'.0'}}</span><br>
+          <span class="d-btn">Details</span>
+        </p>
+      </div>
+      <div class="col-auto total-price">
+        <p class="price">All Total <br> <span>₹{{getFareDepart(selectedFlightData[0].ID)*1 + getFareReturn(selectedFlightData[1].ID)*1 | number:'.0' }}</span></p>
+        <button class="btn btn-primary" (click)="goTobookingPage()">Book your flight</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid flight-list-section mt-76" *ngIf="routeName == '/flight/flight-booking'">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- Personal Information Popup -->
+<ng-template #personalInfoModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title mb-0 text-left">Personal info</h4>
+    <P class="short-desc text-left">The names you enter should match the ones in your uploaded documents</P>
+    <form class="form-component">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your mobile number">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your email address">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="flight-footer">
+    <button class="btn btn-left" (click)="openPaymentModal(paymentInfoModal)">Continue as guest <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+    <button class="btn btn-right">Login account <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+  </div>
+</ng-template>
+
+<!-- Payment Information Popup -->
+<ng-template #paymentInfoModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="modal-title mb-0 text-left">Payment options</h4>
+        <ngb-tabset>
+          <ngb-tab title="CREDIT CARD">
+            <ng-template ngbTabContent>
+              <form class="form-component">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Card number</label>
+                      <input type="text" class="form-control" placeholder="**** **** **** 9842">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Expairy date</label>
+                      <input type="text" class="form-control" placeholder="mm/yyyy">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Card holder name</label>
+                      <input type="text" class="form-control" placeholder="Card holder name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">CVV</label>
+                      <input type="text" class="form-control" placeholder="***">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="ONLINE BANKING">
+            <ng-template></ng-template>
+            <ng-template ngbTabContent>
+              Online Banking
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="PAYMENT PARTNERS" >
+            <ng-template ngbTabContent>
+              <p>Payment Partners</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+        <form class="form-component">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Card number</label>
+                <input type="text" class="form-control" placeholder="**** **** **** 9842">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Expairy date</label>
+                <input type="text" class="form-control" placeholder="mm/yyyy">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Card holder name</label>
+                <input type="text" class="form-control" placeholder="Card holder name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">CVV</label>
+                <input type="text" class="form-control" placeholder="***">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h4>Payment options</h4>
+        <hr>
+        <p><span class="left">Flight fee</span><span class="mid">2 Adults , 1 Children</span><span class="right"></span></p>
+        <p><span>Taxes & fees</span><span>₹1,729.05</span> <i></i></p>
+        <hr>
+        <p><span></span><span></span><span></span> <i></i></p>
+        
+      </div>
+    </div>
+  </div>
+</ng-template>

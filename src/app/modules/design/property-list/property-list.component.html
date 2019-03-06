@@ -1,0 +1,355 @@
+<!-- Header Image -->
+<div class="container-fluid header-image-slide p-0">
+    <img class="w-100" src="assets/images/property-banner.png" />
+  </div>
+  
+  <div class="container-fluid pt-4 pb-2 filter-container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="property-found">
+            <span class="icon"></span>
+            <p class="pl-1"><span>435 Homestays </span> properties found</p>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <!-- Filter Section -->
+        <div class="sorting-result">
+          <span class="icon"></span>
+          <p class="pl-1 pr-3"><span>Sorting  </span> results by</p>
+          <form [formGroup]="checkboxGroupForm">
+            <div class="btn-group-toggle">
+              <label class="btn-checkbox-filter" ngbButtonLabel>
+                <input type="checkbox" formControlName="popularity" ngbButton> Popularity
+              </label>
+            </div>
+            <div class="btn-group-toggle">
+              <label class="btn-checkbox-filter" ngbButtonLabel>
+                <input type="checkbox" formControlName="price_lowest_first" ngbButton> Price lowest first
+                <i class="fa fa-long-arrow-down ml-2" aria-hidden="true"></i>
+              </label>
+            </div>
+            <div class="btn-group-toggle">
+              <label class="btn-checkbox-filter" ngbButtonLabel>
+                <input type="checkbox" formControlName="couples_frindly" ngbButton> Couples Frindly
+              </label>
+            </div>
+            <div class="btn-group-toggle">
+              <label class="btn-checkbox-filter" ngbButtonLabel>
+                <input type="checkbox" formControlName="pet_friendly" ngbButton> Pet friendly 
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="map-filter">
+          <span class="icon"></span>
+          <p class="pl-1">Show Map</p>
+          <ui-switch size="small"></ui-switch>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="m-0">
+  
+  <div class="container-fluid property-list-section">
+    <div class="row">
+      <!-- Filter Section -->
+      <div class="col-md-3 pt-24">
+        <!-- Property Booking Form -->
+        <div class="booking-section mb-4">
+          <div class="card">
+            <div class="card-header">
+                Book your stay
+            </div>
+            <div class="card-body">
+              <form class="booking-form">
+                <div class="form-group">
+                  <select class="form-control">
+                    <option>Pick a stay</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="City, Locality or Landmark">
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input class="form-control border-right-0" placeholder="Check in"
+                            name="dpChIn" [(ngModel)]="h_fromDate" ngbDatepicker (click)="dpHotel.toggle()">
+                    <input class="form-control dtpickerHide" placeholder="Depart"
+                        name="dp" ngbDatepicker #dpHotel="ngbDatepicker" 
+                        ngModel (ngModelChange)="onDateSelectionHotel($event)" 
+                        [displayMonths]="1" [dayTemplate]="tHotel" outsideDays="hidden" 
+                        [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                    <input class="form-control border-right-0" placeholder="Check out"
+                            name="dpChOut" [(ngModel)]="h_toDate" ngbDatepicker (click)="dpHotel.toggle()">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                    
+                    <ng-template #tHotel let-date let-focused="focused">
+                        <span class="custom-day"
+                              [class.focused]="focused"
+                              [class.range]="isRangeHotel(date)"
+                              [class.faded]="isHoveredHotel(date) || isInsideHotel(date)"
+                              (mouseenter)="hoveredDate = date"
+                              (mouseleave)="hoveredDate = null">
+                          {{ date.day }}
+                        </span>
+                      </ng-template>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div ngbDropdown class="d-inline-block hotelBookDropdown">
+                    <button class="btn" id="dropdownBasic2" ngbDropdownToggle>{{hNoOfAdult + hNoOfChild}} Guest, {{noOfRooms}} Room</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                      <div>
+                        <h5>Room 1</h5>
+                      </div>
+                      <div class="form-row align-items-end">
+                        <div class="col-auto">
+                          <div class="form-group m-0">
+                            <label for="" class="d-block text">Adults <span> (+12 yrs)</span></label>
+                            <ng-number-picker class="ng-number-picker"  [(value)]="hNoOfAdult" [max]="'6'"></ng-number-picker>
+                          </div>
+                        </div>
+                        <div class="col-auto ml-4">
+                          <div class="form-group m-0">
+                            <label for="" class="d-block text">Children <span> (1 to 12 yrs)</span></label>
+                            <ng-number-picker class="ng-number-picker" [(value)]="hNoOfChild" [max]="'4'"></ng-number-picker>
+                          </div>
+                        </div>
+                        <div class="col-auto ml-4">
+                          <button type="button" class="btn btn-outline-dark btn-sm">[+] ADD ROOM</button>
+                          <!-- <div class="form-group m-0">
+                            <label for="" class="d-block text">Room <span> </span></label>
+                            <ng-number-picker class="ng-number-picker" [(value)]="noOfRooms"></ng-number-picker>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group text-right mt-4 mb-0 clearfix">
+                  <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/property-list"><i class="search-icon"></i>Search</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Quick Filter -->
+        <div class="card quick-filter-section mb-3">
+          <div class="card-header">Quick filter</div>
+          <form [formGroup]="checkboxGroupForm">
+            <div class="card-body">
+              <h5 class="card-title">Guest ratings</h5>
+              <div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="excellent" ngbButton> Excellent
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="very_good" ngbButton> Very good
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="good" ngbButton> Good
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr class="m-0">
+            <div class="card-body">
+              <h5 class="card-title">Popular locations in kolkata</h5>
+              <div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="all_of_kolkata" ngbButton> All of kolkata
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="saltlake" ngbButton> Saltlake
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="parkstreet" ngbButton> Parkstreet
+                  </label>
+                </div>
+              </div>
+              <div class="text-right mt-2">
+                <a class="filter-more-btn" href="">[+] More ...</a>
+              </div>
+            </div>
+            <hr class="m-0">
+            <div class="card-body">
+              <h5 class="card-title">Homestay facilities</h5>
+              <div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="all_facilities" ngbButton> All facilities
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="airconditioner" ngbButton> Airconditioner
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="wifi" ngbButton> Wifi
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="television" ngbButton> Television
+                  </label>
+                </div>
+              </div>
+              <div class="text-right mt-2">
+                <a class="filter-more-btn" href="">[+] More ...</a>
+              </div>
+            </div>
+            <hr class="m-0">
+            <div class="card-body">
+              <h5 class="card-title">Budget</h5>
+              <div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="under_299" ngbButton> Under ₹299
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="under_299_999" ngbButton> ₹299 to ₹999
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="under_999_1499" ngbButton> ₹999 to ₹1499
+                  </label>
+                </div>
+                <div class="btn-group-toggle">
+                  <label class="btn-checkbox-filter" ngbButtonLabel>
+                    <input type="checkbox" formControlName="under_1499_1999" ngbButton> ₹1499 to ₹1999
+                  </label>
+                </div>
+              </div>
+              <div class="text-right mt-2">
+                <a class="filter-more-btn" href="">[+] More ...</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Property List Section -->
+      <div class="col-md-6 pt-24">
+        <!-- Property List -->
+        <div class="property-listing-area mb-4">
+          <div class="property-item d-flex">
+            <div class="mr-20">
+              <img src="../../assets/images/property/property-listing-1.png" />
+            </div>
+            <div class="w-100">
+              <div class="clearfix">
+                <p class="float-left ora-id">ORA9122522</p>
+                <p class="float-right">
+                  <a href=""><span class="fa fa-bookmark-o icon"></span></a>
+                  <a href=""><span class="fa fa-share-alt icon ml-2"></span></a>
+                </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left address"><span class="address-icon"></span> Saltlake , Kolkata, West Bengal</p>
+                <p class="float-right pet-friendly"><span class="pet-icon"></span> Pet friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left rating"><span class="badge badge-primary">7.6</span> Excellent <span class="text-gray">1765 reviews</span></p>
+                <p class="float-right couples-frindly"><span class="couples-icon"></span> Couple friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left complementary">Complimentary <span class="wify-icon"></span><span class="food-icon"></span><span class="parking-icon"></span></p>
+              </div>
+              <div class="alert alert-secondary clearfix" role="alert">
+                <div class="float-left">
+                  <h6 class="price"><span>₹1,199</span> Per night</h6>
+                  <p class="total-times-book">Booked 21 times in the last 24 hours</p>
+                </div>
+                <button class="btn btn-dark btn-sm float-right" routerLink="/property-details">Book now</button>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4 mt-4">
+          <div class="property-item d-flex">
+            <div class="mr-20">
+              <img src="../../assets/images/property/property-listing-1.png" />
+            </div>
+            <div class="w-100">
+              <div class="clearfix">
+                <p class="float-left ora-id">ORA9122522</p>
+                <p class="float-right">
+                  <a href=""><span class="fa fa-bookmark-o icon"></span></a>
+                  <a href=""><span class="fa fa-share-alt icon ml-2"></span></a>
+                </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left address"><span class="address-icon"></span> Saltlake , Kolkata, West Bengal</p>
+                <p class="float-right pet-friendly"><span class="pet-icon"></span> Pet friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left rating"><span class="badge badge-primary">7.6</span> Excellent <span class="text-gray">1765 reviews</span></p>
+                <p class="float-right couples-frindly"><span class="couples-icon"></span> Couple friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left complementary">Complimentary <span class="wify-icon"></span><span class="food-icon"></span><span class="parking-icon"></span></p>
+              </div>
+              <div class="alert alert-secondary clearfix" role="alert">
+                <div class="float-left">
+                  <h6 class="price"><span>₹1,199</span> Per night</h6>
+                  <p class="total-times-book">Booked 21 times in the last 24 hours</p>
+                </div>
+                <button class="btn btn-dark btn-sm float-right" routerLink="/property-details">Book now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Map Section -->
+      <div class="col-md-3">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40494.989483729216!2d88.342810979799!3d22.572884744446924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C+West+Bengal!5e0!3m2!1sen!2sin!4v1544016144997" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Deals for you -->
+  <div class="container-fluid pt-4 pb-4 deals-section">
+    <div class="container">
+      <h4 class="title">Deals for you</h4>
+      <p class="text">Unique destinations to help travellers plan trips</p>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="assets/images/deals/30LastMinutDeals.png" />
+        </div>
+        <div class="col-md-3">
+          <img src="assets/images/deals/BestOraRoom779.png" />
+        </div>
+        <div class="col-md-3">
+          <img src="assets/images/deals/EarnExtraAsHost.png" />
+        </div>
+        <div class="col-md-3">
+          <img src="assets/images/deals/30LastMinutDeals.png" />
+        </div>
+      </div>
+    </div>
+  </div>

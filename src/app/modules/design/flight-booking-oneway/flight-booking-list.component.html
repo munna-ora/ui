@@ -1,0 +1,692 @@
+<!-- Header Image -->
+<div class="container-fluid header-image-slide p-0">
+  <img class="w-100" src="assets/images/property-banner.png" />
+</div>
+
+<div class="container-fluid flight-list-section">
+  <div class="row">
+    <!-- Filter Section -->
+    <div class="col-md-3">
+      <div class="flight-found">
+        <span class="icon"></span>
+        <p class="pl-1"><span>66 Flights  </span> are found</p>
+      </div>
+      <!-- Quick Filter -->
+      <div class="card flight-quick-search mb-3">
+        <div class="card-header">Book your flight</div>
+        <div class="card-body">
+          <form class="booking-form">
+            <div class="form-group flight-location">
+              <div class="input-group">
+                <input type="text" class="form-control fromBoxInput" placeholder="From">
+                <div class="input-group-append fromBox">
+                  <span class="input-group-text"><i class="fa fa-map-marker"></i></span>                          
+                </div>
+                <i class="switch-location"></i>
+                <input type="text" class="form-control toBoxInput" placeholder="To">
+                <div class="input-group-append toBox">
+                  <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <select name="" class="form-control">
+                <option value="">One way</option>
+                <option value="">Round trip</option>
+                <option value="">Multi city</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control border-right-0" placeholder="Depart"
+                  name="dpDepart" [(ngModel)]="f_fromDate" ngbDatepicker (click)="dpFlight.toggle()">
+                <input class="form-control dtpickerHide" placeholder="Depart"
+                    name="dp" ngbDatepicker #dpFlight="ngbDatepicker" 
+                    ngModel (ngModelChange)="onDateSelectionFlight($event)" 
+                    [displayMonths]="1" [dayTemplate]="tFlight" outsideDays="hidden" 
+                    [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpFlight.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                </div>
+                <input class="form-control border-right-0" placeholder="Return"
+                        name="dpReturn" [(ngModel)]="f_toDate" ngbDatepicker (click)="dpFlight.toggle()">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpFlight.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                </div>
+                <ng-template #tFlight let-date let-focused="focused">
+                  <span class="custom-day"
+                        [class.focused]="focused"
+                        [class.range]="isRangeFlight(date)"
+                        [class.faded]="isHoveredFlight(date) || isInsideFlight(date)"
+                        (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                  </span>
+                </ng-template>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div ngbDropdown class="d-inline-block travellersDropdown">
+                  <button class="btn" id="dropdownBasic1" ngbDropdownToggle>Travellers</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div class="form-row align-items-center">
+                      <div class="col-12">
+                        <div class="form-group d-flex justify-content-between">
+                          <label for="" class="text">Adults <span> (+12 yrs)</span></label>
+                          <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group d-flex justify-content-between">
+                          <label for="" class="text">Children <span> (2 to 12 yrs)</span></label>
+                          <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group d-flex justify-content-between">
+                          <label for="" class="text">Infant <span> (Below 2 yrs)</span></label>
+                          <ng-number-picker class="ng-number-picker"></ng-number-picker>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="mt-0">
+                    <label class="c-pointer radio-btn">
+                      <input checked="" class="option-input radio" name="stayType" type="radio"> Business class 
+                    </label>
+                    <label class="c-pointer radio-btn">
+                      <input class="option-input radio" name="stayType" type="radio"> Premium economy class
+                    </label>
+                    <label class="c-pointer radio-btn">
+                      <input class="option-input radio" name="stayType" type="radio"> Economy class
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-right mt-4 mb-0 clearfix">
+              <button type="button" class="btn btn-primary btn-lg search-btn" routerLink="/flight-list"><i class="search-icon"></i>Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- flight List Section -->
+    <div class="col-md-9">
+      <!-- flight List -->
+      <div class="flight-listing-area mb-4">
+        <div class="row row-eq-height mr-0">
+          <div class="col-md-4 left-panel-blue">
+            <div class="h-top">
+              <span>Departure</span>
+            </div>
+            <div class="h-bottom">
+              <h5>Kolkata (CCU)</h5>
+              <span>26th Dec 2018</span>
+              <div class="flight-icon"></div>
+            </div>
+          </div>
+          <div class="col-md-4 right-panel-blue">
+            <div class="d-inline-block text-left">
+              <div class="h-top">
+                <span>Arrival</span>
+              </div>
+              <div class="h-bottom">
+                <h5>Bengaluru (BLR)</h5>
+                <span>26th Dec 2018</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 last-panel-blue">
+            <div class="filter-panel d-flex justify-content-between">
+              <div class="col-auto p-0">
+                  <button class="btn btn-filter">[+]  more Filter search </button>
+              </div>
+              <div class="col-auto p-0">
+                <div class="d-inline-block">
+                  <label class="check-box ng-star-inserted">Direct 
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="check-box ng-star-inserted">1 Stop 
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="date-filter">
+              <div class="float-left">
+                <p class="text">Depart</p>
+                <label for="" class="date-picker">26th Dec</label>
+              </div>
+              <div class="float-right">
+                <button><i class="date-left-btn fa fa-long-arrow-left"></i></button> 
+                <button><i class="date-right-btn fa fa-long-arrow-right"></i></button> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row row-eq-height mr-0 filter-container">
+          <div class="col-md-4 left-panel-blue">
+            <button class="btn btn-filter">[+]  more Filter search </button>
+            <div class="radio-group">
+              <h6>DEPARTURE</h6>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="departureRadio">
+                <i class="w-1"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="departureRadio">
+                <i class="w-2"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="departureRadio">
+                <i class="w-3"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="departureRadio">
+                <i class="w-4"></i> 00:00-18:00
+              </label>
+            </div>
+            <div class="radio-group">
+              <h6>ARRIVAL</h6>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="arrivalRadio">
+                <i class="w-1"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="arrivalRadio">
+                <i class="w-2"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="arrivalRadio">
+                <i class="w-3"></i> 00:00-18:00
+              </label>
+              <label for="" class="radio-weth">
+                <input type="radio" class="" name="arrivalRadio">
+                <i class="w-4"></i> 00:00-18:00
+              </label>
+            </div>
+          </div>
+          <div class="col-md-4 right-panel-blue">
+            <div class="d-inline-block text-left">
+              <div class="h-top">
+                <span>Arrival</span>
+              </div>
+              <div class="h-bottom">
+                <h5>Bengaluru (BLR)</h5>
+                <span>26th Dec 2018</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 last-panel-blue">
+            <div class="filter-panel d-flex justify-content-between">
+              <div class="col-auto p-0">
+                  <button class="btn btn-filter">[+]  more Filter search </button>
+              </div>
+              <div class="col-auto p-0">
+                <div class="d-inline-block">
+                  <label class="check-box ng-star-inserted">Direct 
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="check-box ng-star-inserted">1 Stop 
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="date-filter">
+              <div class="float-left">
+                <p class="text">Depart</p>
+                <label for="" class="date-picker">26th Dec</label>
+              </div>
+              <div class="float-right">
+                <button><i class="date-left-btn fa fa-long-arrow-left"></i></button> 
+                <button><i class="date-right-btn fa fa-long-arrow-right"></i></button> 
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="list-flight">
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card first">
+              <span class="sl-no">01</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-1.png" alt="">
+                      <span class="f-name">Spicejet - SG-742</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">Non stop</span>
+                        <span class="badge badge-outline">02:30 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type direct-flight"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card">
+              <span class="sl-no">02</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-2.png" alt="">
+                      <span class="f-name">Lufthansa - LN-762</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">0  stop</span>
+                        <span class="badge badge-outline">01:45 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type direct-flight"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card">
+              <span class="sl-no">03</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-3.png" alt="">
+                      <span class="f-name">Lufthansa - LN-762</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">0  stop</span>
+                        <span class="badge badge-outline">01:45 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type direct-flight"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card">
+              <span class="sl-no">04</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-4.png" alt="">
+                      <span class="f-name">Lufthansa - LN-762</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">0  stop</span>
+                        <span class="badge badge-outline">01:45 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type one-stop"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card">
+              <span class="sl-no">05</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-5.png" alt="">
+                      <span class="f-name">Lufthansa - LN-762</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">0  stop</span>
+                        <span class="badge badge-outline">01:45 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type one-stop"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 position-relative">
+            <div class="row row-eq-height flight-card">
+              <span class="sl-no">06</span>
+              <div class="col-sm-8 left-panel">
+                <div class="c-header">
+                  <div class="row">
+                    <div class="col-4 f-logo text-left">
+                      <img src="assets/images/flight/fl-4.png" alt="">
+                      <span class="f-name">Lufthansa - LN-762</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="badge badge-gray">0  stop</span>
+                        <span class="badge badge-outline">01:45 hrs.</span>
+                    </div>
+                    <div class="col-4 text-right">
+                      <button class="btn-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Flight details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-body">
+                  <p class="f-timing">
+                    <span class="dept-time">14:30 PM</span>
+                    <span class="flight-type one-stop"></span>
+                    <span class="arrvl-time">07:00 PM</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-4 right-panel">
+                <input class="input-hidden" id="flight1" name="bookFlight" type="radio">
+                <div class="book-panel" for="flight1">
+                  <h4 class="class">Business class</h4>
+                  <span class="p-from">From</span>
+                  <span class="price">₹34,581</span>
+                  <span class="radio-btn"></span>
+                </div>
+              </div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body">
+                    You can collapse this card by clicking Toggle
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Sticky bar -->
+  <div class="footer-sticky-bar">
+    <div class="d-flex justify-content-center">
+      <div class="col-auto flight-logo">
+        <img src="assets/images/flight/fl-1.png" alt="">
+        <p>Spicejet <span> SG-742</span></p>
+      </div>
+      <div class="col-auto dept-time">
+        <p>14:30 PM | <span class="s-name">CCU</span> <br> <span class="date">26th Dec 2018 </span></p>
+      </div>
+      <div class="col-auto arrvl-time">
+        <i class="trip-icon"></i>
+        <p>16:30 PM |  <span class="s-name">BLR</span> <br> <span class="date">26th Dec 2018 </span></p>
+      </div>
+      <div class="col-auto details">
+        <p>
+          <span class="price">₹30,672</span><br>
+          <span class="d-btn">Details</span>
+        </p>
+      </div>
+      <div class="col-auto total-price">
+        <p class="price">All Total <br> <span>₹30,672</span></p>
+        <button class="btn btn-primary" (click)="openModal(personalInfoModal)">Book your flight</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Personal Information Popup -->
+<ng-template #personalInfoModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title mb-0 text-left">Personal info</h4>
+    <P class="short-desc text-left">The names you enter should match the ones in your uploaded documents</P>
+    <form class="form-component">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your mobile number">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your email address">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="flight-footer">
+    <button class="btn btn-left" (click)="openPaymentModal(paymentInfoModal)">Continue as guest <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+    <button class="btn btn-right">Login account <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+  </div>
+</ng-template>
+
+<!-- Payment Information Popup -->
+<ng-template #paymentInfoModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="modal-title mb-0 text-left">Payment options</h4>
+        <ngb-tabset>
+          <ngb-tab title="CREDIT CARD">
+            <ng-template ngbTabContent>
+              <form class="form-component">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Card number</label>
+                      <input type="text" class="form-control" placeholder="**** **** **** 9842">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Expairy date</label>
+                      <input type="text" class="form-control" placeholder="mm/yyyy">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Card holder name</label>
+                      <input type="text" class="form-control" placeholder="Card holder name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">CVV</label>
+                      <input type="text" class="form-control" placeholder="***">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="ONLINE BANKING">
+            <ng-template></ng-template>
+            <ng-template ngbTabContent>
+              Online Banking
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="PAYMENT PARTNERS" >
+            <ng-template ngbTabContent>
+              <p>Payment Partners</p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+        <form class="form-component">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Card number</label>
+                <input type="text" class="form-control" placeholder="**** **** **** 9842">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Expairy date</label>
+                <input type="text" class="form-control" placeholder="mm/yyyy">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Card holder name</label>
+                <input type="text" class="form-control" placeholder="Card holder name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">CVV</label>
+                <input type="text" class="form-control" placeholder="***">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h4>Payment options</h4>
+        <hr>
+        <p><span class="left">Flight fee</span><span class="mid">2 Adults , 1 Children</span><span class="right"></span></p>
+        <p><span>Taxes & fees</span><span>₹1,729.05</span> <i></i></p>
+        <hr>
+        <p><span></span><span></span><span></span> <i></i></p>
+        
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,289 @@
+<!-- <div class="main"> -->
+  <div class="container-fluid">
+    <div class="property-list">
+      <div class="header">
+        <h3 class="float-left m-0">Properties</h3>
+        <form action="">
+          <div class="form-group float-right m-0">
+            <select class="form-control">
+              <option value="">Active Properties</option>
+              <option value="">Inactive Properties</option>
+            </select>
+          </div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 pr-0">
+          <div class="ngu-carousel">
+            <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="propertyList">
+              <div *nguCarouselDef="let item;" class="item">
+                <div class="card">
+                  <img class="card-img-top" src="{{item?.coverImageUrl}}" alt="{{item?.oraname}}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{item?.oraname}}</h5>
+                    <p class="card-text" style="-webkit-box-orient: vertical;" *ngIf="item?.propertyVsDescriptions">{{item?.propertyVsDescriptions[0]?.description}}</p>
+                    <label class="location" for=""><i class="fa fa-map-marker"></i> Location: {{item?.address}}</label>
+                    <button type="button" [routerLink]="['/dashboard/property-details/',item.propertyId]" class="btn btn-dark">Details / Edit</button>
+                  </div>
+                </div>
+              </div>
+              <button NguCarouselNext class="slide-right-btn"></button>
+              <button NguCarouselPrev class="slide-left-btn"></button>
+            </ngu-carousel>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-3 pt-10 pb-40">
+          <div class="card bg-dark text-white h-100">
+            <img class="card-img h-100" src="assets/images/dashboard/prop_4.jpg" alt="Card image">
+            <div class="card-img-overlay text-center">
+              <h5 class="card-title">ADD another property</h5>
+              <hr>
+              <button type="button" (click)="openAddPropertyModal(addNewPropertyModal)" class="btn btn-primary">Add now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Chart -->
+    <div class="property-chart" id="revenueBlock">
+      <div class="row">
+        <div class="col-md-7">
+            <h3 class="float-left p-10">Revenue</h3>
+            <form action="">
+              <div class="form-group float-right p-10">
+                <select class="form-control">
+                  <option value="">December, 2018</option>
+                </select>
+              </div>
+            </form>
+            <div class="clearfix"></div>
+            <highcharts-chart [Highcharts]="Highcharts" [options]="revenueLineChart" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+        </div>
+        <div class="col-md-5">
+            <form action="">
+              <div class="form-group float-right p-10">
+                <select class="form-control">
+                  <option value="">December, 2018</option>
+                </select>
+              </div>
+            </form>
+            <highcharts-chart [Highcharts]="Highcharts" [options]="revenueBarChart" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calender -->
+    <div class="calender-view" id="calenderBlock">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="float-left p-10">Booking calender</h3>
+          <form action="">
+            <div class="form-group float-right p-10">
+              <select class="form-control">
+                <option value="">December, 2018</option>
+              </select>
+            </div>
+          </form>
+          <div class="clearfix"></div>
+          <div class="p-relative">
+            <div class="calender-table">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="headcol">Bookings</th>
+                    <th *ngFor="let day of daysArray(totaldays)">
+                      {{day}}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of daysArray(4)">
+                    <td class="headcol"> ORA9122522/B{{item}}</td>
+                    <td *ngFor="let day of daysArray(totaldays)">
+                      <button class="btn btn-not-available" *ngIf="day <=10"></button>
+                      <button class="btn btn-booked" (click)="openBookingModal(bookingDetailsModal)" *ngIf="day > 10 && day <= 20"></button>
+                      <button class="btn btn-available" *ngIf="day > 20"></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="label-info d-flex justify-content-start">
+            <div class="d-flex align-items-center">
+              <span class="bg-gray"></span> <label for="">Not avaiable</label>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="bg-blue"></span> <label for="">Booked</label>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="bg-green"></span> <label for="">Avaiable</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inventory -->
+    <div class="inventory-table" id="inventoryBlock">
+      <div class="header">
+        <h3 class="float-left m-0">Toiletry kit</h3>
+        <form action="">
+          <div class="form-group float-right m-0">
+            <select class="form-control">
+              <option value="">December, 2018</option>
+            </select>
+          </div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row p-10">
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>Total</th>
+                <th>Used</th>
+                <th>Pending</th>
+              </tr>
+              <tr>
+                <td>200 pcs.</td>
+                <td>160 pcs. <span class="badge badge-secondary">UPDATE</span></td>
+                <td>40 pcs.</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <button class="btn btn-primary float-right">Request for more</button> -->
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+<ng-template #bookingDetailsModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title mb-25">Booking details</h4>
+    <!-- <form class="form-component"> -->
+    <div class="row m-0">
+      <div class="col-md-3 p-0">
+        <div class="form-group">
+          <span class="label">Booking ID</span>
+          <label class="label-box">ORA000022</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <span class="label">Property name</span>
+          <label class="label-box">Loharuka Green Heights, Raigachi</label>
+        </div>
+      </div>
+      <div class="col-md-3 p-0">
+        <div class="form-group">
+          <span class="label">Number of rooms</span>
+          <label class="label-box">2 rooms</label>
+        </div>
+      </div>
+      <div class="col-md-12 p-0">
+        <div class="form-group">
+          <span class="label">Property Address</span>
+          <label class="label-box">Loharuka Green Heights, Raigachi <br>
+              16 B Saltlake city, Boishakhi Bazaar, Bidhannagar, Kolkata 700091, West bengal, 
+              India.</label>
+        </div>
+      </div>
+    </div>
+    <h5>Guest details</h5>
+    <div class="row m-0">
+      <div class="col-md-8 p-0">
+        <span class="label">Number of guests</span>
+        <div class="row m-0">
+          <div class="col-md-4 pl-0">
+            <div class="form-group">
+              <label class="label-box">Total 04</label>
+            </div>
+          </div>
+          <div class="col-md-4 p-0">
+            <div class="form-group">
+              <label class="label-box">Adults 03</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="label-box">Childrens 01</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-0">
+        <div class="form-group">
+          <span class="label">Check in /  Check out</span>
+          <label class="label-box">20 Jan 2019 to 22 Jan 2019</label>
+        </div>
+      </div>
+      <div class="col-md-12 p-0">
+        <div class="form-group">
+          <span class="label">Guest Address</span>
+          <label class="label-box">Anand Verma <br>
+              Jain Mandir Market South, Ex Part-2, Ayur Vigyan Nagar, New Delhi, Delhi 110049,
+             India.</label>
+        </div>
+      </div>
+    </div>
+    <h5 class="mb-4">Payment details</h5>
+    <div class="payment-sec d-flex justify-content-start">
+      <div class="p-img">
+        <img src="assets/images/property-book.png" alt="" class="rounded mx-auto d-block">
+      </div>
+      <div class="p-desc">
+        <span>ORA000022</span>
+        <ul>
+          <li class="mr-40">Loharuka Green Heights, Raigachi</li>
+          <li>2 rooms</li>
+        </ul>
+        <p><i class="fa fa-arrow-circle-o-left mr-2"></i> 20 January 2019 <span>Check in Time: 12:00 PM</span></p>
+        <p class="mb-2"><i class="fa fa-arrow-circle-o-right mr-2"></i> 22 January 2019 <span>Check out Time: 11:00 AM</span></p>
+        <p><i class="fa fa-users"></i> 2 rooms, 04 guests, 2 nights</p>
+      </div>
+    </div>
+    <table class="w-100 payment-table">
+      <tr>
+        <td class="text-left">Booking amount</td>
+        <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> 2,900 Per night x 2 rooms</td>
+        <td class="text-right"><strong><i class="fa fa-inr" aria-hidden="true"></i>  5,800</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-left">Price Dropped (20% off)</td>
+        <td class="text-right"><strong><i class="fa fa-inr" aria-hidden="true"></i>  1,160</strong></td>
+      </tr>
+      <tr class="last-col">
+        <td colspan="2" class="text-left">Payable amount</td>
+        <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>  4,640 <br/><span>Including all taxes</span></td>
+      </tr>
+    </table>
+
+    <p class="p-status m-0 mt-3">Payment Status</p>
+    <span class="p-check-in">On check in payment</span>
+    <hr>
+    <div class="icon-set float-right">
+      <i class="fa fa-download mr-4"></i>
+      <i class="fa fa-print mr-4"></i>
+      <i class="fa fa-share"></i>
+    </div>
+    <div class="clearfix"></div>
+
+  </div>
+</ng-template>
+
+<ng-template #addNewPropertyModal let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-property-add-form></app-property-add-form>
+</ng-template>

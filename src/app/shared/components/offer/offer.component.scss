@@ -1,0 +1,25 @@
+@media only screen and (max-width: 767px) {
+    .deals-section {
+        background: #ffffff00;
+        .container{
+            h4.title{
+                color: #130504;
+                font-size: 30px;
+                margin-bottom: 0px;
+            }
+            p.text {
+                font-size: 18px;
+                color: #231f20;
+                margin-bottom: 20px;
+            }
+            .row{
+                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                flex-direction: row !important;
+            }
+            img {
+                width: auto;
+            }
+        }
+    }
+}

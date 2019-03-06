@@ -1,0 +1,83 @@
+<div class="container-fluid secondary-menu">
+  <div class="container ">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <div ngbDropdown>
+        <button class="btn" id="navAbout"  ngbDropdownToggle [class.active]="rla.isActive">About</button>
+        <div ngbDropdownMenu aria-labelledby="navAbout">
+          <div class="row m-0 align-items-center">
+            <div class="col-md-4 pl-30">
+              <div class="img-block" routerLink="/about" routerLinkActive #rla="routerLinkActive">
+                <img src="assets/images/other/about-nav-img.png" alt="">
+              </div>
+            </div>
+            <div class="col-md-8"> 
+              <div class="nav-items">
+                <a class="c-pointer dropdown-item" (click)="scrollToDiv('about','aboutContainer')"><i class="fa fa-chevron-right" aria-hidden="true"></i> About</a>
+                <a class="c-pointer dropdown-item" (click)="scrollToDiv('about','sustainabilityContainer')"><i class="fa fa-chevron-right" aria-hidden="true"></i> Sustainability</a>
+                <a class="c-pointer dropdown-item" (click)="scrollToDiv('about','visionContainer')"><i class="fa fa-chevron-right" aria-hidden="true"></i> Vission & Mission</a>
+                <a class="c-pointer dropdown-item" (click)="scrollToDiv('about','awardContainer')"><i class="fa fa-chevron-right" aria-hidden="true"></i> Awards & Recognisations</a>
+                <a class="c-pointer dropdown-item" (click)="scrollToDiv('about','storyContainer')"><i class="fa fa-chevron-right" aria-hidden="true"></i> Growth Story</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ngbDropdown>
+        <button class="btn" routerLink="/team" id="navTeam" ngbDropdownToggle routerLinkActive="active">Team</button>
+      </div>
+      <div ngbDropdown>
+        <button class="btn" id="navCarrer" ngbDropdownToggle [class.active]="car.isActive">Career</button>
+        <div ngbDropdownMenu aria-labelledby="navTeam">
+          <div class="row m-0 align-items-center">
+            <div class="col-md-4">
+              <div class="img-block" routerLink="/career" routerLinkActive #car="routerLinkActive">
+                <img src="assets/images/career/carrer_pitchmenu_image.png" alt="">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="nav-items">
+                <a (click)="scrollToDiv('career','careerJoinWithUs')" class="c-pointer dropdown-item"><i class="fa fa-chevron-right" aria-hidden="true"></i> Join Us</a>
+                <a (click)="scrollToDiv('career','careerLifeOra')" class="c-pointer dropdown-item"><i class="fa fa-chevron-right" aria-hidden="true"></i> Life at Ora</a>
+                <!-- <a (click)="scrollToDiv('career','careerPeopleStories')" class="dropdown-item"><i class="fa fa-chevron-right" aria-hidden="true"></i> People Stories</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ngbDropdown>
+        <button class="btn" routerLink="/privacy-policy" ngbDropdownToggle routerLinkActive="active">Privacy Policy</button>
+      </div>
+      <div ngbDropdown>
+        <button class="btn" routerLink="/cancellation-policy" ngbDropdownToggle routerLinkActive="active">Cancellation Policy</button>
+      </div>
+      <!-- <div ngbDropdown>
+        <button class="btn" id="navMedia" ngbDropdownToggle>Media Room</button>
+        <div ngbDropdownMenu aria-labelledby="navMedia">
+          <div class="row m-0 align-items-center">
+            <div class="col-md-4">
+              <div class="img-block">
+                <img src="assets/images/media/sub-menu.png" alt="">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="nav-items">
+                <a (click)="scrollToDiv('media','mediaPressRelease')" class="dropdown-item"><i class="fa fa-chevron-right" aria-hidden="true"></i> Press Release</a>
+                <a (click)="scrollToDiv('media','mediaVideoImages')" class="dropdown-item"><i class="fa fa-chevron-right" aria-hidden="true"></i> Video & Images</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!--
+        <div ngbDropdown>
+        <button class="btn" id="navBlog" ngbDropdownToggle>Blog</button>
+        <div ngbDropdownMenu aria-labelledby="navBlog">
+          <button class="dropdown-item">Action - 1</button>
+          <button class="dropdown-item">Another Action</button>
+          <button class="dropdown-item">Something else is here</button>
+        </div>
+      </div> 
+      -->
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,481 @@
+.view-container{
+    .p-tb-50{
+        padding: 50px 0;
+    }
+    .booking-sec {
+       padding: 0 50px;
+       .card{
+            border: 1px solid #ebebeb;
+            box-shadow: 0px 8px 1px 0px #c9c7c7;
+           .card-header{
+                background: #f3f3f3;
+                border-bottom: 0;
+               h3{
+                   font-family: latobold;
+                   color: #130504;
+                   font-size: 18px;
+                   margin: 0;
+                   i{
+                        width: 40px;
+                        height: 40px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        display: block;
+                        margin-right: 10px;
+                   }
+               }
+           }
+           .card-body{
+               h4{
+                font-family: latobold;
+                color: #130504;
+                font-size: 16px;
+                border-bottom: 1px solid #e7e7e7;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+               }
+               .flight-info{
+                    .flight-img{
+                        width: 30px;
+                        border-radius: 50px;
+                        height: 30px;
+                    }
+                    .f-name, .f-number{
+                        font-family: latoregular;
+                        color: #484848;
+                        font-size: 12px;
+                        line-height: 13px;
+                    }
+                    .location{
+                        font-family: latobold;
+                        font-size: 12px;
+                        color: #130504;
+                        line-height: 13px;
+                    }
+                    .f-time{
+                        font-family: latoregular;
+                        font-size: 12px;
+                        color: #130504;
+                        line-height: 13px;
+                    }
+                    .bg-flight-img{
+                        background-image: url(../../../../assets/images/flight/flight-bullet-gray.png);
+                        display: block;
+                        width: 100%;
+                        height: 20px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                    }
+                    .dark{
+                        font-family: latobold;
+                        color: #130504;
+                        font-size: 12px;
+                        line-height: 13px;
+                        width: 50%;
+                        display: inline-block;
+                        border-right: 1px solid #ccc;
+                        text-align: right;
+                        padding-right: 10px;
+                    }
+                    .green{
+                        font-family: latobold;
+                        color: #00a61f;
+                        font-size: 12px;
+                        line-height: 13px;
+                        width: 50%;
+                        display: inline-block;
+                        padding-left: 10px;
+                        text-align: left;
+                    }
+                    .c-item{
+                        font-family: latobold;
+                        color: #130504;
+                        font-size: 12px;
+                        line-height: 13px;
+                    }
+                    .badge-dark{
+                        font-family: latoblack;
+                        font-size: 9px;
+                        color: #ffffff;
+                        line-height: 13px;
+                    }
+               }
+               &.cancellation, &.gst-info{
+                    .check-box{
+                        font-family: latoregular;
+                        font-size: 14px;
+                        color: #130504;
+                        .green{
+                            color: #00a61f;
+                        }
+                        .orange{
+                            color: #f47921;
+                        }
+                    }
+                    h6{
+                        font-family: latoregular;
+                        font-size: 14px;
+                        color: #130504;
+                        
+                        a{
+                            color: #f47921;
+                        }
+                    }
+               }
+               &.traveller-form, &.gst-info, &.insurance-info, &.service-info{
+                   label{
+                        font-family: latoregular;
+                        color: #130504;
+                        font-size: 14px;
+                   }
+                   h6{
+                        font-family: latoregular;
+                        font-size: 14px;
+                        color: #130504;
+                    }
+                    .form-control{
+                        font-family: latoitalic;
+                        font-size: 14px;
+                        color: #484848;
+                        height: 40px;
+                    }
+                    span{
+                        font-family: latoregular;
+                        font-size: 14px;
+                        color: #6d6e71;
+                    }
+                    .icon{
+                        width: 20px;
+                        height: 20px;
+                        display: inline-block;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: auto 100%;
+                        margin-right: 10px;
+                        &.travll-icon{
+                            background-image: url(../../../../assets/images/flight/travll-icon.png);
+                        }
+                        &.call-icon{
+                            background-image: url(../../../../assets/images/flight/call-icon.png);
+                        }
+                        &.travll-work-icon{
+                            background-image: url(../../../../assets/images/flight/travll-work-icon.png);
+                        }
+                    }
+                    .text-gray{
+                        font-family: latoregular;
+                        font-size: 12px;
+                        color: #c9c7c7;
+                        margin-left: 50px;
+                        margin-top: -10px;
+                    }
+               }
+               &.insurance-info{
+                   .insurance-cover-sec{
+                       .items{
+                           width: 20%;
+                            p{
+                                font-size: 12px;
+                                font-family: latobold;
+                                line-height: 14px;
+                                margin-top: 10px;
+                                text-transform: uppercase;
+                                margin-bottom: 0px;
+                            }
+                            span{
+                                font-family: latobold;
+                                color: #00a61f;
+                                font-size: 12px;
+                            }
+                       }
+                   }
+               }
+           }
+           .card-footer{
+                background: #f3f3f3;
+                border-top: 0;
+                h5{
+                    font-family: latoregular;
+                    color: #231f20;
+                    font-size: 14px;
+                    strong{
+                        font-family: latobold;
+                        font-size: 16px;
+                        color: #130504
+                    }
+                    a{
+                        color: #f47921;
+                    }
+                }
+           }
+       }
+    }
+    
+
+    .book-summary{
+        width: 100%;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        h5{
+            font-family: latoblack;
+            font-size: 18px;
+        }
+        table{
+            margin: 0;
+        }
+        table td{
+            font-family: latobold;
+            font-size: 12px;
+            color: #130504;
+            padding: 5px 0;
+            border: 0;
+        }
+        tr.border-tb{
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .t-gray{
+            color: #a8adb2;
+        }
+        .total{
+            font-family: latobold !important;
+            color: #130504 !important;
+            font-size: 16px !important;
+        }
+
+        ::ng-deep{
+            .mat-accordion{
+                .mat-expansion-panel {
+                    border-bottom: 1px solid #ccc;
+                    .btn{
+                        font-family: latobold;
+                        font-size: 14px;
+                        color: #130504;
+                        width: 100%;
+                        text-align: left;
+                        text-decoration: inherit !important;
+                    }
+                }
+                .mat-expansion-panel-header.mat-expanded{
+                    background-color: #f3f3f3; 
+                }
+                .mat-expansion-panel:not([class*='mat-elevation-z']) {
+                    box-shadow: none;
+                    margin-bottom: 0;
+                    margin-top: 0;
+                }
+                .mat-expansion-panel-content {
+                    background-color: #f3f3f3;
+                }
+                .mat-content {
+                    font-family: latobold;
+                    color: #130504;
+                    font-size: 14px;
+                }
+
+            }
+        }
+    
+
+        /* Copyright 2013-2015 etc Chris Tabor. Licensed under MIT. */
+        .flexer, .progress-indicator {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .no-flexer, .progress-indicator.stacked {
+            display: block;
+        }
+        .no-flexer-element {
+            -ms-flex: 0;
+            -webkit-flex: 0;
+            -moz-flex: 0;
+            flex: 0;
+        }
+        .flexer-element, .progress-indicator > li {
+            -ms-flex: 1;
+            -webkit-flex: 1;
+            -moz-flex: 1;
+            flex: 1;
+        }
+        .progress-indicator {
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            margin-bottom: 1em;
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            top: -30px;
+        }
+        .progress-indicator > li {
+            list-style: none;
+            text-align: center;
+            width: auto;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            text-overflow: ellipsis;
+            color: #bbbbbb;
+            display: block;
+        }
+        .progress-indicator > li:hover {
+            color: #6e6e6e;
+        }
+        .progress-indicator > li .bubble {
+            border-radius: 1000px;
+            width: 20px;
+            height: 20px;
+            background-color: #bbbbbb;
+            display: block;
+            margin: 0 auto 0.5em auto;
+            border-bottom: 1px solid #888888;
+            margin-top: 3px;
+        }
+        .progress-indicator > li .bubble:before, .progress-indicator > li .bubble:after {
+            display: block;
+            position: absolute;
+            top: 27px;
+            width: 100%;
+            height: 3px;
+            content: '';
+            background-color: #bbbbbb;
+        }
+        .progress-indicator > li .bubble:before {
+            left: 0;
+        }
+        .progress-indicator > li .bubble:after {
+            right: 0;
+        }
+        .progress-indicator > li.completed {
+            color: green;
+        }
+        .progress-indicator > li.completed .bubble {
+            background-color: #00a61f;
+            color: #00a61f;
+            border-color: #00a61f;
+        }
+        .progress-indicator > li.completed .bubble:before, .progress-indicator > li.completed .bubble:after {
+            background-color: #00a61f;
+            border-color: #00a61f;
+        }
+    }
+}
+    
+.review-icon{
+    background-image: url(../../../../assets/images/flight/review-booking-icon.png);
+}
+.cancellation-icon{
+    background-image: url(../../../../assets/images/flight/cancellation-protection-icon.png);
+}
+.traveller-icon{
+    background-image: url(../../../../assets/images/flight/traveller-details-icon.png);
+}
+.gst-icon{
+    background-image: url(../../../../assets/images/flight/gst-details-icon.png);
+}
+.insurance-icon{
+    background-image: url(../../../../assets/images/flight/insurance-icon.png);
+}
+.service-icon{
+    background-image: url(../../../../assets/images/flight/service-request-icon.png);
+}
+.ml-20{
+    margin-left: 20px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.bg-gray{
+    background-color: #f3f3f3;
+}
+.pos-sticky-right{
+    height: 100%;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+}
+
+// Modal 
+::ng-deep{
+    .flight-service-modal{
+        @media (min-width: 992px){
+            .modal-lg {
+                max-width: 900px;
+            }
+        }
+        .modal-content{
+            padding: 0;
+        }
+        .modal-header{
+            background-color: #f3f3f3;
+            .icon{
+                width: 40px;
+                height: 40px;
+                display: inline-block;
+                background-size: 20px 20px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #f47921;
+                border-radius: 50px;
+                margin-right: 10px;
+            }
+            .icon-meal{
+                background-image: url(../../../../assets/images/flight/add-meal-icon.png);
+            }
+            .icon-baggage{
+                background-image: url(../../../../assets/images/flight/add-baggage-icon.png);
+            }
+            .icon-seat{
+                background-image: url(../../../../assets/images/flight/add-seats-icon.png);
+            }
+        }
+        .modal-body{
+            h4{
+                font-family: latobold;
+                font-size: 16px;
+                color: #130504;
+                display: block;
+                width: 100%;
+            }
+            .radio-btn-group{
+                label{
+                    font-family: latoregular;
+                    font-size: 14px;
+                    color: #484848;
+                    .option-input {
+                        top: 1px;
+                    }
+                }
+            }
+            h5{
+                font-family: latobold;
+                font-size: 12px;
+                color: #130504;
+            }
+            .form-group{
+                label{
+                    font-family: latoregular;
+                    font-size: 14px;
+                    color: #6d6e71;
+                }
+                .form-control{
+                    font-family: latoitalic;
+                    font-size: 14px;
+                    color: #6d6e71;
+                }
+            }
+            .footer-btn{
+                width: 100%;
+                margin: 10px;
+            }
+        }
+    }
+}
+

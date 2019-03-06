@@ -1,0 +1,67 @@
+.p-10{
+    padding: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+} 
+.pb-40{
+    padding-bottom: 40px !important;
+}
+h3{
+    color: #f47921;
+    font-family: latoblack;
+    font-size: 26px;
+}
+.toggle-radio-btn{
+    // width: 200px;
+    margin-right: 20px;
+}
+.daterangepicker{
+    width: 300px;
+    .calendar{
+        border-color: #ced4da;
+        background: #fff;
+        color: #8a8787;
+        border-left: 0;
+    }
+}
+.cancellation-table{
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .header{
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+    .table{
+        border-radius: 5px;
+        box-shadow: 0px 10px 0px 0px #ccc;
+        margin-bottom: 40px;
+        text-align: center;
+        border: 1px solid #ccc;
+        thead{
+            background: #e6e5e5;
+            border-top: 2px solid #ccc;
+        }
+        th{
+            font-family: latoblack;
+            color: #130504;
+            font-size: 12px;
+        }
+        td{
+            font-family: latobold;
+            color: #130504;
+            font-size: 12px;
+            padding: 10px 5px;
+        }
+        .badge{
+            color: #ffffff;
+            font-family: latoblack;
+            font-size: 10px;
+            border-radius: 2px;
+            margin-left: 5px;
+            font-weight: normal;
+            background-color: #424242;
+            padding: 3px 5px;
+        }
+    }
+}

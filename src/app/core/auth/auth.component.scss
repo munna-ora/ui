@@ -1,0 +1,134 @@
+.login-section{
+    // top: 20%;
+    .modal-dialog {
+        padding: 20px 20px;
+    }
+    @media (min-width: 576px){
+        .modal-dialog {
+            max-width: 400px;
+            margin: 1.75rem auto;
+        }
+    }
+    // .modal-content{
+    //     background-color: transparent;
+    //     border: none;
+    
+    button.close{
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        opacity: 1;
+        border-radius: 50px;
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        z-index: 99999;
+        &:hover, &:focus{
+            opacity: 1;
+        }
+        span{
+            text-shadow: none;
+            color: #f47921;
+            line-height: 24px;
+            font-size: 24px;
+            font-family: lato;
+            font-weight: 100;
+            display: block;
+        }
+    }
+    ::ng-deep{
+        .nav.nav-tabs{
+            border-bottom: 1px solid #dee2e6;
+            background: #000;
+            border-radius: 5px 5px 0px 0px;
+            .nav-item{
+                .nav-link{
+                    font-family: latobold;
+                    font-size: 16px;
+                    color: #fff;
+                    padding: 12px 10px;
+                    &.active{
+                        color: #130504;
+                        background-color: #fff;
+                        border-color: #dee2e6 #dee2e6 #fff;
+                    }
+                    &:hover{
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+        .tab-content{
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 0px 0px 5px 5px;
+        }
+        form{
+            .form-group{
+                input , select {
+                    font-family: latoitalic;
+                    font-size: 14px;
+                    color: #484848;
+                }
+            }
+            .change-tab-view{
+                color: #484848;
+                font-family: lato;
+                font-size: 14px;
+                float: left;
+                margin: 0;
+                line-height: 42px;
+                a{
+                    color: #f47921;
+                }
+            }
+            button.btn{
+                padding: 8px 30px;
+                font-family: latobold;
+            }
+            button.verifyBtn{
+                padding: 8px 15px;
+            }
+            .terms-conditions{
+                font-family: lato;
+                color: #9b9b9b;
+                font-size: 14px;
+                display: block;
+                a{
+                    color: #f47921;
+                }
+            }
+            & .is-invalid {
+                color: #e74c3c;
+            }
+            .otp-heading{
+                text-align: center;
+                h3{
+                    font-family: latobold;
+                    font-size: 17px;
+                    color: #130504;
+                }
+                p{
+                    font-size: 12px;
+                    color: #9b9b9b;
+                    font-family: lato;
+                }
+            }
+            .resend-otp{
+                color: #130504;
+                font-family: lato;
+                font-size: 14px;
+                a{
+                    color: #f47921;
+                }
+            }
+            .error-message{
+                width: 100%;
+                margin-bottom: 1rem;
+                font-size: 80%;
+                color: #e74c3c;
+            }
+        }
+    }
+    // }
+}

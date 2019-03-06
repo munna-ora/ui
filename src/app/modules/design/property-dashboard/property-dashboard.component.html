@@ -1,0 +1,315 @@
+<div class="dashboard-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav ps ps--active-y">
+      <div class="profile-info">
+        <div class="btn-group mr-3">
+          <img class="user-img" src="assets/images/dashboard/prop_host.png" alt="">
+          <button class="btn btn-edit" type="button" (click)="openModal(editProfileModal)"><i class="pencil-icon"></i></button>
+        </div>
+        <label class="username">Saiyed Hussain</label>
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="colors.html">
+              <i class="nav-icon"></i> Properties
+              <span class="badge badge-info">04</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Revenue
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Calendar
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Inventory
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="typography.html">
+              <i class="nav-icon"></i> Analytics
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="openModal(contactOraModal)">
+              <i class="nav-icon"></i> Contact ORA
+            </a>
+        </li>
+
+        <!-- User Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">
+            <i class="nav-icon"></i> My bookings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">
+            <i class="nav-icon"></i> View cancellations
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">
+            <i class="nav-icon"></i> My support
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="container-fluid">
+      <div class="property-list">
+        <div class="header">
+          <h3 class="float-left m-0">Properties</h3>
+          <form action="">
+            <div class="form-group float-right m-0">
+              <select class="form-control">
+                <option value="">Active Properties</option>
+                <option value="">Inactive Properties</option>
+              </select>
+            </div>
+          </form>
+          <div class="clearfix"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 pr-0">
+            <div class="ngu-carousel">
+              <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+                  <div *nguCarouselDef="let item;" class="item">
+                    <div class="card">
+                      <img class="card-img-top" src="assets/images/dashboard/{{item.img}}" alt="{{item.name}}">
+                      <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.desc}}</p>
+                        <label class="location" for=""><i class="fa fa-map-marker"></i> Location: {{item.location}}</label>
+                        <button type="button" routerlink="/host-property-details" class="btn btn-dark">Details / Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button NguCarouselNext class="slide-right-btn"></button>
+                  <button NguCarouselPrev class="slide-left-btn"></button>
+                </ngu-carousel>
+                <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="col-md-3 pt-10 pb-40">
+            <div class="card bg-dark text-white h-100">
+              <img class="card-img h-100" src="assets/images/dashboard/prop_4.jpg" alt="Card image">
+              <div class="card-img-overlay text-center">
+                <h5 class="card-title">ADD another property</h5>
+                <hr>
+                <button type="button" routerlink="/host-property-details" class="btn btn-primary">Add now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Dashboard Chart -->
+      <div class="property-chart">
+        <div class="row">
+          <div class="col-md-7">
+              <h3 class="float-left p-10">Revenue</h3>
+              <form action="">
+                <div class="form-group float-right p-10">
+                  <select class="form-control">
+                    <option value="">December, 2018</option>
+                  </select>
+                </div>
+              </form>
+              <div class="clearfix"></div>
+              <highcharts-chart [Highcharts]="Highcharts" [options]="revenueLineChart" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+          </div>
+          <div class="col-md-5">
+              <form action="">
+                <div class="form-group float-right p-10">
+                  <select class="form-control">
+                    <option value="">December, 2018</option>
+                  </select>
+                </div>
+              </form>
+              <highcharts-chart [Highcharts]="Highcharts" [options]="revenueBarChart" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inventory -->
+      <div class="inventory-table">
+        <div class="header">
+          <h3 class="float-left m-0">Inventory</h3>
+          <form action="">
+            <div class="form-group float-right m-0">
+              <select class="form-control">
+                <option value="">December, 2018</option>
+              </select>
+            </div>
+          </form>
+          <div class="clearfix"></div>
+        </div>
+        <div class="row p-10">
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th>Total</th>
+                  <th>Used</th>
+                  <th>Pending</th>
+                </tr>
+                <tr>
+                  <td>200 pcs.</td>
+                  <td>160 pcs. <span class="badge badge-secondary">UPDATE</span></td>
+                  <td>40 pcs.</td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-primary float-right">Request for more</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Profile Popup -->
+  <ng-template #editProfileModal let-modal>
+    <div class="modal-container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title" id="modal-basic-title">Edit/Add profile</h4>
+      <div class="profile-img">
+        <img src="assets/images/dashboard/prop_host.png" alt="">
+        <div class="file btn">
+          <span class="cam-img"></span>
+          <input type="file" name="file"/>
+        </div>
+      </div>
+      <form class="form-component">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <select name="" class="form-control">
+                <option value="">Mr.</option>
+                <option value="">Mrs.</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter your name" value="Saiyed Husain">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" value="+91 80014578954" disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Alternative Number">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" value="host@gmail.com" disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Alternative Email Id">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">Date of birth</label>
+              <input type="text" class="form-control" placeholder="6th Aug 1980">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="">Language</label>
+              <ng-multiselect-dropdown class="form-control" [placeholder]="'Select Language'" [data]="languageList" [(ngModel)]="LanguageSelectedItems" [settings]="dropdownSettings" name="language"></ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+        <h5>Additional informations</h5>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Profession</label>
+              <input type="text" class="form-control" placeholder="Enter your profession">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Interests</label>
+              <ng-multiselect-dropdown class="form-control" [placeholder]="'Select Interest'" [data]="interestList" [(ngModel)]="interestSelectedItems" [settings]="dropdownSettings" name="interest"></ng-multiselect-dropdown>
+              <!-- <input type="text" class="form-control" value="Travelling, Playing guiter, Listening musics, Gurdaning" placeholder="Select Interest"> -->
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Biography</label>
+              <textarea name="" class="form-control h100">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary float-right" (click)="modal.close('Save click')">Submit</button>
+    </div>
+  </ng-template>
+
+  <!-- Contact ORA Popup -->
+  <ng-template #contactOraModal let-modal>
+    <div class="modal-container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title mb-25">Contact ORA</h4>
+      <form class="form-component">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter your name" value="Mr. Saiyed Husain">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" value="+91 80014578954">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" value="host@gmail.com">
+            </div>
+          </div>
+        </div>
+        <h5>Purpose</h5>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <select name="" class="form-control">
+                <option value="">Others</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <textarea name="" class="form-control h100">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary float-right" (click)="modal.close('Save click')">Submit</button>
+    </div>
+  </ng-template>
+</div>

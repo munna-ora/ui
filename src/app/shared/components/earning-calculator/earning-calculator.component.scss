@@ -1,0 +1,34 @@
+.earning-calculator{
+    .header{
+        margin-bottom: 20px;
+        .title{
+            font-family: latoblackitalic;
+            font-size: 30px;
+            color: #2c2c2c;
+        }
+    }
+    .calculator-form{
+        h5{
+            font-family: latoblackitalic;
+            font-size: 14px;
+            color: #2c2c2c;
+        }
+        h6{
+            font-family: latoblackitalic;
+            font-size: 30px;
+            color: #2c2c2c;
+            margin: 0;
+        }
+        span{
+            font-family: latobolditalic;
+            font-size: 14px;
+            color: #2c2c2c;
+        }
+        .form-control{
+            font-size: 14px;
+            font-family: latolightitalic;
+            color: #2c2c2c;
+            height: 45px;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+<!-- Header Image -->
+<div class="container-fluid header-image-slide p-0 head-img-container">
+  <img class="w-100" src="assets/images/property/property-list-banner.jpg" />
+  <!-- <div class="container"> -->
+    <div class="text-container">
+      <h4>Making someone happy everyday</h4>
+      <p>Enriched, invaluable experiences</p>
+    </div>
+  <!-- </div> -->
+</div>
+
+<div class="container-fluid pt-4 pb-2 filter-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="property-found">
+          <span class="icon"></span>
+          <p class="pl-1"><span>{{propertyList.length}} {{selectedPropertyTypeName}} </span> properties found</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <!-- Filter Section -->
+      <div class="sorting-result">
+        <span class="icon"></span>
+        <p class="pl-1 pr-3"><span>Sorting  </span> results by</p>
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="filterBy" [(ngModel)]="filterBy">
+          <div class="btn-group-toggle">
+            <label class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="radio" ngbButton [value]="'rating'"> Popularity
+            </label>
+          </div>
+          <div class="btn-group-toggle">
+            <label class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="radio" ngbButton [value]="'totalPrice'"> Price lowest first
+              <i class="fa fa-long-arrow-down ml-2" aria-hidden="true"></i>
+            </label>
+          </div>
+          <div class="btn-group-toggle">
+            <label class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="radio"  ngbButton [value]="'reviewCount'"> Couples Friendly 
+            </label>
+          </div>
+          <div class="btn-group-toggle">
+            <label class="btn-checkbox-filter" ngbButtonLabel>
+              <input type="radio"  ngbButton [value]="'propertyId'"> Pet Friendly  
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="map-filter">
+        <span class="icon"></span>
+        <p class="pl-1">Show Map</p>
+        <ui-switch [(ngModel)]="mapShowHide" size="small"></ui-switch>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="m-0">
+
+<div class="container-fluid property-list-section mb-40">
+  <div class="row">
+    <!-- Filter Section -->
+    <div class="col-md-3 pt-24">
+      <!-- Property Booking Form -->
+      <div class="booking-section mb-4">
+          <div class="card">
+            <div class="card-header">
+                Book your stay
+            </div>
+            <div class="card-body">
+                <app-stay-search-form [propertyTypes] = "propertyTypes" [searchObj]="searchObj" [pageName]="'PROPERTY'" (searchFormSubmitted)="searchFormSubmitted($event)"></app-stay-search-form>
+            </div>
+          </div>
+        </div>
+
+      <!-- Quick Filter -->
+      <div class="card quick-filter-section mb-3">
+        <div class="card-header">Quick filter</div>
+        <app-quick-filter [selectedPropertyTypeName]="selectedPropertyTypeName" (filterSelected)="filterSelected($event)"></app-quick-filter>
+      </div>
+    </div>
+    
+    <div class="loader" *ngIf="loading">
+        <div class="loading"></div>
+    </div>
+    <!-- Property List Section -->
+    <div class="pt-24" *ngIf="propertyList.length > 0"  [ngClass]="mapShowHide ? 'col-md-6':'col-md-9'">
+      <!-- Property List -->
+      <div class="property-listing-area mb-4">
+        <ng-template ngFor let-i="index" let-c="count" let-property [ngForOf]="propertyList | orderBy: filterBy">
+          <div class="property-item d-flex overflowHidden">
+            <div class="mr-20 property-img">
+              <div class="room-tag {{property.roomStandard == 'PREMIUM' ? 'green' : 'orange'}}" *ngIf="property.roomStandard!='NORMAL'">{{property.roomStandard}}</div>
+              <img width="260px" height="150px" class="property-img"  [src]="property.coverImageURL!= null ? property.coverImageURL : 'assets/images/property/property-1.png'" onerror="this.src='assets/images/property-details/no_image_available.jpg'" />
+            </div>
+            <div class="w-100">
+              <div class="clearfix">
+                <p class="float-left ora-id">{{property.oraName}}</p>
+                <p class="float-right">
+                  <a class="c-pointer" (click)="getBookmark(property)"><span class="fa fa-bookmark-o icon bookmark {{property?.isBookmark && property?.isBookmark == true ? 'text-orange':''}}"></span></a>
+                  <a class="c-pointer" (click)="openShareModal(socialShareModal, property)"><span class="fa fa-share-alt icon ml-2"></span></a>
+                </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left address"><span class="address-icon fa fa-map-marker"></span> {{property.address}}</p>
+                <p class="float-right pet-friendly"><span class="pet-icon"></span> Pet friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left rating"><span class="badge badge-primary">{{property.rating}}</span> {{sharedSrv.getRatingText(property.rating)}} <span class="text-gray">{{property.reviewCount}} reviews</span></p>
+                <p class="float-right couples-frindly"><span class="couples-icon"></span> Couple friendly </p>
+              </div>
+              <div class="clearfix">
+                <p class="float-left complementary">Complimentary 
+                  <span *ngIf="property.mealFlag" class="complimentary-tea"></span>
+                  <span *ngFor="let amenitie of property.amenities">
+                    <img class="card-img-top rounded" [src]="amenitie.imgUrl1" [alt]="amenitie.aminitiesName" onerror="this.src='assets/images/complimentary_swimming.png'">
+                  </span>
+                </p>
+              </div>
+              <div class="alert alert-secondary clearfix" role="alert">
+                <div class="float-left">
+                  
+                  <h6 class="price"><small class="pr-2" *ngIf="property?.discountedPrice && property?.discountedPrice > 0">₹ {{property.totalPrice | number: '1.0-0'}}</small> <span><i class="fa fa-inr" aria-hidden="true"></i> {{property?.discountedPrice && property?.discountedPrice > 0 ? property?.discountedPrice : property.totalPrice | number: '1.0-0'}}</span> Per night</h6>
+                  <p class="total-times-book">Booked 21 times in the last 24 hours</p>
+                </div>
+                <button class="btn btn-dark btn-sm float-right" (click)="navigatePropertyDetails(property.propertyId)">Book now</button>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4 mt-4">
+        </ng-template>
+      </div>
+    </div>
+    <div *ngIf="propertyList.length == 0" class="col-md-9 no-data-found">
+      <p>Sorry! No property match for you.</p>
+    </div>
+
+    <!-- Map Section -->
+    <div *ngIf="propertyList.length > 0" [hidden]="!mapShowHide" class="col-md-3 map-sticky">
+      <div class="map-container">
+          <agm-map [latitude]="+searchObj?.latitude" [longitude]="+searchObj?.longitude"  [zoom]='11'>
+              <agm-marker *ngFor="let property of propertyList" [latitude]="+property.latitude" [longitude]="+property.longitude">
+                <agm-info-window>{{property.oraName}} <br> {{property.totalPrice | number: '1.0-0'}}</agm-info-window>
+              </agm-marker>
+          </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <hr> -->
+
+<!-- Deals for you -->
+<app-offer></app-offer>
+
+<!-- Social Share -->
+<ng-template #socialShareModal let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-social-share [shareObj]="shareObj"></app-social-share>
+</ng-template>
+
+<!-- Bookmark View -->
+<app-bookmark-popup></app-bookmark-popup>

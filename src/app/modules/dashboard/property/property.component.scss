@@ -1,0 +1,302 @@
+
+h3{
+    color: #2c2c2c;
+    font-family: latoblack;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+.pt-10{
+    padding-top: 10px;
+}
+.pb-40{
+    padding-bottom: 40px;
+}
+.property-list{
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .header{
+        // margin-top: 30px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+    .card{
+        box-shadow: 0px 10px 0px 0px #e1e1e1;
+        max-width: 260px;
+        .location{
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+        .card-img-overlay{
+            margin-top: 50%;
+        }
+        hr{
+            border-color: #939393;
+            margin: 30px 10px;
+        }
+    }
+    .ngu-carousel{
+        ::ng-deep{
+            .ngucarousel-items .item{
+                padding-bottom: 40px;
+                .card-img-top{
+                    height: 150px;
+                }
+            }
+        }
+        .card-title{
+            color: #231f20;
+            font-family: latoblack;
+            font-size: 16px;
+        }
+        p.card-text{
+            color: #939393;
+            font-family: latoregular;
+            font-size: 14px;         
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;   
+        }
+        label.location{
+            color: #130504;
+            font-family: latoregular;
+            font-size: 12px;  
+            margin-bottom: 20px;
+        }
+    }
+}
+.property-chart{
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.inventory-table{
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .header{
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+    .table{
+        border-radius: 5px;
+        box-shadow: 0px 10px 0px 0px #ccc;
+        margin-bottom: 40px;
+        text-align: center;
+        th{
+            font-family: latobold;
+            color: #231f20;
+            font-size: 16px;
+        }
+        td{
+            font-family: latoregular;
+            color: #484848;
+            font-size: 14px;
+        }
+        .badge{
+            color: #ffffff;
+            font-family: latoblack;
+            font-size: 10px;
+            border-radius: 2px;
+            margin-left: 5px;
+            font-weight: normal;
+            background-color: #424242;
+            padding: 3px 5px;
+        }
+    }
+}
+.p-relative{
+    position: relative;
+}
+.calender-view{
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .calender-table{
+        overflow-x: auto;
+        margin-left: 134px;
+        .headcol {
+            position:absolute;
+            width: 135px;
+            left:0;
+        }
+        .table {
+            th {
+                vertical-align: middle;
+                border-bottom: 2px solid #dee2e6;
+                text-align: center;
+                padding: 5px 0px;
+                border: 1px solid #dee2e6;
+                font-size: 10px;
+            }
+            td{
+                vertical-align: middle;
+                border-top: 1px solid #dee2e6;
+                text-align: center;
+                padding: 10px 0px;
+                border: 1px solid #dee2e6;
+                font-size: 10px;
+                .btn{
+                    width: 100%;
+                    border-radius: 0;
+                }
+                .btn-not-available{
+                    background: #9b9b9b;
+                }
+                .btn-booked{
+                    background: #2687c4;
+                }
+                .btn-available{
+                    background: #08a500;
+                }
+            }
+        }
+        
+    }
+    
+    // 
+    .label-info{
+        label{
+            font-family: latoblack;
+            font-size: 10px;
+            color: #484848;
+            margin: 0 15px 0px 5px;
+        }
+        span{
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            &.bg-gray{
+                background: #9b9b9b;
+            }
+            &.bg-blue{
+                background: #2687c4;
+            }
+            &.bg-green{
+                background: #08a500;
+            }
+        }
+    }
+}
+
+// Booking Details Modal
+::ng-deep{
+    .booking-modal{
+        @media (min-width: 768px){
+            .modal-dialog {
+                max-width: 650px;
+                margin: 1.75rem auto;
+            }
+        }
+        .label{
+            font-size: 12px;
+            font-family: latoblack;
+            color: #130504;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .label-box{
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+            border-radius: 5px;
+            font-family: latoitalic;
+            font-size: 14px;
+            color: #484848;
+        }
+        .payment-sec{
+            .p-img{
+                img{
+                    height: 60px;
+                }
+            }
+            .p-desc{
+                margin-left: 20px;
+                span{
+                    font-family: latoregular;
+                    font-size: 14px;
+                }
+                ul{
+                    list-style-type: disc;
+                    display: inline-flex;
+                    margin: 0;
+                    li{
+                        font-size: 14px;
+                        font-family: latoregular;
+                        color: #484848;
+                    }
+                }
+                p{
+                    color: #484848;
+                    font-size: 14px;
+                    font-family: latoregular;
+                    margin: 0;
+                    span{
+                        margin-left: 5px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .payment-table{
+            margin-top: 40px;
+            td{
+                font-family: latoregular;
+                color: #484848;
+                font-size: 14px;
+                padding: 6px 0px;
+                strong{
+                    color: #000000;
+                    font-family: latoblack;
+                    font-size: 14px;
+                }
+            }
+            .last-col{
+                border-top: 1px solid #ccc;
+                td{
+                    font-family: latoblack;
+                    color: #000000;
+                    font-size: 18px;
+                    span{
+                        font-family: latoregular;
+                        color: #484848;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .p-status{
+            font-family: latobold;
+            font-size: 14px;
+            color: #130504;
+        }
+        .p-check-in{
+            font-family: latoregular;
+            font-size: 14px;
+            color: #484848;
+        }
+        .icon-set{
+
+        }
+        hr{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+.mr-40{
+    margin-right: 40px;
+}
+::ng-deep{
+    .add-property-modal{
+        @media (min-width: 576px){
+            .modal-dialog {
+                max-width: 600px;
+                margin: 1.75rem auto;
+            }
+        }
+        .modal-content{
+            padding: 0;
+        }
+    }
+}

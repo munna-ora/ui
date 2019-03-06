@@ -1,0 +1,127 @@
+<footer class="bg-w">
+  <div class="container-fluid footer-top text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+          <h4 class="title">Quick links</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-unstyled">
+                <li><a routerLink="/about">About us</a></li>
+                <li><a routerLink="/team">Teams</a></li>
+                <li><a routerLink="/career">Career</a></li>
+              </ul>
+            </div>
+            <!-- <div class="col-md-4">
+              <ul class="list-unstyled">
+                <li><a routerLink="/media">Media</a></li>
+                <li><a routerLink="/blog">Blog</a></li>
+                <li><a routerLink="/press-kit">Press Kit</a></li>
+              </ul>
+            </div> -->
+            <div class="col-md-6">
+              <ul class="list-unstyled">
+                <li><a routerLink="/privacy-policy">Privacy policy</a></li>
+                <li><a routerLink="/cancellation-policy">Cancellation policy</a></li>
+                <li><a class="c-pointer" (click)="openTermsConditions(privacyPolicy)">Terms & conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+          <h4 class="title">Newsletter</h4>
+          <p class="news-intro">Make sure that you’re always the 1st who receives our latest news and promotions.</p>
+          <p> <ngb-alert *ngIf="newsLetterMessage"  [type]="'success'" (close)="newsLetterMessage = null">{{ newsLetterMessage }}</ngb-alert> </p>
+          <form class="newsletter" [formGroup]="newsletterForm" (ngSubmit)="onSubmitNewsLetterFrom()" novalidate>
+            <div class="form-row">
+              <div class="col-5">
+                <input type="text" class="form-control" placeholder="Enter your name" formControlName="name" [ngClass]="{ 'is-invalid': newsletterForm.controls['name'].touched && newsletterForm.controls['name'].errors }">
+                <div *ngIf="newsletterForm.controls['name'].errors && newsletterForm.controls['name'].touched"  class="invalid-feedback"> 
+                  <div *ngIf="newsletterForm.controls['name'].errors.required">Please enter your name</div>
+                </div>
+              </div>
+              <div class="col-5">
+                <input type="email" class="form-control" placeholder="Enter your email" formControlName="emailId" [ngClass]="{ 'is-invalid': newsletterForm.controls['emailId'].touched && newsletterForm.controls['emailId'].errors }">
+                <div *ngIf="newsletterForm.controls['emailId'].errors && newsletterForm.controls['emailId'].touched"  class="invalid-feedback"> 
+                  <div *ngIf="newsletterForm.controls['emailId'].errors.required">Please enter an email address</div>
+                  <div *ngIf="newsletterForm.controls['emailId'].errors.pattern">Please enter valid email address</div>
+              </div>
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid footer-mid">
+    <div class="container text-center" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+      <p><span class="query-text">Have queries ?</span> <span class="call-text"> Call for any assistance on 18002586868</span></p>
+    </div>
+  </div>
+  <div class="container-fluid footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="p-0 mb-0 copyrights">© ORA 2019. All rights reserved.</p>
+        </div>
+        <div class="col-md-4 text-center ora-footer-logo">
+          <img class="footer-logo" src="assets/images/footer-logo.png" />
+        </div>
+        <div class="col-md-4 social-icons">
+          <a target="_blank" href="https://www.facebook.com/orastays/">
+            <i class="social-icon facebook"></i>
+          </a>
+          <a target="_blank" href="https://www.twitter.com/orastays/">
+            <i class="social-icon tweeter"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/company/orastays/">
+            <i class="social-icon linkdin"></i>
+          </a>
+          <a target="_blank" href="https://www.instagram.com/orastays">
+            <i class="social-icon instagram"></i>
+          </a>
+          <a target="_blank" href="https://www.youtube.com/channel/UCLFx7c-hFuRrXB0kZIf41xQ">
+            <i class="social-icon youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid footer-bottom-mobile">
+    <div class="d-flex justify-content-between">
+      <div class="m-item">
+        <i class="f-icon fas fa-home"></i>
+        <span>Home</span>
+      </div>
+      <div class="m-item">
+        <i class="f-icon fas fa-plane"></i>
+        <span>Flight</span>
+      </div>
+      <div class="m-item">
+        <i class="f-icon ora-icon"></i>
+        <!-- <span>Booking</span> -->
+      </div>
+      <div class="m-item">
+        <i class="f-icon fas fa-save"></i>
+        <span>Saved</span>
+      </div>
+      <div class="m-item">
+        <i class="f-icon fas fa-user"></i>
+        <span>Profile</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Terms & conditions modal-->
+<ng-template #privacyPolicy let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-terms-conditions></app-terms-conditions>
+  <!-- {{privacyPolicyData.privacyPolicy}}  -->
+</ng-template>

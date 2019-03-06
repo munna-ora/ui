@@ -1,0 +1,47 @@
+<!-- The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<p>
+  {{ 'GLOBAL.TXT_COPYRIGHT' | translate }}
+
+</p>
+<p>
+  <button class="btn ml-3" (click)="useLanguage('en')">EN</button>
+  <button class="btn ml-3" (click)="useLanguage('fr')">FR</button>
+</p>
+<i class="fa fa-address-book" aria-hidden="true"></i>
+<p>
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> Sample alert.
+  </ngb-alert>
+</p>
+<p>
+  <button class="btn ml-3" (click)="login()">Post Method Check</button>
+  <button class="btn ml-3" (click)="logOut()">Get Method Check</button>
+</p>
+<app-header></app-header>
+<nav>
+  <a class="btn ml-3" routerLink="/">Home</a>
+  <a class="btn ml-3" routerLink="/properties">Property</a>
+</nav>
+
+-->
+<!-- <app-header></app-header>
+<div class="container-fluid p-0">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer> -->
+<app-header></app-header>
+<div [hidden]="!loading" class="loader">
+  <div class="loading"></div>
+ <!-- <h2>Loading...</h2>-->
+</div>
+<div [hidden]="loading" class="router-output">
+    <div class="container-fluid p-0">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>

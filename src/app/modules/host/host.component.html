@@ -1,0 +1,153 @@
+<div class="host-listing-section">
+  <!-- Header Image -->
+  <div class="container-fluid host-listing-head p-0 mt-76">
+    <img class="w-100" src="assets/images/host-listing-slider-img.png" />
+    <div class="container-fluid header-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <h2 class="title">Ora Property Listing Here...</h2>
+            <p class="info">It only takes 15 minutes to register  <span> So let's get started..... </span> !! <img class="arrow" src="assets/images/host-arrow.png" alt=""> </p>
+            <button class="btn btn-primary btn-md mt-2 pb-10" (click)="openModal(earningCalculator)">Calculate your earning <img class="icon-calculator" src="assets/images/icon-calculator.png" alt=""> </button>
+          </div>
+          <div class="col-md-7">
+           <!--
+    <app-property-add-form></app-property-add-form>
+
+           --> 
+           <app-add-property-form></app-add-property-form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-icon"><a class="c-pointer" (click)="scroll(target)"><img src="assets/images/scroller.png" alt=""></a></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mt-70">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="assets/images/host-1.png" alt="">
+      </div>
+      <div class="col-md-9 pl-50">
+        <h3>Why host on <span class="ora-orange-logo"></span></h3>
+        <ul>
+          <li>Meet new people</li>
+          <li>Add to your earning</li>
+          <li>Learn new skills like marketing</li>
+          <li>Create new attractions to increase footfalls</li>
+          <li>Use your own home, no extra establishment needed</li>
+          <li #target>Never get lonely with new guests</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-70">
+      <div class="col-md-7">
+        <h3 class="m-0">Read how other hosts feel about  <span class="ora-orange-logo"></span></h3>
+        <span class="commas">"</span>
+        <p class="comma-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Orastays has changed my life completely. I was retired, and my source of income was limited. I couldn't meet the demands at home. Hosting has added to my income and there is a change in the way my family too waits for the next guest. There's excitement and happiness always in my house. Thanks Ora.</p>
+        <p class="small-text">Owner ORA208976  | <span> Saltlake, Kolkata</span></p>
+      </div>
+      <div class="col-md-5">
+        <div class="embed-responsive embed-responsive-16by9 video-container">
+          <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0" allowfullscreen height="400"></iframe> -->
+          <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/QhJZIkekAoA?start=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full width image -->
+    <div class="row mt-50">
+      <div class="col-md-12">
+        <img width="100%" class="rounded" src="assets/images/host-fill.png" alt="">
+      </div>
+    </div>
+    
+    <!-- According Section -->
+    <div class="row mt-70 mb-70">
+      <div class="col-md-12">
+        <h3 class="m-0 mb-4 d-flex"><span class="ora-orange-logo mr-2 ml-0"></span> <span class="lh-25"> answered your questions</span>  </h3>
+        <div class="accordion">
+          <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Why is Orastays.com my best choice for hosting?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Orastays strives to be the most recognized global Homestay provider for Travelers. Being in the forefront of the industry, our full-service approach to hosting verifies the exact background of the guest sharing your home. We handle end -to-end billing and payment. Experiences with Orastays are memorable, we endeavor to build a network on personal relationship where profit is not measured in terms of dollars alone but lifelong bonding.   
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> Do I have to set house rules?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                It is important to set rules so that you and your guests are comfortable with each other right from the start  
+                <p><strong>Some suggestions for Hosts:</strong> </p>
+                <ul>
+                  <li>Make indoor smoking rules.</li>
+                  <li>Mention how your guest should cooperate in home security.</li>
+                  <li>Mention kitchen usage rules.</li>
+                  <li>Mention if you have a pet or will allow a pet.</li>
+                </ul>
+                <p><strong> Some suggestions for guests:</strong></p>
+                <ul>
+                  <li>Take permission from the host if you are planning to have guests over.</li>
+                  <li>Have respect for the host and the home, treat it as your own.</li>
+                </ul>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> What should I do after I receive my guest’s reservation?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <p>Once you have a confirmed booking Orastays.com will send you their Email address.</p>
+                <p>You can contact your guest through Emails before the arrival date.</p>
+                <p>You will get the contact telephone number of your guest through email.</p>
+                <p>However, if you are making the booking just three days ahead of your arrival then we will share all the information at once.</p>
+                <p>If you there are some last-minute changes do contact us at Orastays and we will help to fix it for you. </p>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> How much time do I have to respond to a booking request?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                We support a 38 hours’ time to confirm your booking. However, if you happen to miss that time feel free to contact us and we will be happy to help you. 
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> How does the booking process work?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                As soon as the host confirms the booking request, through the normal booking process or Ready Booking, the guest will have to make the entire payment to Orastays. Whether the reservation is for one day or one month, the host can find the payment (as per the agreed terms) in his account after 24 hrs. of checking in. This amount will be transferred to the host by Orastays after deduction of the convenience fee.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span><i class="arrow"></i> What setup will deliver the best performance of Orastays.com?</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <p>You need a good internet connection. </p>
+                <p>Strong Wi-Fi signal. </p>
+                <p>Plugging your computer directly into the router.</p>
+                <p>Recommended browsers: Chrome, Firefox, Opera, and Internet Explorer 9, 10, 11. Use the latest version for the best experience. </p>
+                <p>For Safari or Mac users download the latest version of Chrome as Safari does not support the Orastays website fully.</p>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Earning Calculator -->
+<ng-template #earningCalculator let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-earning-calculator></app-earning-calculator>
+</ng-template>

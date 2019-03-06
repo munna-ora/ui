@@ -1,0 +1,16 @@
+<!-- Cancellation confirmation modal -->
+<ng-template #bookmarkModal let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="text-center">
+        <h4 class="modal-title">Are you sure!</h4>
+        <p class="text">you want to bookmark this property?</p>
+
+        <button type="button" class="btn btn-primary btn-sm mr-4" (click)="confirmBookmarkFunc();modal.close('Save click')">Yes</button>
+        <button type="button" class="btn btn-dark btn-sm" (click)="modal.close('Save click')">No</button>
+    </div>
+  </div>
+</ng-template>
+<button type="button" (click)="openBookmarkModal(bookmarkModal)" hidden id="openConfirmationBtn"></button>

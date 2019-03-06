@@ -1,0 +1,325 @@
+<div class="view-container">
+  <div class="container-fluid position-relative p-tb-50">
+    <div class="booking-sec" *ngIf="propertyDetails != {}">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4">
+              <img class="w-100 property-img" *ngIf="propertyDetails?.coverImageUrl" src="{{propertyDetails?.coverImageUrl}}" onerror="this.src='assets/images/property-details/no_image_available.jpg'" alt="">
+            </div>
+            <div class="col-md-8 property-desc">
+              <h4>{{propertyDetails?.oraname}} <span> {{propertyDetails?.rooms[0].roomStandard}} {{propertyDetails?.propertyType.name}}</span></h4>
+              <p class="text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{bookStayObj?.location}}</p>
+              <p class="text">Check in: <span> {{bookStayObj.checkInDate}}, {{propertyDetails?.checkinTime}}</span> <i></i> Check out: <span> {{bookStayObj.checkInDate}}, {{propertyDetails?.checkoutTime}}</span></p>
+              <div class="" *ngFor="let room of propertyDetails?.rooms">
+                <div class="card-room" *ngIf="room?.isSelected && room?.isSelected == 'true'">
+                  <h5>{{room.oraRoomName}}</h5>
+                  <h5>{{room.roomCategory.name}} Room <span> {{room?.noOfGuest ? (room?.noOfGuest == 1 ? room?.noOfGuest + ' Adult' : room?.noOfGuest + ' Adults') : ''}}  {{room?.noOfChild ? '+' + (room?.noOfChild == 1 ? room?.noOfChild + ' Child' : room?.noOfChild + ' Childs') : ''}} </span></h5>
+                  <div class="row">
+                    <div class="col-auto">
+                      <label for="">Tariff Type</label>
+                      <ul>
+                        <li class="green"><i class="fa fa-check"></i> Refundable</li>
+                        <li><i class="fa fa-check"></i> Breakfast</li>
+                      </ul>
+                    </div>
+                    <div class="col-auto border-left">
+                      <label for="">Tariff Inclusions</label>
+                      <ul>
+                        <li><i class="fa fa-circle"></i> FREE Breakfast</li>
+                        <li><i class="fa fa-circle"></i> Accommodation</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <!-- Traveller Information Form -->
+              <form action="" class="form" *ngIf="!bookingCompleted" [formGroup]="travellerForm" (ngSubmit)="onSubmitTravellerForm()">
+                <h3>Traveller information</h3>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <select name="" class="form-control" formControlName="prefix">
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Ms.">Ms.</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="First name" formControlName="firstName">
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First name is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Last name" formControlName="lastName">
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last name is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="" class="form-control" placeholder="Company name">
+                    </div>
+                  </div> -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Email address" formControlName="email">
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email address is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" name="" class="form-control" placeholder="Mobile number" formControlName="mobile">
+                      <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">Mobile number is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control" placeholder="Address" style="height:100px" formControlName="address"></textarea>
+                      <!-- <input type="email" name="" class="form-control" placeholder="Mobile number" formControlName="mobile"> -->
+                      <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">Address is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <select name="" class="form-control">
+                        <option value="">Document Type</option>
+                      </select>
+                    </div>
+                  </div> -->
+                  <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" name="" class="form-control" placeholder="Check in preference time">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" name="" class="form-control" placeholder="Check out preference time">
+                    </div>
+                  </div> -->
+                  <div class="col-md-12">
+                    <label class="check-box ng-star-inserted"> I have a GST number / Corporate traveler / Business traveler
+                      <input type="checkbox" formControlName="gstNumberExist">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="col-md-6" [hidden]="!travellerForm.controls.gstNumberExist.value">
+                    <div class="form-group">
+                      <input type="email" formControlName="gstNumber" [required]="travellerForm.controls.gstNumberExist.value" class="form-control" placeholder="Enter GST number">
+                      <div *ngIf="submitted && f.gstNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.gstNumber.errors.required">GST number is required</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="check-box ng-star-inserted"> I agree to the hotel booking policies. Homestay cancellation policy / Terms & conditions of ORA.
+                      <input type="checkbox" formControlName="termsConditions">
+                      <span class="checkmark"></span>
+                    </label>
+                    <div *ngIf="submitted && f.termsConditions.errors" class="invalid-feedback">
+                      <div *ngIf="f.termsConditions.errors.required">Please axcept terms & conditions.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <button class="btn btn-primary" type="submit">Book your stay</button>
+                  </div>
+                </div>
+              </form>
+
+              <form hidden target="_blank" #form action="{{bookingFormActionUrl}}" method="POST" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="travellerFormData" [(ngModel)]="travellerFormData">
+                <button type="submit" (click)="form.submit()" id="bookingFormBtn">Search</button>
+              </form>
+
+              <!-- Payment Information -->
+              <!-- <form action="" class="form">
+                <h3>Payment option</h3>
+                <ngb-tabset>
+                  <ngb-tab title="Credit Card">
+                    <ng-template ngbTabContent>
+                      <div class="credit-card">
+                        <div class="row c-body">
+                          <div class="col-auto">
+                            <div class="card-img">
+                              <img src="assets/images/cards/maestro.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="card-img">
+                              <img src="assets/images/cards/mastercard.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="card-img">
+                              <img src="assets/images/cards/visa.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <div class="card-img">
+                              <img src="assets/images/cards/amex.png" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="" class="form-l">Card number</label>
+                              <input type="text" class="form-control" placeholder="**** **** **** 9562">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="" class="form-l">Expairy date</label>
+                              <input type="text" class="form-control" placeholder="02/2020">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="" class="form-l">Card holder name</label>
+                              <input type="text" class="form-control" placeholder="Full name">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="" class="form-l">CVV</label>
+                              <input type="text" class="form-control" placeholder="****">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="check-box ng-star-inserted"> I accpet the terms & conditions 
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group text-right">
+                              <button class="btn btn-dark">Book your stay</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Online Banking">
+                    <ng-template ngbTabContent>
+                      <p> Online Banking</p>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Payment partners">
+                    <ng-template ngbTabContent>
+                      <p>Payment partners</p>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </form> -->
+
+              <!-- Confirmation Form -->
+              <form action="" *ngIf="bookingCompleted" class="mt-30">
+                <div class="confirmation-form">
+                  <img src="assets/images/cards/thumbsup.png" alt="">
+                  <h4 class="title">Thank you for choosing ORA</h4>
+                  <p class="book-id">Booking ID: <span>ORA912255343</span></p>
+                  <div class="d-flex justify-content-center">
+                    <div class="col-auto">
+                      <div class="c-card">
+                        <h5>guests</h5>
+                        <span>{{totalNoOfGuest + totalNoOfChild}}</span>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="c-card">
+                        <h5>room</h5>
+                        <span>{{bookStayObj.rooms.length}}</span>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="c-card">
+                        <h5>price</h5>
+                        <span *ngIf="propertyDetails?.priceDetails">{{propertyDetails?.priceDetails.totalAmount}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="book-link">Booking details has been successfully mailed to your email id. Click here to view the <a href="javascript:void(0)">booking details</a> </p>
+                  <button class="btn btn-dark" routerLink="/">Book another</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 pos-sticky-right">
+          <div class="d-flex justify-content-end">
+            <div class="col-auto book-summary">
+              <ul class="progress-indicator">
+                  <li class="completed">
+                      SELECT ROOM
+                      <span class="bubble"></span>
+                  </li>
+                  <li class="completed">
+                      REVIEW
+                      <span class="bubble"></span>
+                  </li>
+                  <li class="{{bookingCompleted ? 'completed': ''}}">
+                      PAYMENT
+                      <span class="bubble"></span>
+                  </li>
+              </ul>
+              <h5>Booking summary</h5>
+              <table class="table" *ngIf="propertyDetails?.priceDetails">
+                <!-- <tr *ngFor="let key of objectKeys(propertyDetails?.priceDetails) ">
+                  <td class="text-left">{{key}}</td>
+                  <td class="text-right t-gray"><i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails[key]}}</td>
+                </tr> -->
+                <tr>
+                  <td class="text-left">Total Amount <i></i></td>
+                  <td class="text-right t-gray"><i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.totalAmount | number: '1.0-0'}}</td>
+                </tr>
+                <tr *ngIf="propertyDetails?.priceDetails?.propertyOffer && propertyDetails?.priceDetails?.propertyOffer > 0">
+                  <td class="text-left">Property Offer <i></i></td>
+                  <td class="text-right t-gray">  - <i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.propertyOffer | number: '1.0-0'}}</td>
+                </tr>
+                <tr *ngIf="propertyDetails?.priceDetails?.discount && propertyDetails?.priceDetails?.discount > 0">
+                  <td class="text-left">Discount <i></i></td>
+                  <td class="text-right t-gray"> - <i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.discount | number: '1.0-0'}}</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-top">Amount Payable <i></i></td>
+                  <td class="text-right t-gray border-top"><i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.amountPayable | number: '1.0-0'}}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Convenience Fee <i></i></td>
+                  <td class="text-right t-gray"> + <i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.convenienceFee | number: '1.0-0'}}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Convenience GST Amount <i></i></td>
+                  <td class="text-right t-gray"> + <i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.convenienceGSTAmount | number: '1.0-0'}}</td>
+                </tr>
+                <tr>
+                  <td class="text-left total border-top">Final Price</td>
+                  <td class="text-right total border-top"><i class="fa fa-inr" aria-hidden="true"></i> {{propertyDetails?.priceDetails.finalPrice | number: '1.0-0'}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

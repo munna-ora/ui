@@ -1,0 +1,106 @@
+<!-- <div class="pos-sticky-right"> -->
+<div class="flight-found" *ngIf="totalResultCount">
+  <span class="icon"></span>
+  <p class="pl-1"><span>{{totalResultCount}} Flights  </span> are found</p>
+</div>
+<!-- Quick Filter -->
+<div class="card flight-quick-search mb-3">
+  <div class="card-header">Book your flight</div>
+  <div class="card-body">
+    <form class="booking-form" [formGroup]="flightSearchForm" (ngSubmit)="onSubmitSearch()" novalidate>
+      <div class="form-group">
+        <select  class="form-control" formControlName="tripType" [ngClass]="{ 'is-invalid': flightSearchForm.controls['classType'].touched && flightSearchForm.controls['classType'].errors }">
+            <option *ngFor="let tripType of flightTypes" [ngValue]="tripType.id">{{ tripType.name }}</option>
+        </select>
+      </div>
+      <div *ngIf="flightSearchForm.controls?.multiCities">
+        <div formArrayName="multiCities" *ngFor="let multiCity of flightSearchForm.controls['multiCities'].controls; let i = index">
+          <div class="form-group flight-location" [formGroupName]="i">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="i-group">
+                  <input type="text" [ngbTypeahead]="search" [resultFormatter]="formatMatches" [inputFormatter]="formatMatches" formControlName="origin" typeahead-editable ="false" class="form-control fromBoxInput" placeholder="From"
+                    [ngClass]="{ 'is-invalid': multiCity.get('origin').touched && multiCity.get('origin').errors }">
+                  <i class="fa fa-map-marker"></i>
+                  <!-- <div class="input-group-append fromBox">
+                    <span class="input-group-text"><i class="fa fa-map-marker"></i></span>                          
+                  </div> -->
+                </div>
+                <div class="i-group">
+                  <!-- <i class="switch-location"></i> -->
+                  <input type="text" class="form-control toBoxInput" [ngbTypeahead]="search" [resultFormatter]="formatMatches" [inputFormatter]="formatMatches" formControlName="destination" typeahead-editable ="false" placeholder="To"
+                  [ngClass]="{ 'is-invalid': multiCity.get('destination').touched && multiCity.get('destination').errors }">
+                  <i class="fa fa-map-marker"></i>
+                  <!-- <div class="input-group-append toBox">
+                    <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+      
+            <div class="form-group">
+              <div class="input-group">
+                <div class="i-group">
+                  <input type="text" class="form-control fromBoxInput" placeholder="Depart" ngbDatepicker  #d1="ngbDatepicker" [outsideDays]="'collapsed'" [navigation]="'arrows'" (click)="d1.toggle()" (dateSelect)="onCheckInDateSelect($event)" [minDate]="departMinDate" formControlName="flightDepartDate"
+                  [ngClass]="{ 'is-invalid': multiCity.get('flightDepartDate').touched && multiCity.get('flightDepartDate').errors }">
+                  <i class="fa fa-calendar" (click)="d1.toggle()"></i>
+                  <!-- <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar checkin-pick" (click)="d1.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                  </div> -->
+                </div>
+                <div class="i-group">
+                  <input type="text" class="form-control toBoxInput" placeholder="Return" ngbDatepicker  #d2="ngbDatepicker" [outsideDays]="'collapsed'" [navigation]="'arrows'" (click)="d2.toggle()" [minDate]="arrivalMinDate" formControlName="arrival_date"
+                  [ngClass]="{ 'is-invalid': multiCity.get('arrival_date').touched && multiCity.get('arrival_date').errors }">
+                  <i class="fa fa-calendar" (click)="d2.toggle()"></i>
+                  <!-- <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar checkout-pick" (click)="d2.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div ngbDropdown class="d-inline-block travellersDropdown" [autoClose]="'outside'">
+            <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>{{numberOfTraveller}} Travellers <span style="float:right;margin-right: 12px;"> {{classType}}</span></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div class="form-row align-items-center">
+                <div class="col-12">
+                  <div class="form-group d-flex justify-content-between">
+                    <label for="" class="text">Adults <span> (+12 yrs)</span></label>
+                    <input type="hidden" formControlName="noOfAdults">
+                    <ng-number-picker class="ng-number-picker"  [(value)]="noOfAdults" [min] ="1"  [max]="'6'" (valueChange)="onNumberChanged($event,'noOfAdults')"></ng-number-picker>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group d-flex justify-content-between">
+                    <label for="" class="text">Children <span> (2 to 12 yrs)</span></label>
+                    <input type="hidden" formControlName="noOfChild">
+                    <ng-number-picker class="ng-number-picker" [(value)]="noOfChild" [min] ="0"  [max]="'6'" (valueChange)="onNumberChanged($event,'noOfChild')"></ng-number-picker>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group d-flex justify-content-between">
+                    <label for="" class="text">Infant <span> (Below 2 yrs)</span></label>
+                    <input type="hidden" formControlName="noOfInfants">
+                    <ng-number-picker class="ng-number-picker" [(value)]="noOfInfants" [min] ="0"  [max]="'6'" (valueChange)="onNumberChanged($event,'noOfInfants')"></ng-number-picker>
+                  </div>
+                </div>
+              </div>
+              <hr class="mt-0">
+              <label class="c-pointer radio-btn" *ngFor="let class of flightClassTypes">
+                <input  class="option-input radio" type="radio" formControlName="classType" [value]="class.id" (change)="setClassTypeValue(class.id)"> {{class.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group text-right mt-4 mb-0 clearfix">
+        <button type="submit" class="btn btn-primary btn-lg search-btn"><i class="search-icon"></i>Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- </div> -->

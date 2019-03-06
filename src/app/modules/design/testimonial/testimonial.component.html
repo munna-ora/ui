@@ -1,0 +1,32 @@
+<div class="testimonial-container mt-76">
+  <div class="container-fluid header-image-slide p-0">
+    <img class="w-100" src="assets/images/testimonials.png" />
+  </div>
+
+  <!-- Testimonial Container -->
+  <div class="container-fluid position-relative pb-60">
+    <div class="container testimonial-section">
+      <h4 class="title">Some words from our happy customers</h4>
+      <p class="desc">Donec non pellentesque massa. Nullam consectetur purus a fringilla tempus. Donec non sem felis. Quisque sit amet tempor sapien, in ultrices augue. Cras consequat consectetur enim, non lacinia est finibus a. Suspendisse mauris felis</p>
+      <div class="testimonial-carousel">
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+          <div *nguCarouselDef="let item;" class="item d-flex justify-content-start">
+            <div class="user-img">
+              <img src="assets/images/{{item.img}}" alt="{{item.name}}">
+            </div>
+            <div class="comments text-left">
+              <span class="semicolon">"</span>
+              <p class="desc"><span></span>{{item.desc}}</p>
+              <p class="name">{{item.name}}</p>
+              <p class="date">{{item.date}}</p>
+            </div>
+          </div>
+          <button NguCarouselNext class="slide-right-btn"><i class="fa fa-long-arrow-right"></i></button>
+          <button NguCarouselPrev class="slide-left-btn"><i class="fa fa-long-arrow-left"></i></button>
+        </ngu-carousel>
+      </div>
+    </div>
+  </div>
+
+</div>
+  

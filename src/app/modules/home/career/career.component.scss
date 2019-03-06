@@ -1,0 +1,230 @@
+.career-container{    
+    .mt-50{
+        margin-top: 50px;
+    }
+    .m-w-20{
+        max-width: 20%;
+    }
+    .m-w-80{
+        max-width: 80%;
+    }
+    .p-l-r-5{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .p-t-b-10{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .p-l-30{
+        padding-left: 30px;
+    }
+    .pr-30{
+        padding-right: 30px;
+    }
+    .pl-30{
+        padding-left: 30px;
+    }
+    .pt-60{
+        padding-top: 60px;
+    }
+    .pb-60{
+        padding-bottom: 60px;
+    }
+    .mb-20{
+        margin-bottom: 20px;
+    }
+    .w-80{
+        width: 80%;
+    }
+    h3{
+        font-family: latolight;
+        font-size: 50px;
+        color: #2c2c2c;
+        span.ora-logo-black{
+            font-family: latoregular;
+            background: url(../../../../assets/images/ora-logo-black.png) no-repeat;
+            background-size: 100%;
+            width: 78px;
+            height: 31px;
+            display: inline-block;
+            margin-left: 8px;
+        }
+    }
+    p{
+        font-family: latolightitalic;
+        color: #2c2c2c;
+        font-size: 16px;
+    }
+    .top-heading{
+        h1{
+            color: #2c2c2c;
+            font-family: abrialfatface;
+            font-size: 48px;
+            position: relative;
+            z-index: 1111;
+            width: 480px;
+            margin-top: 25px;
+            .t-orange{
+                color: #f47921;
+            }
+            .t-white{
+                color: #ffffff;
+            }
+        }
+        p.desc{
+            font-family: latolightitalic;
+            color: #2c2c2c;    
+            font-size: 14px;
+            padding: 5px;
+            margin-top: 20px;
+        }
+    }
+    ::ng-deep .ngx-gallery-arrow-wrapper{
+        position: absolute;
+        height: auto;
+        width: 1px;
+        display: table;
+        z-index: 2000;
+        table-layout: fixed;
+        bottom: 30px;
+        &.ngx-gallery-arrow-left{
+            right: 70px;
+            left: auto;
+            .ngx-gallery-arrow{
+                right: 0;
+            }
+        }
+        &.ngx-gallery-arrow-right{
+            right: 0;
+            .ngx-gallery-arrow{
+                right: 10px;
+            }
+        }
+        
+    }
+    .img-last-block{
+        div{
+            height: 50%;
+            &.p-t-5{
+                padding-top: 5px;
+            }
+            &.p-b-5{
+                padding-bottom: 5px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .join-team-section{
+        background-image: url(../../../../assets/images/career/carrer_search_banner.jpg);
+        background-color: #64bce2;
+        padding: 100px 0;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: contain;
+        .jhead{
+            p{
+                color: #ffffff;
+                font-family: latoitalic;
+                font-size: 24px;
+                a{
+                    font-family: latoblackitalic;
+                    color: #ffffff;
+                }
+            }
+            .search-box{
+                border: none;
+                height: 47px;
+                &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                    font-family: latohairline;
+                    color: #717171;
+                    font-size: 20px;
+                    font-style: italic;
+                }
+                &::-moz-placeholder { /* Firefox 19+ */
+                    font-family: latohairline;
+                    color: #717171;
+                    font-size: 20px;
+                    font-style: italic;
+                }
+                &:-ms-input-placeholder { /* IE 10+ */
+                    font-family: latohairline;
+                    color: #717171;
+                    font-size: 20px;
+                    font-style: italic;
+                }
+                &:-moz-placeholder { /* Firefox 18- */
+                    font-family: latohairline;
+                    color: #717171;
+                    font-size: 20px;
+                    font-style: italic;
+                }
+            }
+            .search-btn{
+                i.search-icon{
+                    background: url(../../../../assets/images/search-icon.png) center center no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    background-size: 100%;
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+
+    .life-at-ora-section{
+        max-width: 95%;
+        .life-video{
+            box-shadow: -120px -60px 0px 0px #ecedef;
+            padding-left: 0;
+            .video{
+
+            }
+            .img-set{
+                padding-top: 10px;
+                .img-l{
+                    width: 60%;
+                    height: 100%;
+                    padding-right: 5px;
+                }
+                .img-r{
+                    width: 40%;
+                    height: 100%;
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+
+    .people-story-section{
+        max-width: 95%;
+        .people-story-video{
+            img{
+                box-shadow: 120px -60px 0px 0px #ecedef;
+            }
+        }
+        .p-name{
+            font-family: latoblack;
+            font-size: 18px;
+            color: #2c2c2c;
+            margin-top: 40px;
+        }
+        .p-dec{
+            font-family: latoblack;
+            font-size: 12px;
+            color: #231f20;
+            span{
+                font-family: latolight;
+                padding-left: 10px;
+                i{
+                    color: #929292;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}

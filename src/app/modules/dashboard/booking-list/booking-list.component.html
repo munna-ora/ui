@@ -1,0 +1,190 @@
+<div class="container-fluid">
+  <div class="cancellation-table">
+    <div class="header">
+      <h3 class="float-left m-0">My booking list</h3>
+      <!-- <form action=""> -->
+        <div class="form-group float-right m-0 d-flex bd-highlight">
+          <div class="form-group toggle-radio-btn">
+            <input id="switch-off" class="toggle toggle-left" name="switch" [(ngModel)]="bookingSwitch" value="stays" type="radio">
+            <label for="switch-off" class="toggle-btn p-0" style="margin-right: 5px;">Stays</label>
+            <input id="switch-on" class="toggle toggle-right" name="switch" [(ngModel)]="bookingSwitch" value="flight" type="radio">
+            <label for="switch-on" class="toggle-btn p-0">Flights</label>
+          </div>
+          <div class="form-group m-0 daterangepicker">
+            <div class="input-group">
+              <input class="form-control border-right-0" placeholder="Check in"
+                      name="dpChIn" ngbDatepicker (click)="dpHotel.toggle()">
+              <input class="form-control dtpickerHide" placeholder="Depart"
+                  name="dp" ngbDatepicker #dpHotel="ngbDatepicker" 
+                  ngModel [displayMonths]="1" [dayTemplate]="tHotel" outsideDays="hidden" 
+                  [navigation]="'false'" [autoClose]="'outside'" [placement]="'bottom-left'" type="text">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkin-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              <input class="form-control border-right-0" placeholder="Check out"
+                      name="dpChOut" ngbDatepicker (click)="dpHotel.toggle()">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar checkout-pick" (click)="dpHotel.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+              </div>
+              
+              <ng-template #tHotel let-date let-focused="focused">
+                  <span class="custom-day"
+                        [class.focused]="focused"
+                        [class.range]="isRangeHotel(date)"
+                        [class.faded]="isHoveredHotel(date) || isInsideHotel(date)"
+                        (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                  </span>
+                </ng-template>
+            </div>
+          </div>
+        </div>
+      <!-- </form> -->
+      <div class="clearfix"></div>
+    </div>
+    <div class="row p-10">
+      <div class="col-md-12">
+        <!-- Stays Table -->
+        <table class="table table-hover" #stayTable *ngIf="bookingSwitch == 'stays'">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Property name</th>
+              <th>Property address</th>
+              <th>Check in </th>
+              <th>Check out</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of userBookingList">
+              <td>{{item.orabookingId}}</td>
+              <td>Brickwood Express homestay</td>
+              <td>Bidhannagar, Saltlake, Kolkata 700091</td>
+              <td>{{item.checkinDate}}</td>
+              <td>{{item.checkoutDate}}</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> {{item.grandTotal}}</td>
+              <td>
+                <button class="btn btn-dark btn-sm mr-2" (click)="openModal(cancelBooking)">Cancel booking</button>
+                <button class="btn btn-primary btn-sm" routerLink="/dashboard/booking-details">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td *ngIf="userBookingList.length == 0" class="text-center pt-4 pb-4" colspan="7">No booking found!</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Flight Table -->
+        <table class="table table-hover" #flightTable *ngIf="bookingSwitch == 'flight'">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Flight</th>
+              <th style="width: 250px;">Departure</th>
+              <th style="width: 250px;">Arrival</th>
+              <th>Amount</th>
+              <th style="width: 190px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ORA29100626</td>
+              <td>Indigo <br> <span>INDIGO-110112</span></td>
+              <td>
+                <strong>Kolkata</strong> <br> 
+                Netaji Subhas Chandra Bose International Airport <br>
+                <small> 10th Jan, 2019 10:00 AM</small>
+              </td>
+              <td>
+                <strong> Delhi</strong> <br>
+                Indira Gandhi International Airport<br>
+                <small>10th Jan, 2019 12:15 PM </small>
+              </td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7062</td>
+              <td>
+                <button class="btn btn-dark btn-sm mr-2" (click)="openModal(cancelBooking)">Cancel booking</button>
+                <button class="btn btn-primary btn-sm">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>ORA29100626</td>
+              <td>Indigo <br> <span>INDIGO-110112</span></td>
+              <td>
+                <strong>Kolkata</strong> <br> 
+                Netaji Subhas Chandra Bose International Airport <br>
+                <small> 10th Jan, 2019 10:00 AM</small>
+              </td>
+              <td>
+                <strong> Delhi</strong> <br>
+                Indira Gandhi International Airport<br>
+                <small>10th Jan, 2019 12:15 PM </small>
+              </td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7062</td>
+              <td>
+                <button class="btn btn-dark btn-sm mr-2" (click)="openModal(cancelBooking)">Cancel booking</button>
+                <button class="btn btn-primary btn-sm">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>ORA29100626</td>
+              <td>Indigo <br> <span>INDIGO-110112</span></td>
+              <td>
+                <strong>Kolkata</strong> <br> 
+                Netaji Subhas Chandra Bose International Airport <br>
+                <small> 10th Jan, 2019 10:00 AM</small>
+              </td>
+              <td>
+                <strong> Delhi</strong> <br>
+                Indira Gandhi International Airport<br>
+                <small>10th Jan, 2019 12:15 PM </small>
+              </td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7062</td>
+              <td>
+                <button class="btn btn-dark btn-sm mr-2" (click)="openModal(cancelBooking)">Cancel booking</button>
+                <button class="btn btn-primary btn-sm">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>ORA29100626</td>
+              <td>Indigo <br> <span>INDIGO-110112</span></td>
+              <td>
+                <strong>Kolkata</strong> <br> 
+                Netaji Subhas Chandra Bose International Airport <br>
+                <small> 10th Jan, 2019 10:00 AM</small>
+              </td>
+              <td>
+                <strong> Delhi</strong> <br>
+                Indira Gandhi International Airport<br>
+                <small>10th Jan, 2019 12:15 PM </small>
+              </td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> 7062</td>
+              <td>
+                <button class="btn btn-dark btn-sm mr-2" (click)="openModal(cancelBooking)">Cancel booking</button>
+                <button class="btn btn-primary btn-sm">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cancellation confirmation modal -->
+<ng-template #cancelBooking let-modal>
+  <div class="modal-container">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="text-center">
+        <h4 class="modal-title">Are you sure!</h4>
+        <p class="text">you want to cancel your booking?</p>
+
+        <button type="button" class="btn btn-primary btn-sm mr-4" (click)="modal.close('Save click')">Yes</button>
+        <button type="button" class="btn btn-dark btn-sm" (click)="modal.close('Save click')">No</button>
+    </div>
+  </div>
+</ng-template>

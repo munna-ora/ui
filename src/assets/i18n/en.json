@@ -1,0 +1,44 @@
+{
+	"GLOBAL": {
+		"TXT_COPYRIGHT": "English Orastays",
+		"YES": "Yes",
+		"NO": "No",
+		"NOT_AVAILABLE": "N/A"
+	},
+	"COMP_LOGIN": {
+		"LOGIN_FORM": {
+			"TXT_CAPTION": "Sign in with your account",
+			"BTN_LOGIN": "Login",
+			"BTN_FORGOT_PASSWORD": "Forgot Password",
+			"TXT_PLACEHOLDER_EMAIL": "Enter your email",
+			"TXT_PLACEHOLDER_PASSWORD": "Enter your password",
+			"ERROR_EMAIL_REQUIRED": "Email is required.",
+			"ERROR_EMAIL_INVALID": "Email is invalid.",
+			"ERROR_PASSWORD_REQUIRED": "Password is required."
+		}
+	},
+	"COMP_FORGOT_PASSWORD": {
+		"FORGOT_PASSWORD_FORM": {
+			"TXT_CAPTION": "Forgot Password",
+			"BTN_SUBMIT": "Submit",
+			"BTN_BACK": "Back",
+			"TXT_TITLE": "Enter your email address below to reset your password",
+			"TXT_PLACEHOLDER_EMAIL": "Enter your email",
+			"ERROR_EMAIL_REQUIRED": "Email is required.",
+			"ERROR_EMAIL_INVALID": "Email is invalid."
+		},
+		"RESET_PASSWORD_FORM": {
+			"TXT_CAPTION": "Reset Password",
+			"BTN_SUBMIT": "Submit",
+			"TXT_PLACEHOLDER_RESET_CODE": "Reset code",
+			"TXT_PLACEHOLDER_PASSWORD": "Password",
+			"TXT_PLACEHOLDER_CONF_PASSWORD": "Confirm password",
+			"ERROR_RESET_CODE_REQUIRED": "Reset code is required.",
+			"ERROR_PASSWORD_REQUIRED": "Password is required.",
+			"ERROR_CONF_PASSWORD_REQUIRED": "Confirm password is required.",
+			"ERROR_PASSWORD_MINLENGTH": "Password must be at least 6 characters long.",
+			"ERROR_CONF_PASSWORD_NOT_MATCH": "Confirm password does not match"
+		}
+	}
+
+}

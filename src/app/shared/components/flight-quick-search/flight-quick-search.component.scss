@@ -1,0 +1,209 @@
+.flight-found{
+    display: flex;
+    padding: 20px 0;
+    span.icon{
+        background: url(../../../../assets/images/flight/flight-icon.png) no-repeat;
+        width: 37px;
+        height: 36px;
+        display: block;
+    }
+    p{
+        padding: 0;
+        margin: 0;
+        line-height: 36px;
+        color: #231f20;
+        font-size: 14px;
+        font-family: latobold;
+        
+        span{
+            color: #f47921;
+        }
+    }
+}
+.flight-quick-search{
+    color: #130504;
+    .card-header{
+        background-color: #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        font-family: latobold;
+        font-size: 16px;
+        padding-top: 13px;
+        padding-bottom: 12px;
+        color: #130504;
+    }
+    .card-body{
+        padding-top: 0;
+        padding-bottom: 30px;
+        background-color: #e5e5e5;
+        .card-title{
+            font-size: 14px;
+        }
+    }
+    .flight-location{
+        .form-control{
+            border-right: 0;
+        }
+        .fromBox{
+            .input-group-text{
+                background-color: #ffffff;
+                border-right: 0;
+                padding-left: 0;
+                border: 1px solid #dee1e4;
+                // border-color: #dee1e4;
+            }
+        }
+        .toBox{
+            .input-group-text{
+                background-color: #ffffff;
+                padding-left: 0;
+                border: 1px solid #dee1e4;
+                // border-color: #dee1e4;
+            }
+        }
+        .switch-location{
+            display: block;
+            background: url(../../../../assets/images/flight/flight_arrows.png) center center no-repeat;
+            background-size: 100%;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            left: calc(50% - 10px);
+            z-index: 999;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            background-color: #fff;
+        }
+    }
+    .calendar{
+        background: #fff !important;
+        color: #909396 !important;
+        border-color: #dee1e4 !important;
+        padding-left: 0;
+        padding-right: 9px;
+        font-size: 12px;
+        &:hover,&:focus,&:active{
+            color: #f57921 !important;
+        }
+    }
+    .checkin-pick{
+        border-left: none;
+        border-right: none;
+    }
+    .checkout-pick{
+        border-left: none;
+    }
+    .search-btn{
+        display: flex;
+        line-height: 17px;
+        font-size: 16px;
+        font-family: latobold;
+        float: right;
+        .search-icon{
+            background: url(../../../../assets/images/search-icon.png) center center no-repeat;
+            width: 17px;
+            height: 18px;
+            background-size: 100%;
+            margin-right: 10px;
+        }
+    }
+    .travellersDropdown{
+        width: 100%;
+        .btn.dropdown-toggle{
+            width: 100%;
+            text-align: left;
+            background-color: #fff;
+            border: 1px solid #dee1e4;
+            height: 40px;
+            border-right: 0;
+            color: #909396;
+            font-size: 14px;
+            &::after{
+                position: absolute;
+                right: 8px;
+                top: 18px;
+            }
+        }
+        .dropdown-menu.show{
+            padding: 20px 10px !important;
+            margin-top: -1px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            left: 0px;
+            position: relative;
+            top: 1px !important;
+            width: 100% !important;
+            box-shadow: 0px 3px 5px -2px #333;
+            border: 0;
+            label.text{
+                color: #484848;
+                font-size: 14px;
+                font-family: latobold;
+                span{
+                    color: #c9c7c7;
+                }
+            }
+            ::ng-deep{
+                .ng-number-picker{
+                    .input-group{
+                        height: 30px !important;
+                        margin: 0 !important;
+                        padding: 0px;
+                        border: 1px solid #c7c7c7;
+                        border-radius: 5px;
+                        .form-control{
+                            height: 100%;
+                            width: 30px;
+                            display: inline-block;
+                            border: none;
+                            text-align: center;
+                            border-left: 1px solid #dee1e4;
+                            border-right: 1px solid #dee1e4;
+                            padding-left: 0;
+                            padding-right: 0;
+                            font-size: 15px;
+                        }
+                        .input-group-prepend {
+                            margin-right: 0px;
+                        }
+                        .input-group-text{
+                            width: 25px;
+                            height: 100%;
+                            font-size: 19px !important;
+                            line-height: 14px;
+                            text-align: center;
+                            border: 0;
+                            background: #ffffff;
+                            display: inline-block;
+                            border-radius: 3px !important;
+                            padding-left: 0;
+                            padding-right: 0;
+                            &.decrease {
+                                font-size: 29px !important;
+                                background-color: transparent;
+                                color: #484848 !important;
+                            }
+                            &.increase{
+                                color: #f47921 !important;
+                                border-left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            label.radio-btn{
+                font-family: latoitalic;
+                font-size: 14px;
+                color: #484848;
+                display: block;
+            }
+        }
+    }
+}
+
+.form-control{
+    height: 40px;
+    border: 1px solid #dee1e4;
+    color: #909396;
+    font-size: 14px;
+}
